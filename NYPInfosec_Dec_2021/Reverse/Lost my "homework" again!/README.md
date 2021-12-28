@@ -86,9 +86,9 @@ The first line `mov X19, #20` means that it would copy the number `20` into the 
 The next line is `sub X0, X0, X19`. This line uses the `sub` instruction, which is to `subtract` values in two registers.
 
 The format that this `sub` instruction takes is `sub {Rd}, Rn, Operand2`, where 
-> **Rd** is the destination register to store the result of the subtraction
+> **Rd** is the destination register to store the result of the subtraction.
 
-> **Rn** is the register holding the first number to subtract from
+> **Rn** is the register holding the first number to subtract from.
 
 > **Operand2** is the register holding the number to subtract from the number in the **Rn** register.
 
@@ -101,3 +101,29 @@ Since `X19` contains `20` and `X0` would contain each character in the text, we 
 for char in text:
 	char = ord(char) - 20
 ```
+Where `char` would represent the `X0` register and `20` representing the `X19` register. `ord()` is just to convert the ascii characters into decimal.
+## 
+### Examining instructions under factor 2
+```assembly
+    ; factor 2
+    mov X19, #4
+    udiv X20, X0, X19
+    msub X21, X20, X19, X0
+    
+    mov X0, X21
+```
+The first line `mov X19, #4` would copy the number `4` into the `X19` register. So now `X19` contains the value `4`.
+
+The second line `udiv X20, X0, X19` is using a `udiv` instruction which is short for `unsigned divide`. If you are unfamiliar with `signed` vs `unsigned`, `signed` just means that the result can go into the negatives, meaning < 0, while `unsigned` means that the results can only be positive, >= 0.
+
+Similar to `sub` instruction, the format for `udiv` is `udiv{cond} {Rd}, Rn, Rm`, where
+> **Rd** is the destination register to store the result of the division.
+
+> **Rn** is the register holding the value to be divided.
+
+> **Rm** is the register holding the divisor.
+
+**Note that udiv only stores the result as an integer, not float! So the result of 41 / 10 is 4, not 4.1.**
+
+So `udiv X20, X0, X19` would mean to divide the value in `X0` with the divisor in `X19` and storing the result in the `X20` register. Basically `X20=X0//X19`.
+
