@@ -17,6 +17,7 @@ virus2.
 
 - [Analyse and decode virus2.s](#analysing-virus2s)
 - [Analyse and decode virus1.s](#analysing-virus1s)
+- [Reversing](#reversing)
 ## The Challenge
 Reading README.md, one sentence to note in the file is:
 
@@ -331,7 +332,7 @@ _start:
 	mov X16, #1
 	svc #0x80
 ```
-From this, we can see that if 81 is input into the two programs, it will output
+From this, we can see that if 81 is fed into the two programs, it will output
 > `48` for virus1.s
 
 > `1` for virus2.s
@@ -346,4 +347,36 @@ def virus1(text):
 		quotient = temp // 4
 		result.append(str((quotient + remainder) * 3))
 	return ' '.join(result)
+```
+<br/>
+
+# Reversing
+So now we know what `virus1.s` and `virus2.s` do, and we know the output of the two programs after the text we wanna find is fed into them, we can easily create a decode script and use the two lines of output to find the original text.
+
+### virus1.py
+```python
+def virus1(text):
+	result = []
+	for char in text:
+		temp = ord(char) - 20
+		remainder = temp % 4
+		quotient = temp // 4
+		result.append(str((quotient + remainder) * 3))
+	return ' '.join(result)
+```
+
+### virus2.py
+```python
+def virus2(text):
+	result = []
+	for char in text:
+		temp = ord(char) - 20
+		result.append(str(temp % 4))
+	return ' '.join(result)
+```
+
+### txt.txt
+```
+48 66 66 48 63 81 39 78 57 36 42 75 54 57 75 66 54 51 48 81 45 27 24 66 63 39 66 66 45 51 48 66 66 81 39 66 54 81 36 81 48 39 21 33
+0 0 0 1 1 2 2 1 2 0 2 1 1 3 0 2 1 0 2 2 1 2 1 1 2 0 0 2 1 0 2 2 3 2 2 2 1 2 1 3 0 0 0 1
 ```
