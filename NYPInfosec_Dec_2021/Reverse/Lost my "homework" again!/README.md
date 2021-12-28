@@ -12,6 +12,10 @@ virus2.
 ```
 
 **NOTE: This write up is to explain the basics of assembly in detail. If you don't know what registers are, you can just think of it as a storage space to store a value for this moment.**
+# Content
+**This write up is VERY long as it goes in-depth on analysis of the assembly instructions, I deeply apologize.**
+
+[Analyse and decode virus2.s](#analysing-virus2s)
 ## The Challenge
 Reading README.md, one sentence to note in the file is:
 
@@ -30,7 +34,7 @@ This means that a file containing the text that we want to recover is fed and ra
 We can determine the length of the text that needs to be recovered is `44` characters by referring to the output of the 'virus programs'.
 
 Now we have to analyze what the code in the 'virus programs' are actually doing.
-## Analysis
+# Analysing virus2.s
 We will first analyze **virus2.s** as it is simpler to reverse.
 
 ### virus2.s
