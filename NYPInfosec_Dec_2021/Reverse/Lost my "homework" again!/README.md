@@ -1,8 +1,15 @@
-# Description
->Oh no! A virus just stole my master key to my homework folder and encrypted it! It looks like it ran 2 different functions on my master key and gave me back a whole mess of numbers in txt.txt.
+The virus has encrypted the master key using 2 programs:
 
->Thankfully, I managed to find the virus programs, but I don't understand the code at all! Could you help me retrieve my master key again so I can continue doing my "homework"?
+virus1.s and virus2.s
 
-We are also given 4 different files for the challenge.
+For every character X,
+X was passed into virus1.s which produces the first line of output in txt.txt
+X was passed into virus2.s which produces the second line of output in txt.txt
 
-## Analysis
+Carl was too lazy to make the programs accept standard input, so line 6's MOV instruction is the "input".
+Every number was "inputted" to the program by assigning it to the X0 register on line 6. Just change the #122 to some other number.
+
+Carl was also too lazy to output anything, so the program actually outputs using its return status code.
+Not that you should be running this program anyway.
+
+Both outputs are required to reconstruct the original value. Good luck!
