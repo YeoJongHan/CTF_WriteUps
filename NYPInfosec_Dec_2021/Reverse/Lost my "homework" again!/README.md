@@ -62,7 +62,7 @@ We can see that this is written in `assembly language` based on the `.s` file ex
 The first two lines "`.global _start`" and "`.align 2`" is to tell the system where to start the instructions and how the instructions should be executed, it can be ignored in this challenge but you can read up more on them from [here](https://stackoverflow.com/questions/17898989/what-is-global-start-in-assembly-language) and [here](https://stackoverflow.com/questions/11277652/what-is-the-meaning-of-align-an-the-start-of-a-section).
 
 `_start:` indicates the start of the instructions, just like main() in C.
-## 
+## Decoding virus2.s
 The first line is
 ```assembly
 mov X0, #122             ; This number is substituted with the input
@@ -146,3 +146,65 @@ The last line `mov X0, X21` just moves the end result into the `X0` register. Th
 
 The last few instructions under `;syscall to exit` is to just exit the program.
 
+## Simplifying virus2.s
+After decoding what the program does, we can replicate what the program does in python. But first, let's see an example of the flow if a value is fed into the program.
+
+### virus2.s
+```assembly
+.global _start
+.align 2
+
+_start:
+
+    mov X0, #122             ; This number is substituted with the input
+
+    ; factor 1
+	mov X19, #20
+    sub X0, X0, X19
+    
+    ; factor 2
+    mov X19, #4
+    udiv X20, X0, X19
+    msub X21, X20, X19, X0
+    
+    mov X0, X21
+
+    ;; syscall to exit
+	mov X16, #1
+	svc #0x80
+```
+
+### Example (Feeding 81 into the program)
+```assembly
+.global _start
+.align 2
+
+_start:
+
+    mov X0, #122    		; X0 = 81
+
+    ; factor 1
+	mov X19, #20		; X19 = 20
+    sub X0, X0, X19		; X0 = X0 - X19, so X0 = 81 - 20, X0 = 61
+    
+    ; factor 2
+    mov X19, #4			; X19 = 4
+    udiv X20, X0, X19		; X20 = X0 // X19, so X20 = 61 // 4, X20 = 15
+    msub X21, X20, X19, X0	; X21 = X0 - (X20 * X19), so X21 = 61 - (15 * 4), X21 = 1
+    
+    mov X0, X21			; X0 = X21, so X0 = 1, 1 is returned
+
+    ;; syscall to exit
+	mov X16, #1
+	svc #0x80
+```
+From the example given, it is clear that all the program does is to return the modulus of each character in the text after subtracting 20 from them. So we craft a simpler python script that does the same...
+### virus2.py
+```python
+def virus2(text):
+	result = []
+	for char in text:
+		temp = ord(char) - 20
+		result.append(str(temp % 4))
+	return ' '.join(result)
+```
