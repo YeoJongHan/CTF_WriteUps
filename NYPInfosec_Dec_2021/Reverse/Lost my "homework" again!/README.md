@@ -10,6 +10,8 @@ txt.txt
 virus1.s
 virus2.
 ```
+
+**NOTE: This write up is to explain the basics of assembly in detail. If you don't know what registers are, you can just think of it as a storage space to store a value for this moment.**
 ## The Challenge
 Reading README.md, one sentence to note in the file is:
 
@@ -58,3 +60,24 @@ _start:
 We can see that this is written in `assembly language` based on the `.s` file extension and the instructions such as `mov` and `sub` in the file.
 
 The first two lines "`.global _start`" and "`.align 2`" is to tell the system where to start the instructions and how the instructions should be executed, it can be ignored in this challenge but you can read up more on them from [here](https://stackoverflow.com/questions/17898989/what-is-global-start-in-assembly-language) and [here](https://stackoverflow.com/questions/11277652/what-is-the-meaning-of-align-an-the-start-of-a-section).
+
+`_start:` indicates the start of the instructions, just like main() in C.
+## 
+The first line is
+```assembly
+mov X0, #122             ; This number is substituted with the input
+```
+Whatever comes after `;` is a comment, and the instruction is as the comment states: `#122` is supposed to represent the decimal number `122` but it is replaced with the user input in this case.
+
+`mov` is the instruction, `X0` is a register, and `#122` is also a register containing a decimal representation of each character in the text.
+
+> The mov instruction copies the data item referred to by its second operand (i.e. register contents, memory contents, or a constant value) into the location referred to by its first operand. > [source](https://www.cs.virginia.edu/~evans/cs216/guides/x86.html#:~:text=The%20mov%20instruction%20copies%20the,to%2Dmemory%20moves%20are%20not.)
+
+So in this case, it is copying the data from a register that contains our chars in decimal, into the X0 register. If the instruction is `mov X0, X1`, it would copy data from X1 register into the X0 register.
+## 
+### Examining instructions under factor 1
+```assembly
+    ; factor 1
+	mov X19, #20
+    sub X0, X0, X19
+```
