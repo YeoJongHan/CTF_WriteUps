@@ -15,6 +15,8 @@ virus2.
 # Content
 **This write up is VERY long as it goes in-depth on analysis of the assembly instructions, I deeply apologize.**
 
+This are the main contents in this write up :)
+
 - [Analyse and decode virus2.s](#analysing-virus2s)
 - [Analyse and decode virus1.s](#analysing-virus1s)
 - [Reversing](#reversing)
@@ -399,6 +401,8 @@ for i in range(len(v1)):
 
 print(''.join(flag))
 ```
+
+The output will be `TllQezByZDFuYWxfYXNzM21ibHlfMXNfczBfYzAwTH0=`. Base64 decode it and you get the flag.
 
 `flag = NYP{0rd1nal_ass3mbly_1s_s0_c00L}`
 
