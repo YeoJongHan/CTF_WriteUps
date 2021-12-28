@@ -123,7 +123,26 @@ Similar to `sub` instruction, the format for `udiv` is `udiv{cond} {Rd}, Rn, Rm`
 
 > **Rm** is the register holding the divisor.
 
-**Note that udiv only stores the result as an integer, not float! So the result of 41 / 10 is 4, not 4.1.**
+**Note that udiv only stores the result as an integer, not float! So the result that udiv stores of 41 / 10 is 4, not 4.1.**
 
 So `udiv X20, X0, X19` would mean to divide the value in `X0` with the divisor in `X19` and storing the result in the `X20` register. Basically `X20=X0//X19`.
+
+`X0` stores the value of each character - `20`, and `X19` stores the value `4`.
+
+Then the third line `msub X21, X20, X19, X0` is using the `msub` instruction which is short for `multiplicative subtract`
+
+The format for `msub` is `msub Xd, Xn, Xm, Xa`, where
+> **Xd** is the destination register to store the result of the instruction.
+
+> **Xn** is the register that store the multiplicand.
+
+> **Xm** is the register that stores the multiplier.
+
+> **Xa** is the register that stores the number to be subtracted from.
+
+So `msub X21, X20, X19, X0` means to `multiply` the value in `X20` register with the value in `X19` register, `subtract` that value from the value in `X0`, then store the result into the `X21` register. Basically `X21=X0-(X20*X19)`.
+
+The last line `mov X0, X21` just moves the end result into the `X0` register. The value in the `X0` register would be the end result to be returned from the program.
+
+The last few instructions under `;syscall to exit` is to just exit the program.
 
