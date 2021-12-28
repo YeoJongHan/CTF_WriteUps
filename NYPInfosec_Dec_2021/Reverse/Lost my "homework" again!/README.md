@@ -81,3 +81,23 @@ So in this case, it is copying the data from a register that contains our chars 
 	mov X19, #20
     sub X0, X0, X19
 ```
+The first line `mov X19, #20` means that it would copy the number `20` into the `X19` register. So the `X19` register would contain the value `20` in it. Pretty simple.
+
+The next line is `sub X0, X0, X19`. This line uses the `sub` instruction, which is to `subtract` values in two registers.
+
+The format that this `sub` instruction takes is `sub {Rd}, Rn, Operand2`, where 
+> **Rd** is the destination register to store the result of the subtraction
+
+> **Rn** is the register holding the first number to subtract from
+
+> **Operand2** is the register holding the number to subtract from the number in the **Rn** register.
+
+([Source](https://www.keil.com/support/man/docs/armasm/armasm_dom1361289908389.htm))
+
+So in this case, `sub X0, X0, X19` subtracts the value in the `X19` register from the value in `X0` register and stores the results into the `X0` register. Basically `X0=X0-X19`.
+
+Since `X19` contains `20` and `X0` would contain each character in the text, we can represent these parts in a short python code:
+```python
+for char in text:
+	char = ord(char) - 20
+```
