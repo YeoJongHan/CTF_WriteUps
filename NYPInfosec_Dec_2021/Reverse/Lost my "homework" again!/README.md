@@ -15,7 +15,8 @@ virus2.
 # Content
 **This write up is VERY long as it goes in-depth on analysis of the assembly instructions, I deeply apologize.**
 
-[Analyse and decode virus2.s](#analysing-virus2s)
+- [Analyse and decode virus2.s](#analysing-virus2s)
+- [Analyse and decode virus1.s](#analysing-virus1s)
 ## The Challenge
 Reading README.md, one sentence to note in the file is:
 
@@ -212,3 +213,8 @@ def virus2(text):
 		result.append(str(temp % 4))
 	return ' '.join(result)
 ```
+<br/>
+<br/>
+
+
+# Analysing virus1.s
