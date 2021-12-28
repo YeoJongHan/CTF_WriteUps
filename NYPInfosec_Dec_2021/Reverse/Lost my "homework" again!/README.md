@@ -204,7 +204,7 @@ _start:
 	svc #0x80
 ```
 From the example given, it is clear that all the program does is to return the modulus of each character in the text after subtracting 20 from them. So we craft a simpler python script that does the same...
-### virus2.py
+### virus2.py (simplify)
 ```python
 def virus2(text):
 	result = []
@@ -218,3 +218,132 @@ def virus2(text):
 
 
 # Analysing virus1.s
+### virus1.s
+```assembly
+.global _start
+.align 2
+
+_start:
+
+    mov X0, #122             ; This number is substituted with the input
+
+    ; factor 1
+	mov X19, #20
+    sub X0, X0, X19
+    
+    ; factor 2
+    mov X19, #4
+    udiv X20, X0, X19
+    msub X21, X20, X19, X0
+    add X0, X21, X20		; This line and the instructions under factor 3 are new
+	
+    ; factor 3
+    mov X19, #3
+    mul X0, X0, X19
+
+    ;; syscall to exit
+	mov X16, #1
+	svc #0x80
+```
+
+As we can see, the first few lines of instructions are exactly the same as those in virus2.s. There are only 3 new instructions in this program as marked in the code preview above.
+
+So the program does the same function as virus2.s: the subtracting 20 from the character and adding it to `X0` register, then modulus that value by `4` and storing the result in the `X21` register.
+
+## Decoding virus1.s
+We will decode the 3 new instructions.
+```assembly
+    add X0, X21, X20		; This line and the instructions under factor 3 are new
+	
+    ; factor 3
+    mov X19, #3
+    mul X0, X0, X19
+```
+
+The first new instruction after the `msub` instruction is `add X0, X21, X20`, and as you guess it, it **adds** the values in the `X21` register and the value in `X20` register together and stores the result in the `X0` register. Basically `X0=X21+X20`.
+
+In this case, `X0` contains the (character - 20)//4, and `X21` contains our modulus result (remainder after dividing by 4).
+
+## 
+### Examining instructions under factor 3
+```assembly
+    ; factor 3
+    mov X19, #3
+    mul X0, X0, X19
+```
+
+The first line `mov X19, #3` is just to move the value `3` into the `X19` register.
+
+The second line `mul X0, X0, X19` uses the instruction `mul`, which is just **multiplying** the value in the `X0` register with the value in the `X19` register and storing it into the `X0` register. Basically `X0=X0*X19`. This result in the `X0` will then be returned as it is the end of the program after this instruction.
+
+## Simplifying virus1.s
+### virus1.s
+```assembly
+.global _start
+.align 2
+
+_start:
+
+    mov X0, #122             ; This number is substituted with the input
+
+    ; factor 1
+	mov X19, #20
+    sub X0, X0, X19
+    
+    ; factor 2
+    mov X19, #4
+    udiv X20, X0, X19
+    msub X21, X20, X19, X0
+    add X0, X21, X20
+
+    ; factor 3
+    mov X19, #3
+    mul X0, X0, X19
+
+    ;; syscall to exit
+	mov X16, #1
+	svc #0x80
+```
+
+### Example (Feeding 81 into the program, same example used in virus2.s above)
+```assembly
+.global _start
+.align 2
+
+_start:
+
+    mov X0, #122		; X0 = 81
+    ; factor 1
+	mov X19, #20		; X19 = 20
+    sub X0, X0, X19		; X0 = X0 - X19, so X0 = 81 - 20, X0 = 61
+    
+    ; factor 2
+    mov X19, #4			; X19 = 4
+    udiv X20, X0, X19		; X20 = X0 // X19, so X20 = 61 // 4, X20 = 15
+    msub X21, X20, X19, X0	; X21 = X0 - (X20 * X19), so X21 = 61 - (15 * 4), X21 = 1
+    add X0, X21, X20		; X0 = X21 + X20, so X0 = 1 + 15, X0 = 16
+
+    ; factor 3
+    mov X19, #3			; X19 = 3
+    mul X0, X0, X19		; X0 = X0 * X19, so X0 = 16 * 3, X0 = 48, 48 is returned
+
+    ;; syscall to exit
+	mov X16, #1
+	svc #0x80
+```
+From this, we can see that if 81 is input into the two programs, it will output
+> `48` for virus1.s
+
+> `1` for virus2.s
+
+### virus1.py (simplify)
+```python
+def virus1(text):
+	result = []
+	for char in text:
+		temp = ord(char) - 20
+		remainder = temp % 4
+		quotient = temp // 4
+		result.append(str((quotient + remainder) * 3))
+	return ' '.join(result)
+```
