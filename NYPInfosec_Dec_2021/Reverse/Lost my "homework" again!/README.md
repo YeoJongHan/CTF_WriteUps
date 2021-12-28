@@ -3,6 +3,8 @@
 
 >Thankfully, I managed to find the virus programs, but I don't understand the code at all! Could you help me retrieve my master key again so I can continue doing my "homework"?
 
+> Author: **Carl Voller**
+
 We are also given 4 different files for the challenge.
 ```
 README.md
