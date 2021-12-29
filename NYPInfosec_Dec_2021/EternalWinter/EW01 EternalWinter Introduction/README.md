@@ -14,6 +14,6 @@ Binary: `1001110 1011001 1010000 1111011 1100111 1110010 0110000 1110101 1101110
 
 First thing that comes to mind when finding a binary string is to try to convert it to ASCII.
 
-Convert the [binary to ASCII text](https://www.rapidtables.com/convert/number/binary-to-ascii.html) and you get the flag.
+Convert the [binary to ASCII text](https://www.rapidtables.com/convert/number/binary-to-ascii.html) and you get the flag. There are many online tools on the web that you can use to convert binary to ASCII.
 
 flag = `NYP{gr0undZ3rO}`
