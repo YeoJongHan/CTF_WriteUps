@@ -43,7 +43,7 @@ Since we know that the flag would always start with "`NYP{`", let's see their `d
 ```
 And we see a pattern!
 
-The difference between the 2nd and 1st characters of "`NYP{`" is `89 - 78 = 11". The diff between the 3rd and 2nd characters is `80 - 89 = -9`, and the diff between the 4th and 3rd characters is `123 - 80 = 43`.
+The difference between the 2nd and 1st characters of "`NYP{`" is `89 - 78 = 11`. The diff between the 3rd and 2nd characters is `80 - 89 = -9`, and the diff between the 4th and 3rd characters is `123 - 80 = 43`.
 
 For the encrypted flag, the difference between the 1st and 2nd characters is `177 - 166 = 11`, the diff between 2nd and 3rd is `166 - 175 = -9`, and the diff between the 3rd and 4th characters is `175 - 132 = 43`!
 
