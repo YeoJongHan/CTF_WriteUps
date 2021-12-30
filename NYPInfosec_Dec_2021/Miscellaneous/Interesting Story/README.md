@@ -50,4 +50,4 @@ If we grab the first letters of each of the strings and join them together, we w
 
 flag = `NYP{K3V1NM1TN1CK}`
 
-> _Full python script and stories are in the `tools` folder :)_
+> _The stories and full python script are under the `tools` folder :)_
