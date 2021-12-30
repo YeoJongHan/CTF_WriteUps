@@ -182,3 +182,5 @@ p.close()
 Change `p = process('./Greet0r')` to access the target host `p = remote('<host>', <port>)` and we should get our flag!
 
 _I didn't keep note of the actual flag, sorry :(_
+
+Here is a good youtube video on how it works, created by our beloved **LiveOverFlow**: [https://www.youtube.com/watch?v=T03idxny9jE](https://www.youtube.com/watch?v=T03idxny9jE)
