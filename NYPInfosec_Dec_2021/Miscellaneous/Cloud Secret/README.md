@@ -31,7 +31,7 @@ Visiting `https://nypctf.s3.ap-southeast-1.amazonaws.com` will return an error m
 
 ![image](https://user-images.githubusercontent.com/83258849/147762374-4606f918-1cee-45c8-99d7-6dc7fe6401d2.png)
 
-Checking the `alt` attribute of the image again, we can see that it looks like it is either jibberish or encoded, most likely encoded as the `alt` attribute is to display alternative information for the image if it fails to load.
+Checking the `alt` attribute of the image again, we can see that it looks like it is either gibberish or encoded, most likely encoded as the `alt` attribute is to display alternative information for the image if it fails to load.
 
 ```html
 <img src="https://nypctf.s3.ap-southeast-1.amazonaws.com/logo-resp.svg" alt="dHJ5IGZpbmRpbmcgZmxhZy50eHQ" style="height:40px;width:160px;">
