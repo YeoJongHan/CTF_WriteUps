@@ -23,4 +23,4 @@ And immediately, we see our flag.
 
 flag = `NYP{ans1_c0ntr0l_s3qu3nc3s_damn_c00l}`
 
-This is probably not the intended way to solve this, so I would be happy to hear the intended solution :")
+This is probably not the intended way to solve this, so I would be happy to hear the intended solution :)
