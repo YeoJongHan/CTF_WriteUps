@@ -83,4 +83,4 @@ p.close()
 
 ![image](https://user-images.githubusercontent.com/83258849/147814773-46748c6e-1836-41fa-8c14-9d93eded4674.png)
 
-We get the flag successfully! Sad that I wasn't able to test this remotely :(
+We successfully printed out the flag! Sad that I wasn't able to test this remotely :(
