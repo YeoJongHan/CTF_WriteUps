@@ -8,7 +8,10 @@
 > `nc descript0r-0verfl0w.nypinfsecctf.tk 8010`
 
 We are given a copy of the binary `Descript0r` to help us in the challenge.
+
+I only managed to solve this challenge locally after the CTF ended, so I couldn't get the flag.
 ## The Challenge
+
 This is related to the first pwn challenge `Meet Greet0r`.
 
 Running the binary, it just runs normally without any issues.
