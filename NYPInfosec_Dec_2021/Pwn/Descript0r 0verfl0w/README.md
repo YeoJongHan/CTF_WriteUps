@@ -9,7 +9,7 @@
 
 We are given a copy of the binary `Descript0r` to help us in the challenge.
 
-I only managed to solve this challenge locally after the CTF ended, so I couldn't get the flag.
+_Disclaimer: I only managed to solve this challenge locally after the CTF ended, so I couldn't get the flag._
 ## The Challenge
 
 This is related to the first pwn challenge `Meet Greet0r`.
