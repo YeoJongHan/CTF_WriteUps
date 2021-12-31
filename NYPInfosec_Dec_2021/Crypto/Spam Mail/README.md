@@ -41,7 +41,7 @@ A `spam.txt` is extracted and viewing the contents, it looks the contents of a p
 
 Look's like there is nothing more than this long string of text, so let's try to search it online for more information on what this text actually is. We can pick out a line that looks unique in the text. I'll be searching for `Senate bill 2716 ; Title 3 , Section 308`. The first result returned already indicates that it is some kind of encoded message in the form of a spam https://www.vbforums.com/showthread.php?157720-Decode-the-SPAM.
 
-Visiting the decode site provided and pasting in the whole spam text to decode, we get our flag!
+Visiting the decode site provided, http://www.spammimic.com/decode.shtml, and pasting in the whole spam text to decode, we get our flag!
 
 ![image](https://user-images.githubusercontent.com/83258849/147812823-4d8b003d-bef6-4623-9310-13fb3deead52.png)
 
