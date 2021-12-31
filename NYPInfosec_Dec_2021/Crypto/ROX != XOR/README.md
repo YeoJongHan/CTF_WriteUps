@@ -105,3 +105,5 @@ print("Flag is {}".format(flag))
 ```
 
 flag = `NYP{YOUDONEIT}`
+
+**Intended solution is probably to inverse the 1s to 0s and 0s to 1s after the XOR. Credits to Dylan**
