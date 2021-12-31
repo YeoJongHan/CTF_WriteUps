@@ -50,6 +50,6 @@ If we grab the first letters of each of the strings and join them together, we w
 
 flag = `NYP{K3V1NM1TN1CK}`
 
-### As pointed out by `Dylan`, these words like 'November', 'Papa', 'unaone', 'terrathree'... can be decoded through the `NATO Phonetic Alphabet Decoder` https://www.dcode.fr/nato-phonetic-alphabet. Thank you for pointing that out :D
+### As pointed out by `Dylan`, these words like 'November', 'Papa', 'unaone', 'terrathree'... are in `NATO Phonetic Alphabet` and can be decoded through the `NATO Phonetic Alphabet Decoder` https://www.dcode.fr/nato-phonetic-alphabet. Thank you for pointing that out :D
 
 > _The stories and full python script are under the `tools` folder :)_
