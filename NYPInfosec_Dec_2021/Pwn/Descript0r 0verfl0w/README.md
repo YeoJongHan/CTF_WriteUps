@@ -85,4 +85,4 @@ p.close()
 
 We successfully printed out the flag! Sad that I wasn't able to test this remotely :(
 
-### \*\*This isn't the complete solution as clarified by `Carl`, the creator of this challenge. Just changing the variable isn't enough as the `flag` file on the remote server does not actually contain the flag.\*\*
+### \*\*This isn't the complete solution as clarified by `Carl`, the creator of this challenge. Just changing the variable isn't enough.\*\*
