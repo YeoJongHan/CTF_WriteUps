@@ -85,4 +85,4 @@ p.close()
 
 We successfully printed out the flag! Sad that I wasn't able to test this remotely :(
 
-### \*\*This isn't the complete solution as clarified by `Carl`, the creator of this challenge. Just changing the variable isn't enough.\*\*
+### \*\*This isn't the complete solution as clarified by `Carl`, the creator of this challenge. Just changing the variable isn't enough. Running the exploit python code will return contents of the 'flag' file, but it does not contain the flag. As pointed out by `Carl`, we have to overwrite value of the `file descriptor` (local_c) with the value `5` as well so that read() would read from STDIN (5-5=0, which is STDIN).\*\*
