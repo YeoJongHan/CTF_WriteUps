@@ -84,3 +84,5 @@ p.close()
 ![image](https://user-images.githubusercontent.com/83258849/147814773-46748c6e-1836-41fa-8c14-9d93eded4674.png)
 
 We successfully printed out the flag! Sad that I wasn't able to test this remotely :(
+
+### This isn't the complete solution as clarified by `Carl`, the creator of this challenge. Just changing the variable isn't enough as the `flag` file on the remote server does not actually contain the flag.
