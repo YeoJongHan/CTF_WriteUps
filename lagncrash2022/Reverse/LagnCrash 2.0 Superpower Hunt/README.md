@@ -23,9 +23,6 @@ However, it is a fake flag.
 
 Use Ctrl+F to find strings in the same file and we find two other flags, which would both be our real flags.
 
-### Summary
-This challenge can be made more challenging if the flags were inserted as game assets instead of just plain strings i suppose.
-
 ## Alternative Solution
 Use Cheat Engine to teleport urself to the back of the cat.
 
@@ -34,3 +31,7 @@ We can find part 2 of the flag at the back of the cat.
 ![image](https://user-images.githubusercontent.com/83258849/160229693-5d135048-ffc4-46ce-8c2c-0f8ef398504c.png)
 
 The other flag I suppose is at the top of the cat's head.
+
+
+### Summary
+This challenge can be made more challenging if the flags were inserted as game assets instead of just plain strings i suppose.
