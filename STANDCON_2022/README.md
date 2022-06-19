@@ -9,4 +9,4 @@ However, most of the challenges were pretty guessy, which is the downside of thi
 | Challenge                                                                                                   | Points         |
 |-------------------------------------------------------------------------------------------------------------|----------------|
 |[Asmuth Share](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Crypto/Asmuth%20Shares)    |299             |
-|OMG RNG!        |300             |
+|[OMG RNG!](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Crypto/OMG%20RNG!)             |300             |
