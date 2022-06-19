@@ -54,7 +54,7 @@ We are given the values of quite a few variables in the [out.txt](https://github
 
 Reading the code for [chal.py](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Crypto/Asmuth%20Shares/challenge/chal.py), we can see that it encrypts the flag with the use of nearly all values given in [out.txt](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Crypto/Asmuth%20Shares/challenge/out.txt). Should be fairly simple to decrypt the flag.
 
-### Analyzing chall.py
+### Analyzing chal.py
 The flag is first converted into a `long integer`. Then a value `N` is assigned `<number of bits of the flag> + 2**7`. It then randomly generates 5 different prime numbers with `N` bits and stores them into a sorted list `m`.
 ``` python
 FLAG = bytes_to_long(open("flag.txt", "rb").read())
