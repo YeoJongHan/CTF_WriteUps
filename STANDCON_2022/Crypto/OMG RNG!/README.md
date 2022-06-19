@@ -176,7 +176,9 @@ unknown s1 = (prev prev state * unknown s0) % m
 # We have m, 'unknown s1', and 'unknown s0'. Use linear congruence to find 'prev prev state'
 ```
 
-We can then just iterate over until we find the flag!
+We can then just keep finding the previous states until we find the flag!
+
+Note that the `linear congruence` function may return errors at times because some of the values provided may not have any solutions (this happens as the the gcd of the modulus and the starting number does not equally divide the result, so 2x mod 8 = 51 have no solution because gcd(2,8)=2, and 51%2 != 0)
 
 ### Solve.py
 ``` python
@@ -193,6 +195,7 @@ def extended_gcd(a: int, b: int) -> int:
         gcd, x, y = extended_gcd(b % a, a)
         return gcd, y - (b // a) * x, x
 
+# Note that the `linear congruence` function may return errors at times, please run again to get new numbers if this happens
 # aX = b (mod m)
 def linear_congruence(a,b,m):
 	if b == 0:
