@@ -6,7 +6,7 @@ However, most of the challenges were pretty guessy, which is the downside of thi
 ## Challenges
 
 ### Crypto
-| Challenge      | Points         | Link                    |
-|----------------|----------------|-------------------------|
-|Asmuth Share    |299             |                         |
-|OMG RNG!        |300             |                         |
+| Challenge                                                                                                   | Points         |
+|-------------------------------------------------------------------------------------------------------------|----------------|
+|[Asmuth Share](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Crypto/Asmuth%20Shares)    |299             |
+|OMG RNG!        |300             |
