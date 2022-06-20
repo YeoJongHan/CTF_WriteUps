@@ -36,9 +36,9 @@ Open the software and head to the "Program Editor" as that is the only tab that 
 
 <img src="https://user-images.githubusercontent.com/83258849/174626273-444e7444-d2de-49a1-abcc-97f791c84fd6.png" width="400" height="300">
 
-I noticed that the software is looking for files with the `.8xp` extension, so rename [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath) to `NewMath.8xp` and open it with the software. We can finally see what does the program do.
+I noticed that the software is looking for files with the `.8xp` extension, so rename [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath) to `NewMath.8xp` and open it with the software. We can finally see what the program actually does.
 
-<img src="https://user-images.githubusercontent.com/83258849/174626523-5ae51b8c-e00e-48e5-ad78-7f770de699f3.png" width="500" height="400">
+<img src="https://user-images.githubusercontent.com/83258849/174626523-5ae51b8c-e00e-48e5-ad78-7f770de699f3.png" width="350" height="250">
 
 ### RE the program
 
