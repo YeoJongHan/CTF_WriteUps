@@ -24,9 +24,9 @@ Checking the file of [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/m
 
 ![image](https://user-images.githubusercontent.com/83258849/174623806-6aa0dfd9-bfaf-4f9e-a3fc-29ee7b9f3fa9.png)
 
-Doing quite a bit of searching online, we find that the website [https://education.ti.com/](https://education.ti.com/) contains the software we need to check the contents of [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath).
+Doing quite a bit of searching online, I found that the website [https://education.ti.com/](https://education.ti.com/) contains the software that we need in order to check the contents of [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath). I know this because the calculator program needs to be written by a software and [https://education.ti.com/](https://education.ti.com/) is the official provider of the TI calculators.
 
-Which software to install? Checking the header of the [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath) file, we see the software name in plaintext.
+Which software to install? I didn't know either but looking around the [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath) file, we can see the software name in plaintext in the header.
 
 ![image](https://user-images.githubusercontent.com/83258849/174625329-18c253e9-808d-4fd8-a0de-2f96089882ce.png)
 
