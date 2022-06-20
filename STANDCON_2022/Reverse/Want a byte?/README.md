@@ -179,4 +179,4 @@ for c in key:
 
 print(flag)
 ```
-Flag: `STANDCON22{\_r3v\_py7h0n\_byt3c0d3}`
+Flag: `STANDCON22{_r3v_py7h0n_byt3c0d3}`
