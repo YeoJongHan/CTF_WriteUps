@@ -165,7 +165,7 @@ The `mask_master_key` function in short, basically just converts each character 
 
 This is just a simple xor operation, you don't have to split them into bits to perform an xor like that.
 
-Because xor can be reversed if you know what the result it and what it got xored with, we can just use the expected output and xor each character with 'a' to retrieve the flag.
+Because xor can be reversed if you know what the result is and what the original value got xored with, we can just use the expected output and xor each character with 'a' to retrieve the original value, the flag.
 
 ### Solve.py
 ``` python
