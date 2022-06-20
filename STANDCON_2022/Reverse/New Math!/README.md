@@ -13,10 +13,10 @@ Pretty unique challenge. I would say this challenge wasn't fun for me, but it wa
 
 ## Solution
 ### TL;DR
-- Find out file is a program written with TI Connect CE software.
-- Open file in TI Connect CE and reverse engineer code.
-- Notice flag is drawn using line and circle graphs.
-- Draw flag with a graphing tool or whatever suits you.
+- Find out file is a program written with TI Connect CE software
+- Open file in TI Connect CE and reverse engineer code
+- Notice flag is drawn using line and circle graphs
+- Draw flag with a graphing tool or whatever suits you
 - Achieve flag
 #
 ### Analysis
