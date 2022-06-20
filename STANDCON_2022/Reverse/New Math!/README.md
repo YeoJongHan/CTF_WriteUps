@@ -13,9 +13,11 @@ Pretty unique challenge. I would say this challenge wasn't fun for me, but it wa
 
 ## Solution
 ### TL;DR
-- Patch binary to bypass checks
-- Run binary through gdb to get flag in memory
-- Get flag
+- Find out file is a program written with TI Connect CE software.
+- Open file in TI Connect CE and reverse engineer code.
+- Notice flag is drawn using line and circle graphs.
+- Draw flag with a graphing tool or whatever suits you.
+- Achieve flag
 #
 ### Analysis
 Checking the file of [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath), it looks to be a program for a `TI-83+ Graphing Calculator`, whatever that is.
