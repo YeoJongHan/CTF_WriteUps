@@ -16,6 +16,7 @@ However, most of the challenges were pretty guessy, which is the downside of thi
 |-----------------------------------------------------------------------------------------------------------------------------|----------------|
 |[Wait for the day](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Reverse/Wait%20For%20The%20Day)        | 497            |
 |[New Math!](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Reverse/New%20Math!)                          | 299            |
+|[Want a byte?](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Reverse/Want%20a%20byte%3F)                | 299            |
 
 ## Placement
 My team managed to achieve 3694 points and take 5th place.
