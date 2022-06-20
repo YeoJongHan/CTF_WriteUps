@@ -238,7 +238,7 @@ Enter numbers x1y1 and x2y2, and hold left click on the colored circle beside th
 
 To draw a circle, just enter a circle equation.
 
-<img src="https://user-images.githubusercontent.com/83258849/174636079-cf6152a4-7225-4c23-9591-4972dd8acf5b.png" width="300" height="80">
+<img src="https://user-images.githubusercontent.com/83258849/174636079-cf6152a4-7225-4c23-9591-4972dd8acf5b.png" width="300" height="60">
 
 This piece of art took me around 20 minutes to replicate:
 
