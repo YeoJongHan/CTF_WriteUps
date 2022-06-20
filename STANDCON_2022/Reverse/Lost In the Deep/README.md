@@ -2,7 +2,9 @@
 ## Description
 > You've been swimming, and encounter a submerged mangrove forest. You enter it to explore, and without knowing it, you're lost. How do you escape?
 
-- [chall.exe]()
+- [chall.exe](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/Lost%20In%20the%20Deep/challenge/chall.exe)
+
+(*Windows Antivirus may pick up virus signatures from the file*)
 
 ## Solution
 ### TL;DR
@@ -24,7 +26,13 @@ Running `strings chall.exe`, we can see strings like `UPX0`, `UPX1`. This indica
 
 We can unpack it by running `upx -d chall.exe`.
 
-After that, we can actually decompile and read the code in `ghidra`. However, the executable is stripped, so **no**, we **can't** read the code.
+After that, we can actually decompile and read the code in `ghidra`. However, the executable is stripped so we don't have any debugging symbols to work with. So **no**, we **shouldn't** read the code (possible, but it would be troublesome to do so anyways).
+
+Look at how long the code for this function scrolls down for!
+
+<img src="https://user-images.githubusercontent.com/83258849/174651984-543f4fcf-a13a-45fd-9543-8316e11d5c43.png" width="800" height="500">
+
+So I decided to take a different approach.
 
 Looking around the program in `ghidra`, I found a suspicious string used by the program.
 
@@ -87,3 +95,7 @@ for c in enc:
 		offset -= 1
 print(flag)	
 ```
+
+*Script is not so elegant, but it works*
+
+Flag: ` STANDCON22{c@n'+_5ee_+he_fore5+_for_+he_+ree5_fc35df341423f53596666e41d8640539}`
