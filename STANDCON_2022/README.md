@@ -8,9 +8,13 @@ However, most of the challenges were pretty guessy, which is the downside of thi
 ### Crypto
 | Challenge                                                                                                   | Points         |
 |-------------------------------------------------------------------------------------------------------------|----------------|
-|[Asmuth Share](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Crypto/Asmuth%20Shares)    |299             |
-|[OMG RNG!](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Crypto/OMG%20RNG!)             |300             |
+|[Asmuth Share](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Crypto/Asmuth%20Shares)    | 299            |
+|[OMG RNG!](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Crypto/OMG%20RNG!)             | 300            |
 
+### Reverse
+| Challenge                                                                                                                   | Points         |
+|-----------------------------------------------------------------------------------------------------------------------------|----------------|
+|[Wait for the day](https://github.com/YeoJongHan/CTF_WriteUps/tree/main/STANDCON_2022/Reverse/Wait%20For%20The%20Day)        | 497            |
 ## Placement
 My team managed to achieve 3694 points and take 5th place.
 
