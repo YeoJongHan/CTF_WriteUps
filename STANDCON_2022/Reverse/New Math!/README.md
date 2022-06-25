@@ -199,7 +199,7 @@ Now we have:
 - B = 142857
 - C = 428571
 
-To find `D`, we need solve for this check:
+To find `D`, we need to solve for this check:
 ```
 Input "magic number: ",D
 If abs(fMax(-2X^2+25X+4,X,0,10)-D)<0.01
