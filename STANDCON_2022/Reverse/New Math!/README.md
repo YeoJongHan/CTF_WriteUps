@@ -216,7 +216,7 @@ I had to find out what does the `fMax` function do. It brought me back to [educa
 I managed to solve this using [Desmos](https://www.desmos.com/), my Secondary School hero.
 
 ### Desmos To The Rescue!
-Entering the quadratic equation into demos, we can see that the maximum point of the graph where 0<x<10, occurs when x=6.25. So that is the return value of `fMax(-2X^2+25X+4,X,0,10)-D`, and that is our value of `D`!
+Entering the quadratic equation into demos, we can see that the maximum point of the graph where 0<x<10, occurs when x=6.25. So that is the return value of `fMax(-2X^2+25X+4,X,0,10)-D`, and that is our value of `D`! So `D = 6.25`.
 
 <img src="https://user-images.githubusercontent.com/83258849/174634357-a4c936f6-cf05-4527-99e0-4e419677413b.png" width="500" height="200">
 
