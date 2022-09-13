@@ -1,32 +1,42 @@
 # New Math!
-## Description
+
+## New Math!
+
+### Description
+
 > Hooray for new math! New whoo hoo math!
 
 > Wrap the flag in STANDCON22{}
 
-- [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath)
+* [NewMath](../New%20Math!/challenge/NewMath/)
 
-### Overview
-Reverse math, well not really. 
+#### Overview
+
+Reverse math, well not really.
 
 Pretty unique challenge. I would say this challenge wasn't fun for me, but it was pretty satisfying to see the final art piece.
 
-## Solution
-### TL;DR
-- Find out file is a program written with TI Connect CE software
-- Open file in TI Connect CE and reverse engineer code
-- Notice flag is drawn using line and circle graphs
-- Draw flag with a graphing tool or whatever suits you
-- Achieve flag
-#
-### Analysis
-Checking the file of [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath), it looks to be a program for a `TI-83+ Graphing Calculator`, whatever that is.
+### Solution
+
+#### TL;DR
+
+* Find out file is a program written with TI Connect CE software
+* Open file in TI Connect CE and reverse engineer code
+* Notice flag is drawn using line and circle graphs
+* Draw flag with a graphing tool or whatever suits you
+* Achieve flag
+
+##
+
+#### Analysis
+
+Checking the file of [NewMath](../New%20Math!/challenge/NewMath/), it looks to be a program for a `TI-83+ Graphing Calculator`, whatever that is.
 
 ![image](https://user-images.githubusercontent.com/83258849/174623806-6aa0dfd9-bfaf-4f9e-a3fc-29ee7b9f3fa9.png)
 
-Doing quite a bit of searching online, I found that the website [https://education.ti.com/](https://education.ti.com/) contains the software that we need in order to check the contents of [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath). I know this because the calculator program needs to be written by a software and [https://education.ti.com/](https://education.ti.com/) is the official provider of the TI calculators.
+Doing quite a bit of searching online, I found that the website [https://education.ti.com/](https://education.ti.com/) contains the software that we need in order to check the contents of [NewMath](../New%20Math!/challenge/NewMath/). I know this because the calculator program needs to be written by a software and [https://education.ti.com/](https://education.ti.com/) is the official provider of the TI calculators.
 
-Which software to install? I didn't know either but looking around the [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath) file, we can see the software name in plaintext in the header.
+Which software to install? I didn't know either but looking around the [NewMath](../New%20Math!/challenge/NewMath/) file, we can see the software name in plaintext in the header.
 
 ![image](https://user-images.githubusercontent.com/83258849/174625329-18c253e9-808d-4fd8-a0de-2f96089882ce.png)
 
@@ -34,15 +44,16 @@ So I searched online for "education.ti ti connect ce" and found the software to 
 
 Open the software and head to the "Program Editor" as that is the only tab that can import files.
 
-<img src="https://user-images.githubusercontent.com/83258849/174626273-444e7444-d2de-49a1-abcc-97f791c84fd6.png" width="400" height="300">
+![](https://user-images.githubusercontent.com/83258849/174626273-444e7444-d2de-49a1-abcc-97f791c84fd6.png)
 
-I noticed that the software is looking for files with the `.8xp` extension, so rename [NewMath](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/New%20Math!/challenge/NewMath) to `NewMath.8xp` and open it with the software. We can finally see what the program actually does.
+I noticed that the software is looking for files with the `.8xp` extension, so rename [NewMath](../New%20Math!/challenge/NewMath/) to `NewMath.8xp` and open it with the software. We can finally see what the program actually does.
 
-<img src="https://user-images.githubusercontent.com/83258849/174626523-5ae51b8c-e00e-48e5-ad78-7f770de699f3.png" width="350" height="250">
+![](https://user-images.githubusercontent.com/83258849/174626523-5ae51b8c-e00e-48e5-ad78-7f770de699f3.png)
 
-### RE the program
+#### RE the program
 
 `NewMath.8xp`
+
 ```
 ClrHome
 Disp "Can you do new math?"
@@ -136,6 +147,7 @@ The long lines of `Line()` function with a single `Circle()` function is to draw
 At this point, I think it is fair to assume that the flag would be drawn out using graphs.
 
 Now, the drawing of the graphs uses 4 variables `A`, `B`, `C`, and `D`. We can see that they are defined in the first few lines of code.
+
 ```
 Input "Enter the magic number: ",A
 toString(A)→Str1
@@ -157,6 +169,7 @@ Disp "YOU WIN"
 ```
 
 The first few lines are pretty self-explanatory. It asks for user input and stores it in the variable A, then converts it to a string and stores it in `Str1`.
+
 ```
 Input "Enter the magic number: ",A
 toString(A)→Str1
@@ -167,6 +180,7 @@ A "1" is then attached to the **front** of the string and stored in `Str2`.
 A "1" is also attached to the **end** of the user input string and stored in `Str3`.
 
 No idea what the function `expr()` does but I guess that it just converts the string into numbers.
+
 ```
 "1"+Str1→Str2
 Str1+"1"→Str3
@@ -175,12 +189,14 @@ expr(Str3)→C
 ```
 
 It then checks if the following is true. As like in algebra, 3B would be just 3\*B.
+
 ```
 If 3B=C and length(Str1)=5
 ```
 
 I created a quick Python script to iterate from `00000` to `99999` to find which number satisfies this check and found the number `42857`.
-``` python
+
+```python
 #!/usr/bin/env python3
 
 for i in range(100000):
@@ -195,11 +211,13 @@ for i in range(100000):
 ```
 
 Now we have:
-- A = 42857
-- B = 142857
-- C = 428571
+
+* A = 42857
+* B = 142857
+* C = 428571
 
 To find `D`, we need to solve for this check:
+
 ```
 Input "magic number: ",D
 If abs(fMax(-2X^2+25X+4,X,0,10)-D)<0.01
@@ -215,10 +233,11 @@ I had to find out what does the `fMax` function do. It brought me back to [educa
 
 I managed to solve this using [Desmos](https://www.desmos.com/), my Secondary School hero.
 
-### Desmos To The Rescue!
-Entering the quadratic equation into demos, we can see that the maximum point of the graph where 0<x<10, occurs when x=6.25. So that is the return value of `fMax(-2X^2+25X+4,X,0,10)-D`, and that is our value of `D`! So `D = 6.25`.
+#### Desmos To The Rescue!
 
-<img src="https://user-images.githubusercontent.com/83258849/174634357-a4c936f6-cf05-4527-99e0-4e419677413b.png" width="500" height="200">
+Entering the quadratic equation into demos, we can see that the maximum point of the graph where 0\<x<10, occurs when x=6.25. So that is the return value of `fMax(-2X^2+25X+4,X,0,10)-D`, and that is our value of `D`! So `D = 6.25`.
+
+![](https://user-images.githubusercontent.com/83258849/174634357-a4c936f6-cf05-4527-99e0-4e419677413b.png)
 
 Now the painful part. I manually entered every single `Line` and `Circle` graph into [Desmos](https://www.desmos.com/) as I think it would take me longer to try and figure out how to draw such graphs using a programming language like Python (I actually didn't search how to code it).
 
@@ -230,15 +249,15 @@ In [Desmos](https://www.desmos.com/), you can create a line graph from one point
 
 Insert table:
 
-<img src="https://user-images.githubusercontent.com/83258849/174635592-8e280070-ae89-42bc-bfdd-a4ae0e42e0ab.png" width="300" height="300">
+![](https://user-images.githubusercontent.com/83258849/174635592-8e280070-ae89-42bc-bfdd-a4ae0e42e0ab.png)
 
 Enter numbers x1y1 and x2y2, and hold left click on the colored circle beside the `y` to add lines between the points.
 
-<img src="https://user-images.githubusercontent.com/83258849/174635749-67873c58-6c9c-4568-9b39-cdebc119c760.png" width="300" height="350">
+![](https://user-images.githubusercontent.com/83258849/174635749-67873c58-6c9c-4568-9b39-cdebc119c760.png)
 
 To draw a circle, just enter a circle equation.
 
-<img src="https://user-images.githubusercontent.com/83258849/174636079-cf6152a4-7225-4c23-9591-4972dd8acf5b.png" width="300" height="60">
+![](https://user-images.githubusercontent.com/83258849/174636079-cf6152a4-7225-4c23-9591-4972dd8acf5b.png)
 
 This piece of art took me around 20 minutes to replicate:
 

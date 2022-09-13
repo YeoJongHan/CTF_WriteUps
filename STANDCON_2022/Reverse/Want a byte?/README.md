@@ -1,33 +1,43 @@
 # Want a byte?
-## Description
+
+## Want a byte?
+
+### Description
+
 > Scrolling through my projects, I found some old project code. I remember this code had some "backdoors". But since I mistakenly deleted utils.py, now I cannot understand my own code! Can you help me make sense out of it? You will be rewarded with a flag for your help.
 
-- [main.py](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/Want%20a%20byte%3F/challenge/main.py)
-- [utils.pyc](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/Want%20a%20byte%3F/challenge/utils.pyc)
+* [main.py](../Want%20a%20byte)
+* [utils.pyc](../Want%20a%20byte)
 
-## Solution
-### TL;DR
-- Decompile utils.pyc
-- Find out that master_key is always 'a'\*20
-- Notice its just encrypting the flag by xoring each character of the flag with 'a's
-- Xor the encrypted flag with 'a's
-- Win flag
-#
-### Analysis
-We have to first decompile [utils.pyc](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/Want%20a%20byte%3F/challenge/utils.pyc) to understand the functions that reside in it.
+### Solution
+
+#### TL;DR
+
+* Decompile utils.pyc
+* Find out that master\_key is always 'a'\*20
+* Notice its just encrypting the flag by xoring each character of the flag with 'a's
+* Xor the encrypted flag with 'a's
+* Win flag
+
+##
+
+#### Analysis
+
+We have to first decompile [utils.pyc](../Want%20a%20byte) to understand the functions that reside in it.
 
 Using `decompyle3`, it indicates that the file is coded in Python2.7. This guy really needs to upgrade his Python.
 
-<img src="https://user-images.githubusercontent.com/83258849/174642595-3dedee4a-c3f6-4164-83d7-8c2b71c1f29c.png" width="700" height="200">
+![](https://user-images.githubusercontent.com/83258849/174642595-3dedee4a-c3f6-4164-83d7-8c2b71c1f29c.png)
 
 For Python2.7, we can use `uncompyle6`. We see that it decompiles it nicely.
 
-<img src="https://user-images.githubusercontent.com/83258849/174642733-956014cc-62d3-47d2-9fe2-e1ea5797e43c.png" width="600" height="300">
+![](https://user-images.githubusercontent.com/83258849/174642733-956014cc-62d3-47d2-9fe2-e1ea5797e43c.png)
 
 > Note, some of you might have trouble installing uncompyle6 or decompyle3. I faced similar issues and managed to get it to work. If you need help, just give me a dm on discord :)
 
-[main.py](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/Want%20a%20byte%3F/challenge/main.py)
-``` python
+[main.py](../Want%20a%20byte)
+
+```python
 import sys
 from random import randint
 import utils
@@ -117,8 +127,9 @@ except Exception as e:
     print("Incorrect flag!")
 ```
 
-[utils.pyc](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/Want%20a%20byte%3F/challenge/utils.pyc)
-``` python
+[utils.pyc](../Want%20a%20byte)
+
+```python
 import hashlib
 from string import printable
 key_space = printable
@@ -138,14 +149,15 @@ def generate_mask(inp):
     return mod_inp
 ```
 
-In [main.py](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/Want%20a%20byte%3F/challenge/main.py) I noticed that the code in the `derive_key` and `generate_random_key` functions are pretty much static.
+In [main.py](../Want%20a%20byte) I noticed that the code in the `derive_key` and `generate_random_key` functions are pretty much static.
 
 So printing out `derive_key(generate_random_key(40))` would give us the same output everytime, which is 'a'\*20.
 
-<img src="https://user-images.githubusercontent.com/83258849/174644594-33417997-2be3-4692-a993-56f1a7ea3f49.png" width="800" height="40">
+![](https://user-images.githubusercontent.com/83258849/174644594-33417997-2be3-4692-a993-56f1a7ea3f49.png)
 
 We can see that it grabs the characters within the brackets of the flag `STANDCON22{}` and performs a check against it, where the output would have to be `">\x13R\x17>\x11\x18V\tQ\x0f>\x03\x18\x15R\x02Q\x05R"`
-``` python
+
+```python
 assert((mask_master_key(derive_key(generate_random_key(40)), utils.generate_mask(flag[11:-1]))) == ">\x13R\x17>\x11\x18V\tQ\x0f>\x03\x18\x15R\x02Q\x05R")
 ```
 
@@ -167,8 +179,9 @@ This is just a simple xor operation, you don't have to split them into bits to p
 
 Because xor can be reversed if you know what the result is and what the original value got xored with, we can just use the expected output and xor each character with 'a' to retrieve the original value, the flag.
 
-### Solve.py
-``` python
+#### Solve.py
+
+```python
 #!/usr/bin/env python3
 
 key = b">\x13R\x17>\x11\x18V\tQ\x0f>\x03\x18\x15R\x02Q\x05R"
@@ -179,4 +192,5 @@ for c in key:
 
 print(flag)
 ```
+
 Flag: `STANDCON22{_r3v_py7h0n_byt3c0d3}`
