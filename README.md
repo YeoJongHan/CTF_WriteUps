@@ -1,11 +1,29 @@
-# NYP Infosec CTF December 2021
+# STANDCON 2022
 
-This CTF Write-Up will be my first, so please give me feedback on any points I'm missing out on and how I can improve :)
+Overall, this was one of the most unique CTFs I have participated in; it required the use of a game platform called [Gather Town](https://app.gather.town/app) to gather keys to unlock the challenges, as well as 'fishes' to unlock hints and other stuff.
 
-CTF Website: [https://nypinfsecctf.tk/challenges](https://nypinfsecctf.tk/challenges)
+However, most of the challenges were pretty guessy, which is the downside of this CTF.
 
-## Feedback
+## Challenges
 
-This CTF had quite a wide spread of levels of difficulties and varying types of challenges I must say.
+### Crypto
 
-It was a good level of difficulty for the challenges supplied as this CTF is aimed towards beginners.
+| Challenge                                                                                                   | Points |
+| ----------------------------------------------------------------------------------------------------------- | ------ |
+| [Asmuth Share](https://github.com/YeoJongHan/CTF\_WriteUps/tree/main/STANDCON\_2022/Crypto/Asmuth%20Shares) | 299    |
+| [OMG RNG!](https://github.com/YeoJongHan/CTF\_WriteUps/tree/main/STANDCON\_2022/Crypto/OMG%20RNG!)          | 300    |
+
+### Reverse
+
+| Challenge                                                                                                               | Points |
+| ----------------------------------------------------------------------------------------------------------------------- | ------ |
+| [Wait for the day](https://github.com/YeoJongHan/CTF\_WriteUps/tree/main/STANDCON\_2022/Reverse/Wait%20For%20The%20Day) | 497    |
+| [New Math!](https://github.com/YeoJongHan/CTF\_WriteUps/tree/main/STANDCON\_2022/Reverse/New%20Math!)                   | 299    |
+| [Want a byte?](https://github.com/YeoJongHan/CTF\_WriteUps/tree/main/STANDCON\_2022/Reverse/Want%20a%20byte%3F)         | 299    |
+| [Lost In the Deep](https://github.com/YeoJongHan/CTF\_WriteUps/tree/main/STANDCON\_2022/Reverse/Lost%20In%20the%20Deep) | 100    |
+
+## Placement
+
+My team managed to achieve 3694 points and take 5th place.
+
+![](https://user-images.githubusercontent.com/83258849/174520140-345f3b7f-2553-44ac-9435-76798f427dc1.png)

@@ -1,27 +1,38 @@
 # OMG RNG!
-## Description
+
+## OMG RNG!
+
+### Description
+
 > Gifts for everyone!
 
 > `nc lab-1.ctf.standcon.n0h4ts.com 7903`
 
-- [chal.py](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Crypto/OMG%20RNG!/challenge/chal.py)
+* [chal.py](../../../STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py)
 
-### Overview
-Starting an instance and connecting to the server, the server would run [chal.py](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Crypto/OMG%20RNG!/challenge/chal.py) and send you `gifts` and a `secret` containing the flag that is encrypted.
+#### Overview
+
+Starting an instance and connecting to the server, the server would run [chal.py](../../../STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py) and send you `gifts` and a `secret` containing the flag that is encrypted.
 
 We have to figure out a way to decrypt the `secret` retrieved from the server using the `gifts`.
 
-## Solution
-### TL;DR
-- Use `gcd` to find value of `m`
-- Get the previous state by solving `linear congruence` between `m` and first `gift` received.
-- Get previous state until it reaches the first state.
-- Perform `XOR` of `secret` with first 2 states.
-- Got flag
-#
-### Analysis
-[chal.py](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Crypto/OMG%20RNG!/challenge/chal.py)
-``` python
+### Solution
+
+#### TL;DR
+
+* Use `gcd` to find value of `m`
+* Get the previous state by solving `linear congruence` between `m` and first `gift` received.
+* Get previous state until it reaches the first state.
+* Perform `XOR` of `secret` with first 2 states.
+* Got flag
+
+##
+
+#### Analysis
+
+[chal.py](../../../STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py)
+
+```python
 from Crypto.Util.number import bytes_to_long, getRandomRange
 
 FLAG = bytes_to_long(open("flag.txt", "rb").read())
@@ -60,20 +71,23 @@ if __name__ == '__main__':
 
 It's a pretty short code, so let's quickly break it down.
 
-### Analyzing chal.py
+#### Analyzing chal.py
 
 The `MLFG` class gets initialized first.
 
 When the `MLFG` class gets initialized, it grabs a large random number and stores it as `m` in the class. Then it randomly generates 2 other numbers smaller than `m`, and stores it in `s0` and `s1` in the class. `curr_state` is then assigned with the value `0`.
-``` python
+
+```python
 class MLFG():
     def __init__(self):
         self.m = getRandomRange(2, 2**300)
         self.s0, self.s1 = [getRandomRange(2, self.m-1) for _ in '__']
         self.curr_state = 0
 ```
+
 The `next()` function is pretty self explanatory.
-``` python
+
+```python
 def next(self):
         self.curr_state = (self.s0 * self.s1) % self.m
         self.s0 = self.s1
@@ -84,6 +98,7 @@ def next(self):
 Searching up `MLFG`, it stands for `Multiplicative Lagged Fibonacci Generator`. I tried to search for any writeups on such challenges but couldn't find any. The key takeaway from looking it up is that this algorithm is a `Pseudo-Random Number Generator` (PRNG).
 
 According to the `MLFG` class, we can see how it performs as a `PRNG`:
+
 1. It first generates a random number as a modulus (`m`)
 2. It then generates 2 random numbers to start with (`s0` and `s1`)
 3. To get a random value, it multiplies both `s0` and `s1` and mod `m` and returns it (this is what makes it `Multiplicative` as the name of the class suggest). So `curr_state` would be your random value.
@@ -91,14 +106,15 @@ According to the `MLFG` class, we can see how it performs as a `PRNG`:
 
 Here are some images to help you visualize it. (assume f() is a function `(self.s0 * self.s1) % self.m`. Note that the numbers in the picture are just an example.)
 
-<img src="https://user-images.githubusercontent.com/83258849/174485595-ae536c72-359a-456f-914a-86a454dccfbc.png" width="200" height="150"><img src="https://user-images.githubusercontent.com/83258849/174485821-a24afa57-2846-40eb-8900-8a80612ecda0.png" width="200" height="150"><img src="https://user-images.githubusercontent.com/83258849/174485902-356abae7-cb27-4d07-a4a8-0e2c6e5019c6.png" width="200" height="150">
+![](https://user-images.githubusercontent.com/83258849/174485595-ae536c72-359a-456f-914a-86a454dccfbc.png) ![](https://user-images.githubusercontent.com/83258849/174485821-a24afa57-2846-40eb-8900-8a80612ecda0.png) ![](https://user-images.githubusercontent.com/83258849/174485902-356abae7-cb27-4d07-a4a8-0e2c6e5019c6.png)
 
 See why it is related to `Fibonacci`?
 
 Now, the last few lines of code is to produce the `secret` where the flag is encrypted through `xor`. We can easily find the flag if we find the values it got xored with (goal is to find the original value of `s0` and `s1`).
 
 You then get to retrieve the value of `secret` and the next few random values generated.
-``` python
+
+```python
 P = MLFG()
     secret = FLAG ^ P.s0 ^ P.s1
     
@@ -115,53 +131,67 @@ P = MLFG()
     else:
         exit("\nEnough Gifts!")
 ```
-### Finding value of 'm'
+
+#### Finding value of 'm'
+
 We will first have to grab the next few states of `MLFG`. I went to grab 4 states and then the `secret`.
 
 We will be focusing on this line of code:
-``` python
+
+```python
 self.curr_state = (self.s0 * self.s1) % self.m
 self.s0 = self.s1
 self.s1 = self.curr_state
 ```
+
 Since we have grabbed 4 consecutive states of `MLFG`, we have something like this:
-- `gift0` = (`unknown s0` * `unknown s1`) % `m`
-- `gift1` = (`unknown s1` * `gift0`) % `m`
-- `gift2` = (`gift0` * `gift1`) % `m`
-- `gift3` = (`gift1` * `gift2`) % `m`
+
+* `gift0` = (`unknown s0` \* `unknown s1`) % `m`
+* `gift1` = (`unknown s1` \* `gift0`) % `m`
+* `gift2` = (`gift0` \* `gift1`) % `m`
+* `gift3` = (`gift1` \* `gift2`) % `m`
 
 One thing to note, modulus equations can also be expressed in another way that is true if you think about it:
-> (xy mod m = z) === (xy - n<sub>1</sub>m = z), where n<sub>1</sub> is a random integer
+
+> (xy mod m = z) === (xy - n1m = z), where n1 is a random integer
 
 Similarly,
->(gift2 = (gift0 * gift1) % m) === (gift2 = (gift0 * gift1) - n<sub>1</sub>m)
+
+> (gift2 = (gift0 \* gift1) % m) === (gift2 = (gift0 \* gift1) - n1m)
 
 By rearranging the equation...
-> (gift0 * gift1) - gift2 = n<sub>1</sub>m
+
+> (gift0 \* gift1) - gift2 = n1m
 
 We then have the following equations...
-> (gift0 * gift1) - gift2 = n<sub>1</sub>m
 
-> (gift1 * gift2) - gift3 = n<sub>2</sub>m
+> (gift0 \* gift1) - gift2 = n1m
 
-So now we have n<sub>1</sub>m and n<sub>2</sub>m, we can find the value of `m` by finding the `gcd` of both of them since `m` would be larger than n<sub>1</sub> and n<sub>2</sub>!
+> (gift1 \* gift2) - gift3 = n2m
 
-### m acquired!
-#
-### Finding previous state
+So now we have n1m and n2m, we can find the value of `m` by finding the `gcd` of both of them since `m` would be larger than n1 and n2!
+
+#### m acquired!
+
+##
+
+#### Finding previous state
+
 Let's focus on this equation as we want to find the previous state:
-- `gift1` = (`unknown s1` * `gift0`) % `m`
+
+* `gift1` = (`unknown s1` \* `gift0`) % `m`
 
 We basically have the value of everything except for the previous state (`unknown s1`)
 
-I had a little trouble solving this due to my lack of knowledge on `modular arithmetic`, but searching it up gives us something called [Linear Congruence](https://www.intmath.com/blog/mathematics/how-to-solve-linear-congruences-12539#:~:text=Generally%2C%20a%20linear%20congruence%20is,%3D%20x0%20(mod%20m).). The `linear congruence` problem is to find the value of `X` given the equation `aX (mod m) = b`, which is exactly what we were looking for!
+I had a little trouble solving this due to my lack of knowledge on `modular arithmetic`, but searching it up gives us something called [Linear Congruence](https://www.intmath.com/blog/mathematics/how-to-solve-linear-congruences-12539). The `linear congruence` problem is to find the value of `X` given the equation `aX (mod m) = b`, which is exactly what we were looking for!
 
 I managed to find and use a `linear congruence` function implemented in Python [https://stackoverflow.com/questions/48252234/how-to-solve-a-congruence-system-in-python](https://stackoverflow.com/questions/48252234/how-to-solve-a-congruence-system-in-python).
 
 Now we are able to find the previous state! To find previous state of the previous state, we will just have to use the value of the previous state we got.
 
 Example:
-``` python
+
+```python
 gift1 = (unknown s1 * gift0) % m
 # We have m, gift0, and gift1. Use linear congruence to find 'unknown s1'
 ```
@@ -180,8 +210,9 @@ We can then just keep finding the previous states until we find the flag!
 
 Note that the `linear congruence` function may return errors at times because some of the values provided may not have any solutions (this happens as the the gcd of the modulus and the starting number does not equally divide the result, so 2x mod 8 = 51 have no solution because gcd(2,8)=2, and 51%2 != 0)
 
-### Solve.py
-``` python
+#### Solve.py
+
+```python
 #!/usr/bin/env python3
 
 from pwn import *

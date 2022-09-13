@@ -25,9 +25,9 @@ virus2.
 
 This are the main contents in this write up :)
 
-* [Analyse and decode virus2.s](./#analysing-virus2s)
-* [Analyse and decode virus1.s](./#analysing-virus1s)
-* [Reversing](./#reversing)
+* [Analyse and decode virus2.s](lost-my-homework-again.md#analysing-virus2s)
+* [Analyse and decode virus1.s](lost-my-homework-again.md#analysing-virus1s)
+* [Reversing](lost-my-homework-again.md#reversing)
 
 ### The Challenge
 

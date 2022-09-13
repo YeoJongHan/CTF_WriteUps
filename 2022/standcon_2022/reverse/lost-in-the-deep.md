@@ -1,23 +1,32 @@
 # Lost In the Deep
-## Description
+
+## Lost In the Deep
+
+### Description
+
 > You've been swimming, and encounter a submerged mangrove forest. You enter it to explore, and without knowing it, you're lost. How do you escape?
 
-- [chall.exe](https://github.com/YeoJongHan/CTF_WriteUps/blob/main/STANDCON_2022/Reverse/Lost%20In%20the%20Deep/challenge/chall.exe)
+* [chall.exe](../../../STANDCON\_2022/Reverse/Lost%20In%20the%20Deep/challenge/chall.exe)
 
-(*Windows Antivirus may pick up virus signatures from the file*)
+(_Windows Antivirus may pick up virus signatures from the file_)
 
-## Solution
-### TL;DR
-- Notice that the executable is packed using UPX, so unpack it
-- Through ghidra, find an odd long string that is used in the executable
-- Realize that there is a pattern in the characters of the string
-- 1st character is expected to be 'S', but it is 'R'. ord('S')-1 = ord('R')
-- 2nd character is expected to be 'T', but it is 'V'. ord('T')+2 = ord('V')
-- And so on...
-- Make a solve script for it
-- Flag is won
-#
-### Analysis
+### Solution
+
+#### TL;DR
+
+* Notice that the executable is packed using UPX, so unpack it
+* Through ghidra, find an odd long string that is used in the executable
+* Realize that there is a pattern in the characters of the string
+* 1st character is expected to be 'S', but it is 'R'. ord('S')-1 = ord('R')
+* 2nd character is expected to be 'T', but it is 'V'. ord('T')+2 = ord('V')
+* And so on...
+* Make a solve script for it
+* Flag is won
+
+##
+
+#### Analysis
+
 We are given a windows executable file.
 
 Running `strings chall.exe`, we can see strings like `UPX0`, `UPX1`. This indicates that the executable is packed using `UPX`.
@@ -30,7 +39,7 @@ After that, we can actually decompile and read the code in `ghidra`. However, th
 
 Look at how long the code for this function scrolls down for!
 
-<img src="https://user-images.githubusercontent.com/83258849/174651984-543f4fcf-a13a-45fd-9543-8316e11d5c43.png" width="800" height="500">
+![](https://user-images.githubusercontent.com/83258849/174651984-543f4fcf-a13a-45fd-9543-8316e11d5c43.png)
 
 So I decided to take a different approach.
 
@@ -44,16 +53,16 @@ You can look for strings in `ghidra` by navigating to the `Search` tab then sele
 
 When you look at the string closely, you can actually make out a pattern.
 
-- 1st character is expected to be 'S', but it is 'R'. ord('S')-1 = ord('R')
-- 2nd character is expected to be 'T', but it is 'V'. ord('T')+2 = ord('V')
-- 3rd character is expected to be 'A', but it is '>'. ord('A')-3 = ord('>')
-- 4th character is expected to be 'N', but it is 'R'. ord('N')+4 = ord('R')
-- 5th character is expected to be 'D', but it is '?'. ord('D')-5 = ord('?')
-- 6th character is expected to be 'C', but it is 'G'. ord('C')+4 = ord('G')
-- 7th character is expected to be 'O', but it is 'L'. ord('O')-3 = ord('L')
-- 8th character is expected to be 'N', but it is 'P'. ord('N')+2 = ord('P')
-- 9th character is expected to be '2', but it is '1'. ord('2')-1 = ord('1')
-- 10th character is expected to be '2', but it is '3'. ord('2')+1 = ord('3')
+* 1st character is expected to be 'S', but it is 'R'. ord('S')-1 = ord('R')
+* 2nd character is expected to be 'T', but it is 'V'. ord('T')+2 = ord('V')
+* 3rd character is expected to be 'A', but it is '>'. ord('A')-3 = ord('>')
+* 4th character is expected to be 'N', but it is 'R'. ord('N')+4 = ord('R')
+* 5th character is expected to be 'D', but it is '?'. ord('D')-5 = ord('?')
+* 6th character is expected to be 'C', but it is 'G'. ord('C')+4 = ord('G')
+* 7th character is expected to be 'O', but it is 'L'. ord('O')-3 = ord('L')
+* 8th character is expected to be 'N', but it is 'P'. ord('N')+2 = ord('P')
+* 9th character is expected to be '2', but it is '1'. ord('2')-1 = ord('1')
+* 10th character is expected to be '2', but it is '3'. ord('2')+1 = ord('3')
 
 Note that the pattern adds and subtracts `1` after reaching `5` for the first time.
 
@@ -61,8 +70,9 @@ So pattern would be -1,+2,-3,+4,-5,+4,-3,+2,-1,+1,-2...
 
 Create solve script :)
 
-### Solve.py
-``` python
+#### Solve.py
+
+```python
 #!/usr/bin/env python3
 
 enc = b"RV>R?GLP13yf<s#.]6dg\\/ci\\hnsc8'dbrp`*jbc&vbg4`df/:`i1506/7a90787492j04b956-9.=z"
@@ -96,6 +106,6 @@ for c in enc:
 print(flag)	
 ```
 
-*Script is not so elegant, but it works*
+_Script is not so elegant, but it works_
 
-Flag: ` STANDCON22{c@n'+_5ee_+he_fore5+_for_+he_+ree5_fc35df341423f53596666e41d8640539}`
+Flag: `STANDCON22{c@n'+_5ee_+he_fore5+_for_+he_+ree5_fc35df341423f53596666e41d8640539}`
