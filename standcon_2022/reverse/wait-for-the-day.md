@@ -6,7 +6,7 @@
 
 > Momma bought a Christmas gift for you. She says it's something you love! But Christmas is like more than 6 months away :/ Try to peek in and find out what the gift is, before the Christmas eve ;)
 
-* [gift\_for\_you](../Wait%20For%20The%20Day/challenge/gift\_for\_you/)
+* [gift\_for\_you](../../STANDCON\_2022/Reverse/Wait%20For%20The%20Day/challenge/gift\_for\_you/)
 
 ### Solution
 

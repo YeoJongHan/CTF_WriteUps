@@ -6,8 +6,8 @@
 
 > Scrolling through my projects, I found some old project code. I remember this code had some "backdoors". But since I mistakenly deleted utils.py, now I cannot understand my own code! Can you help me make sense out of it? You will be rewarded with a flag for your help.
 
-* [main.py](../Want%20a%20byte)
-* [utils.pyc](../Want%20a%20byte)
+* [main.py](../../STANDCON\_2022/Reverse/Want%20a%20byte)
+* [utils.pyc](../../STANDCON\_2022/Reverse/Want%20a%20byte)
 
 ### Solution
 
@@ -23,7 +23,7 @@
 
 #### Analysis
 
-We have to first decompile [utils.pyc](../Want%20a%20byte) to understand the functions that reside in it.
+We have to first decompile [utils.pyc](../../STANDCON\_2022/Reverse/Want%20a%20byte) to understand the functions that reside in it.
 
 Using `decompyle3`, it indicates that the file is coded in Python2.7. This guy really needs to upgrade his Python.
 
@@ -35,7 +35,7 @@ For Python2.7, we can use `uncompyle6`. We see that it decompiles it nicely.
 
 > Note, some of you might have trouble installing uncompyle6 or decompyle3. I faced similar issues and managed to get it to work. If you need help, just give me a dm on discord :)
 
-[main.py](../Want%20a%20byte)
+[main.py](../../STANDCON\_2022/Reverse/Want%20a%20byte)
 
 ```python
 import sys
@@ -127,7 +127,7 @@ except Exception as e:
     print("Incorrect flag!")
 ```
 
-[utils.pyc](../Want%20a%20byte)
+[utils.pyc](../../STANDCON\_2022/Reverse/Want%20a%20byte)
 
 ```python
 import hashlib
@@ -149,7 +149,7 @@ def generate_mask(inp):
     return mod_inp
 ```
 
-In [main.py](../Want%20a%20byte) I noticed that the code in the `derive_key` and `generate_random_key` functions are pretty much static.
+In [main.py](../../STANDCON\_2022/Reverse/Want%20a%20byte) I noticed that the code in the `derive_key` and `generate_random_key` functions are pretty much static.
 
 So printing out `derive_key(generate_random_key(40))` would give us the same output everytime, which is 'a'\*20.
 

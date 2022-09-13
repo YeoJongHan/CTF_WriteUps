@@ -8,7 +8,7 @@
 
 > Wrap the flag in STANDCON22{}
 
-* [NewMath](../New%20Math!/challenge/NewMath/)
+* [NewMath](../../STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath/)
 
 #### Overview
 
@@ -30,13 +30,13 @@ Pretty unique challenge. I would say this challenge wasn't fun for me, but it wa
 
 #### Analysis
 
-Checking the file of [NewMath](../New%20Math!/challenge/NewMath/), it looks to be a program for a `TI-83+ Graphing Calculator`, whatever that is.
+Checking the file of [NewMath](../../STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath/), it looks to be a program for a `TI-83+ Graphing Calculator`, whatever that is.
 
 ![image](https://user-images.githubusercontent.com/83258849/174623806-6aa0dfd9-bfaf-4f9e-a3fc-29ee7b9f3fa9.png)
 
-Doing quite a bit of searching online, I found that the website [https://education.ti.com/](https://education.ti.com/) contains the software that we need in order to check the contents of [NewMath](../New%20Math!/challenge/NewMath/). I know this because the calculator program needs to be written by a software and [https://education.ti.com/](https://education.ti.com/) is the official provider of the TI calculators.
+Doing quite a bit of searching online, I found that the website [https://education.ti.com/](https://education.ti.com/) contains the software that we need in order to check the contents of [NewMath](../../STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath/). I know this because the calculator program needs to be written by a software and [https://education.ti.com/](https://education.ti.com/) is the official provider of the TI calculators.
 
-Which software to install? I didn't know either but looking around the [NewMath](../New%20Math!/challenge/NewMath/) file, we can see the software name in plaintext in the header.
+Which software to install? I didn't know either but looking around the [NewMath](../../STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath/) file, we can see the software name in plaintext in the header.
 
 ![image](https://user-images.githubusercontent.com/83258849/174625329-18c253e9-808d-4fd8-a0de-2f96089882ce.png)
 
@@ -46,7 +46,7 @@ Open the software and head to the "Program Editor" as that is the only tab that 
 
 ![](https://user-images.githubusercontent.com/83258849/174626273-444e7444-d2de-49a1-abcc-97f791c84fd6.png)
 
-I noticed that the software is looking for files with the `.8xp` extension, so rename [NewMath](../New%20Math!/challenge/NewMath/) to `NewMath.8xp` and open it with the software. We can finally see what the program actually does.
+I noticed that the software is looking for files with the `.8xp` extension, so rename [NewMath](../../STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath/) to `NewMath.8xp` and open it with the software. We can finally see what the program actually does.
 
 ![](https://user-images.githubusercontent.com/83258849/174626523-5ae51b8c-e00e-48e5-ad78-7f770de699f3.png)
 
