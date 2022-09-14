@@ -1,8 +1,10 @@
 # Table of contents
 
+* [ℹ About](README.md)
+
 ## 2022
 
-* [STANDCON 2022](README.md)
+* [👾 STANDCON 2022](<README (1).md>)
   * [Crypto](2022/standcon\_2022/crypto/README.md)
     * [Asmuth Shares](2022/standcon\_2022/crypto/asmuth-shares.md)
     * [OMG RNG!](2022/standcon\_2022/crypto/omg-rng.md)
@@ -14,7 +16,7 @@
 
 ## 2021
 
-* [NYP Infosec CTF December 2021](2021/nypinfosec\_dec\_2021/README.md)
+* [⛄ NYP Infosec CTF December 2021](2021/nypinfosec\_dec\_2021/README.md)
   * [Crypto](2021/nypinfosec\_dec\_2021/crypto/README.md)
     * [ROX != XOR](2021/nypinfosec\_dec\_2021/crypto/rox-xor.md)
     * [Spam Mail](2021/nypinfosec\_dec\_2021/crypto/spam-mail.md)
