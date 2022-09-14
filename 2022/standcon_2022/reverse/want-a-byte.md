@@ -7,6 +7,12 @@
 * [main.py](../../../STANDCON\_2022/Reverse/Want%20a%20byte)
 * [utils.pyc](../../../STANDCON\_2022/Reverse/Want%20a%20byte)
 
+{% file src="../../../.gitbook/assets/main.py" %}
+
+{% file src="../../../.gitbook/assets/utils.pyc" %}
+
+###
+
 ### TL;DR
 
 * Decompile utils.pyc

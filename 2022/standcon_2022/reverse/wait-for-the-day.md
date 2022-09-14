@@ -4,7 +4,7 @@
 
 > Momma bought a Christmas gift for you. She says it's something you love! But Christmas is like more than 6 months away :/ Try to peek in and find out what the gift is, before the Christmas eve ;)
 
-* [gift\_for\_you](../../../STANDCON\_2022/Reverse/Wait%20For%20The%20Day/challenge/gift\_for\_you/)
+{% file src="../../../.gitbook/assets/gift_for_you" %}
 
 ### TL;DR
 
@@ -12,7 +12,9 @@
 * Run binary through gdb to get flag in memory
 * Get flag
 
-## Analysis
+## Solution
+
+### Analysis
 
 We are given a file with no extension. Running `file gift_for_you` returns that it is a binary file, so change permissions to allow it to be executable.
 
@@ -40,7 +42,7 @@ This is too much code for me to spend my limited time to try to understand, but 
 
 Since the "Gift" or flag is stored in memory when the binary is running, and the `dispatch_gift` function is not affected by the `time_check` function, we can thus patch the binary to jump straight past the `time_check` function and straight to `dispatch_gift`. Then we can find the flag in memory through `gdb`.
 
-## Patching The Binary
+### Patching The Binary
 
 I used [Radare 2](https://rada.re/n/radare2.html) to patch the binary.
 
@@ -65,7 +67,7 @@ Now running the binary again, we can see that the output is different, means we 
 
 ![image](https://user-images.githubusercontent.com/83258849/174618882-c3196ac7-fd7b-4279-9ecc-5048259ab72a.png)
 
-## Getting flag from memory
+### Getting flag from memory
 
 1. Run the binary through gdb: `gdb gift_for_you`
 2. Set a breakpoint at dispatch\_gift: `break dispatch_gift`
