@@ -4,8 +4,8 @@
 
 > Asmuth wants to share something with you!
 
-* [chal.py](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/chal.py)
-* [out.txt](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt)
+* [chal.py](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/chal.py)
+* [out.txt](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt)
 
 ### TL;DR
 
@@ -13,9 +13,11 @@
 * Use result from `CRT` and perform `mod m0` to get long value of `FLAG`.
 * Stonks
 
-## Analysis
+## Solution
 
-[out.txt](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt):
+### Analysis
+
+[out.txt](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt):
 
 ```
 Public (m0): 0x61f42f24878101c5186ec677cd44a2b14071b9a69260a026fb385482123f2bd647f74e8c569d3cad1c2d48ad6da58ceddd021c5d
@@ -26,7 +28,7 @@ Share 2 (s2, m3): (0x3d045f39ea1b2f9a5486b16fef3b9a99fd68de9d2d9235c14b6254d3ded
 Share 3 (s3, m4): (0x3e27c86088d7c7725814c9efe17909c408a1ddca3f0397c81d142b03d6329ef30941b558f22dc8bc20e752e4a6088a7067e76565, 0x7739b291c0ba89eec860dc8a6b018acb5d05d879504285a079b2785edac2cd543c6a86589071835d74f63524952910944b0977e7)
 ```
 
-[chal.py](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/chal.py):
+[chal.py](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/chal.py):
 
 ```python
 from Crypto.Util.number import getPrime, getRandomRange, bytes_to_long
@@ -55,9 +57,9 @@ with open("out.txt", 'w') as f:
         f.write(f"Share {i} (s{i}, m{i+1}): ({hex(share[i])}, {hex(m[i+1])})\n")
 ```
 
-We are given the values of quite a few variables in the [out.txt](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt) file.
+We are given the values of quite a few variables in the [out.txt](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt) file.
 
-Reading the code for [chal.py](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/chal.py), we can see that it encrypts the flag with the use of nearly all values given in [out.txt](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt). Should be fairly simple to decrypt the flag.
+Reading the code for [chal.py](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/chal.py), we can see that it encrypts the flag with the use of nearly all values given in [out.txt](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt). Should be fairly simple to decrypt the flag.
 
 #### Analyzing chal.py
 
@@ -85,7 +87,7 @@ alpha = getRandomRange(2, M)
 k = 4
 ```
 
-4 values are then generated and stored in `s`. This is the important part of the encryption. Last few lines are just to write out the values to [out.txt](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt).
+4 values are then generated and stored in `s`. This is the important part of the encryption. Last few lines are just to write out the values to [out.txt](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt).
 
 ```python
 for i in range(k):
@@ -97,7 +99,7 @@ From this part of the code, we have all the values of every variable except for 
 
 Take note that the portion `s = (FLAG + alpha*m[0]) % m[i+1]` repeats 4 times, with different `s` results, using `m[1]` to `m[4]` as the modulus at each iteration, and `(FLAG + alpha*m[0])` being the same at each iteration (the number being modulo is the same each time).
 
-So we can form 4 equations given the values we got from [out.txt](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt):
+So we can form 4 equations given the values we got from [out.txt](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt):
 
 * `s0 = (FLAG + alpha*m[0]) % m1`
 * `s1 = (FLAG + alpha*m[0]) % m2`
@@ -131,7 +133,7 @@ FLAG % m0 = FLAG       # Since it is most likely that FLAG < m0 as m0 is an extr
 (FLAG + alpha*m0) % m0 = FLAG
 ```
 
-## Solve.py
+### Solve.py
 
 ```python
 #!/usr/bin/env python3

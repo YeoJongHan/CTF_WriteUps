@@ -4,7 +4,7 @@
 
 > You've been swimming, and encounter a submerged mangrove forest. You enter it to explore, and without knowing it, you're lost. How do you escape?
 
-* [chall.exe](../../../STANDCON\_2022/Reverse/Lost%20In%20the%20Deep/challenge/chall.exe)
+{% file src="../../../.gitbook/assets/chall.exe" %}
 
 (_Windows Antivirus may pick up virus signatures from the file_)
 
@@ -19,7 +19,9 @@
 * Make a solve script for it
 * Flag is won
 
-## Analysis
+## Solution
+
+### Analysis
 
 We are given a windows executable file.
 
@@ -64,7 +66,7 @@ So pattern would be -1,+2,-3,+4,-5,+4,-3,+2,-1,+1,-2...
 
 Create solve script :)
 
-## Solve.py
+### Solve.py
 
 ```python
 #!/usr/bin/env python3

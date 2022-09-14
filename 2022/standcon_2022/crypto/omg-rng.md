@@ -6,11 +6,11 @@
 
 > `nc lab-1.ctf.standcon.n0h4ts.com 7903`
 
-* [chal.py](../../../STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py)
+* [chal.py](../../../challenge\_files/STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py)
 
 ### Overview
 
-Starting an instance and connecting to the server, the server would run [chal.py](../../../STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py) and send you `gifts` and a `secret` containing the flag that is encrypted.
+Starting an instance and connecting to the server, the server would run [chal.py](../../../challenge\_files/STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py) and send you `gifts` and a `secret` containing the flag that is encrypted.
 
 We have to figure out a way to decrypt the `secret` retrieved from the server using the `gifts`.
 
@@ -22,9 +22,11 @@ We have to figure out a way to decrypt the `secret` retrieved from the server us
 * Perform `XOR` of `secret` with first 2 states.
 * Got flag
 
-## Analysis
+## Solution
 
-[chal.py](../../../STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py)
+### Analysis
+
+[chal.py](../../../challenge\_files/STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py)
 
 ```python
 from Crypto.Util.number import bytes_to_long, getRandomRange
@@ -126,7 +128,7 @@ P = MLFG()
         exit("\nEnough Gifts!")
 ```
 
-#### Finding value of 'm'
+### Finding value of 'm'
 
 We will first have to grab the next few states of `MLFG`. I went to grab 4 states and then the `secret`.
 
@@ -167,7 +169,7 @@ So now we have n1m and n2m, we can find the value of `m` by finding the `gcd` of
 
 #### m acquired!
 
-## Finding previous state
+### Finding previous state
 
 Let's focus on this equation as we want to find the previous state:
 
@@ -202,7 +204,7 @@ We can then just keep finding the previous states until we find the flag!
 
 Note that the `linear congruence` function may return errors at times because some of the values provided may not have any solutions (this happens as the the gcd of the modulus and the starting number does not equally divide the result, so 2x mod 8 = 51 have no solution because gcd(2,8)=2, and 51%2 != 0)
 
-## Solve.py
+### Solve.py
 
 ```python
 #!/usr/bin/env python3
