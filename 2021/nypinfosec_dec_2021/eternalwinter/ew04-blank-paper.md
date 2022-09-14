@@ -32,33 +32,33 @@ This basically explains the exploit that we need to perform. It is a `prototype 
 
 We can first visit the website given and see what we are going to deal with.
 
-![page](https://user-images.githubusercontent.com/83258849/147675368-b670bbfe-c8be-48f9-b6ca-0dc21888cbda.png)
+![](https://user-images.githubusercontent.com/83258849/147675368-b670bbfe-c8be-48f9-b6ca-0dc21888cbda.png)
 
 It's pretty empty... aside from a login page. SQL Injection doesn't work, no information under inspect element, and default credentials don't work.
 
-![login](https://user-images.githubusercontent.com/83258849/147675685-e32eea93-a3d8-4690-8098-35a2aa84dc5e.png)
+![](https://user-images.githubusercontent.com/83258849/147675685-e32eea93-a3d8-4690-8098-35a2aa84dc5e.png)
 
 Checking the files given, the files in the `server` folder does not give us much information. Under the `Client` folder however, the index.js seems to be very helpful.
 
 We can see the lodash module that has been imported has been given the variable `_`
 
-![image](https://user-images.githubusercontent.com/83258849/147675802-b920ddd8-2e75-4691-8b5f-0c4011d18eb1.png)
+![cat index.js](https://user-images.githubusercontent.com/83258849/147675802-b920ddd8-2e75-4691-8b5f-0c4011d18eb1.png)
 
 We can also see the default login credentials `user:pwd`, which we can use to successfully login to the website.
 
-![image](https://user-images.githubusercontent.com/83258849/147675908-83a35383-07cf-4988-a506-f0b905e80e76.png)
+![](https://user-images.githubusercontent.com/83258849/147675908-83a35383-07cf-4988-a506-f0b905e80e76.png)
 
 Logging in to the site, there are messages on the home page and we can create new messages.
 
 We can also see that this user is a real gamer as he plays roblox and is proud of owning an NFT.
 
-![image](https://user-images.githubusercontent.com/83258849/147676155-aeb644f1-991b-4bbf-95eb-f491f60a3698.png)
+![](https://user-images.githubusercontent.com/83258849/147676155-aeb644f1-991b-4bbf-95eb-f491f60a3698.png)
 
-![image](https://user-images.githubusercontent.com/83258849/147676178-8a45fb63-458b-4985-8afc-70fe3126bc8f.png)
+![](https://user-images.githubusercontent.com/83258849/147676178-8a45fb63-458b-4985-8afc-70fe3126bc8f.png)
 
 Nothing else to explore on the website and nothing suspicious so far. Going back into examining `index.js`, we can see an array of objects which are messages, 2 objects of interest have a `secret` attribute set to `true`, 1 containing a fake flag and another containing a _suspicious link_.
 
-![image](https://user-images.githubusercontent.com/83258849/147678807-6bdc71ac-75ca-4297-b800-5bd8127b95b3.png)
+![](https://user-images.githubusercontent.com/83258849/147678807-6bdc71ac-75ca-4297-b800-5bd8127b95b3.png)
 
 Here is the link [https://bit.ly/30ZzwYZ](https://bit.ly/30ZzwYZ), if u want to check it out. The creator of this challenge have greate taste!
 
@@ -66,7 +66,7 @@ Since the fake flag has an attribute of secret set the true, and we can't see th
 
 Looking at the rest of the code, specifically at the `/api/message` endpoint, the page authenticates the user, then checks `user.secret` and if the value returns true, then it will show all the messages including the ones with the `secret` attribute set to `true`. Else, it will only send the messages with the `secret` attribute not set or set to `false`.
 
-![image](https://user-images.githubusercontent.com/83258849/147678557-88976e91-54ba-43d5-853e-276670f0f6f7.png)
+![](https://user-images.githubusercontent.com/83258849/147678557-88976e91-54ba-43d5-853e-276670f0f6f7.png)
 
 So now we know that we need to change the `secret` attribute of the user object to `true`, using `prototype pollution`. To exploit the site using `prototype pollution`, we can first look more into what is `prototype pollution` and how can it change the attributes of objects in JavaScript.
 
@@ -88,13 +88,13 @@ Searching for `lodash prototype pollution writeup`, I used this post as referenc
 
 From the post, we can see that the vulnerable part of the application is the `merge()` function in the vulnerable `lodash` module, and it is used in the target site as we can see it used in the `index.js` under the `Client` folder.
 
-![code](https://user-images.githubusercontent.com/83258849/147679996-4ac0e09d-86d4-4369-8a4f-d0a933046718.png)
+![](https://user-images.githubusercontent.com/83258849/147679996-4ac0e09d-86d4-4369-8a4f-d0a933046718.png)
 
 This code is placed under the `/api/message` endpoint, with a `PUT` request. So we can guess that this code is ran when a new message is created.
 
 Using `Burp Suite`, we login, create a new message, and check the `PUT` request that has been made to the `/api/message` endpoint.
 
-![image](https://user-images.githubusercontent.com/83258849/147681207-63103e23-006c-4520-bd04-d4d22525d204.png)
+![](https://user-images.githubusercontent.com/83258849/147681207-63103e23-006c-4520-bd04-d4d22525d204.png)
 
 As expected, the data sent is in `json` format, which is expected for `prototype pollution` challenge.
 
@@ -124,6 +124,6 @@ Now we just have to change the attribute to \`secret instead and change the othe
 
 Sending this payload would return the flag and a `ROT13` encoded URL for the next challenge.
 
-![image](https://user-images.githubusercontent.com/83258849/147682113-98786f75-64c8-4e02-b75f-27a731aef77f.png)
+![](https://user-images.githubusercontent.com/83258849/147682113-98786f75-64c8-4e02-b75f-27a731aef77f.png)
 
 flag = `NYP{PR0T0TYPE_P011UTI0N_15_TH3_K3Y}`

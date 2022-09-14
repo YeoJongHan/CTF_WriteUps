@@ -10,7 +10,7 @@
 
 > Author: **Carl Voller**
 
-The source code for the program was given `Greet0r.c`
+{% file src="../../../.gitbook/assets/Greet0r.c" %}
 
 ## The Challenge
 
@@ -90,13 +90,13 @@ Since `loopCount` is defined in the same function as the `name` variable, it mea
 
 This is a rough sketch of how the stack would look like in this example:
 
-![stack2](https://user-images.githubusercontent.com/83258849/147780268-fe5e702d-9822-4676-8214-5f88bf055f64.png)
+![](https://user-images.githubusercontent.com/83258849/147780268-fe5e702d-9822-4676-8214-5f88bf055f64.png)
 
 Using the `Buffer Overflow` exploit, our input will be moved into the `name` variable, then our remaining overflowing characters will overwrite other parts of the stack as the `name` variable can only hold `52` bytes. If we do it correctly, the remaining overflowing characters will overwrite the value in the `loopCount` variable, so we can change the value in `loopCount` to anything we want.
 
 Illustration of Buffer Overflow:
 
-![bof](https://user-images.githubusercontent.com/83258849/147780233-a1a446e9-3f43-493d-86ee-e29b86b1fa5c.png)
+![](https://user-images.githubusercontent.com/83258849/147780233-a1a446e9-3f43-493d-86ee-e29b86b1fa5c.png)
 
 ## Getting Started
 
@@ -106,13 +106,13 @@ Run `gcc Greet0r.c -o Greet0r` to compile the code into a binary.
 
 I used `gdb-pwndbg` to debug the program during runtime. You can install it from their main github page [https://github.com/pwndbg/pwndbg](https://github.com/pwndbg/pwndbg). Run `gdb ./Greet0r` and run `disass main` to disassemble the `main` function.
 
-![image](https://user-images.githubusercontent.com/83258849/147777561-793ec896-0aad-4517-bbb7-8493ce4d1911.png)
+![](https://user-images.githubusercontent.com/83258849/147777561-793ec896-0aad-4517-bbb7-8493ce4d1911.png)
 
 It is a lot to take in and may be overwhelming, but it is pretty simple once you understand how the instructions are ran.
 
 At the first few lines of instructions, there is a `mov DWORD PTR [rbp-0x8], 0x4` instruction. This instruction places the number `4` into the address at `rbp-0x8`. In this case, you can view `rbp` as one of the many registers that holds a value for now. So the address at `rbp` - 8 would contain the value `4`.
 
-![image](https://user-images.githubusercontent.com/83258849/147777761-5245e472-e585-45f5-8066-53ded66ef642.png)
+![](https://user-images.githubusercontent.com/83258849/147777761-5245e472-e585-45f5-8066-53ded66ef642.png)
 
 This instruction is assigning the variable `loopCounter` with the value `4` as we seen in the source code!
 
@@ -122,7 +122,7 @@ int loopCount = 4;
 
 At the very end of `main` function, there is a `cmp` instruction, which is for compare, and a `jl` instruction, which is a "jump if less than" instruction.
 
-![image](https://user-images.githubusercontent.com/83258849/147777692-a3396998-e20c-444e-a035-bf5b379a16fb.png)
+![](https://user-images.githubusercontent.com/83258849/147777692-a3396998-e20c-444e-a035-bf5b379a16fb.png)
 
 These instructions basically compares the value in the `eax` register, with the value at the address `rbp-0x8`. Remember that `rbp-0x8` is our `loopCount` variable containing the number `4`? These instructions makes up the `if` statement in the `for` loop, where `if i < loopCount, continue looping`
 
@@ -138,29 +138,29 @@ So now we know that the value of `loopCount` is stored in the address at `rbp-0x
 
 Running `gdb-pwndbg` on the program, we can set a breakpoint at `main` by running `break main`, then we grab the address of the compare instruction, which is `0x1251` in my case. (the address may be different for you)
 
-![image](https://user-images.githubusercontent.com/83258849/147777692-a3396998-e20c-444e-a035-bf5b379a16fb.png)
+![](https://user-images.githubusercontent.com/83258849/147777692-a3396998-e20c-444e-a035-bf5b379a16fb.png)
 
 Run the program in `gdb-pwndbg` by running the command `run`, the program should stop at a breakpoint at main. Now set a breakpoint at the address of the compare function during runtime by running the command `breakrva <address>`, in my case would be `breakrva 0x1251`. This should set a second breakpoint. Continue the program by running `c`. The program will ask for the user input like the normal program.
 
-![image](https://user-images.githubusercontent.com/83258849/147778930-4eec17f5-70e1-4d45-a8db-6131f70ba0b4.png)
+![](https://user-images.githubusercontent.com/83258849/147778930-4eec17f5-70e1-4d45-a8db-6131f70ba0b4.png)
 
 Enter `john` or any string you want. The program should hit another breakpoint at the compare function. The string you entered into the program should be seen in the `RSP` register, the `stack pointer`, which is where your stack resides.
 
-![image](https://user-images.githubusercontent.com/83258849/147779018-71e74c08-c923-4d1c-9360-7778e6c28cd4.png)
+![](https://user-images.githubusercontent.com/83258849/147779018-71e74c08-c923-4d1c-9360-7778e6c28cd4.png)
 
 We can examine the value in the `loopCount` variable by examining the address at `rbp-0x8`. Run the command `x $rbp-0x8` to examine the value at the address. It should show that it contains a value `4` as long as the user input is not too long.
 
-![image](https://user-images.githubusercontent.com/83258849/147779219-4d1c8aa3-b3f4-41cd-a09f-208844eaa4a1.png)
+![](https://user-images.githubusercontent.com/83258849/147779219-4d1c8aa3-b3f4-41cd-a09f-208844eaa4a1.png)
 
 Note the actual address of `rbp-0x8` during runtime (hex address at left side). In my case, it is `0x7fffffffe2f8`.
 
 Now let's examine the values on the stack by running the command `x /40wx $rsp`. The first few hex values would contain the string that you have input into the program, in `little endian` format and in hex.
 
-![image](https://user-images.githubusercontent.com/83258849/147779490-9f2ad751-2ecb-4417-9588-7529aac0d5bf.png)
+![](https://user-images.githubusercontent.com/83258849/147779490-9f2ad751-2ecb-4417-9588-7529aac0d5bf.png)
 
 Notice how the address of `loopCount` is in the stack? You can see from my example that the value `0x4` is at the address `0x7fffffffe2f8`, which is residing on the stack.
 
-![stack](https://user-images.githubusercontent.com/83258849/147779765-c1965924-7753-42f5-a938-9a601564d3f0.png)
+![](https://user-images.githubusercontent.com/83258849/147779765-c1965924-7753-42f5-a938-9a601564d3f0.png)
 
 We can then count that we need `72` characters until we reach our `loopCount` value (1 character is 2 hex digits).
 
@@ -170,7 +170,7 @@ Run a new instance of `gdb-pwndbg` on the program, set break at main, copy the a
 
 Now check the value stored in `loopCount`, which is at `rbp-0x8`. Run the command `x $rbp-0x8`. The value at that address is overwritten with `0x42424242`, which is our `B`s!
 
-![image](https://user-images.githubusercontent.com/83258849/147780995-ab42b828-123e-4490-a848-f68f1601117e.png)
+![](https://user-images.githubusercontent.com/83258849/147780995-ab42b828-123e-4490-a848-f68f1601117e.png)
 
 Technically the flag is already printed, but it's hard to tell as there are many statements being printed. Let's try to overwrite the value in `loopCount` to only `6` so that our flag is printed.
 
@@ -195,7 +195,7 @@ print(p.recvall())
 p.close()
 ```
 
-![image](https://user-images.githubusercontent.com/83258849/147781730-69970f78-e359-467e-a905-3dc8487f64bc.png)
+![](https://user-images.githubusercontent.com/83258849/147781730-69970f78-e359-467e-a905-3dc8487f64bc.png)
 
 Change `p = process('./Greet0r')` to access the target host `p = remote('<host>', <port>)` and we should get our flag!
 

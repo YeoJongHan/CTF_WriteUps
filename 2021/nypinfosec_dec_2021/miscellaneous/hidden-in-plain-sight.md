@@ -12,7 +12,7 @@
 
 Nothing else is given, so let's try running the `netcat` command.
 
-![image](https://user-images.githubusercontent.com/83258849/147765426-c011ae78-657a-4fbb-9b34-5f95e7b77bb1.png)
+![](https://user-images.githubusercontent.com/83258849/147765426-c011ae78-657a-4fbb-9b34-5f95e7b77bb1.png)
 
 Not very helpful...
 
@@ -24,8 +24,8 @@ This command is to scan with default scripts (`-sC`) and enumerate the versions 
 
 And immediately, we see our flag.
 
-![image](https://user-images.githubusercontent.com/83258849/147765838-297e276b-cfbb-44b8-8be6-a93bdeb5877e.png)
+![](https://user-images.githubusercontent.com/83258849/147765838-297e276b-cfbb-44b8-8be6-a93bdeb5877e.png)
 
 flag = `NYP{ans1_c0ntr0l_s3qu3nc3s_damn_c00l}`
 
-This is probably not the intended way to solve this, so I would be happy to hear the intended solution :)
+Intended solution was to use `nc` with the `-o` option to output it to a file, then view the flag from there.

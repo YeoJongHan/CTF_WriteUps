@@ -8,11 +8,13 @@
 
 > Author: **Mark Bosco**
 
-A png image is attached with the challenge `PosterIntro.png`.
+{% file src="../../../.gitbook/assets/PosterIntro.png" %}
 
 ## The Challenge
 
-Opening up the image, we can clearly see a line of binary at the bottom of the image. ![PosterIntro](https://user-images.githubusercontent.com/83258849/147628002-3104561b-3d6b-4101-985d-657c8effc763.png) Binary: `1001110 1011001 1010000 1111011 1100111 1110010 0110000 1110101 1101110 1100100 1011010 0110011 1110010 1001111 1111101`
+Opening up the image, we can clearly see a line of binary at the bottom of the image.  Binary: `1001110 1011001 1010000 1111011 1100111 1110010 0110000 1110101 1101110 1100100 1011010 0110011 1110010 1001111 1111101`
+
+<figure><img src="https://user-images.githubusercontent.com/83258849/147628002-3104561b-3d6b-4101-985d-657c8effc763.png" alt=""><figcaption></figcaption></figure>
 
 First thing that comes to mind when finding a binary string is to try to convert it to ASCII.
 

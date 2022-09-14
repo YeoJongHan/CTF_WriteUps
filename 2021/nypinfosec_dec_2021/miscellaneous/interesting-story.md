@@ -8,7 +8,7 @@
 
 > Author: **Edwin**
 
-We are provided a text file `interesting_story.txt`
+{% file src="../../../.gitbook/assets/interesting_story.txt" %}
 
 ## The Challenge
 
@@ -16,7 +16,7 @@ The text file contains a long, interesting story indeed.
 
 Taking a quick glance, nothing looks out of the ordinary except for "`November The real reason was so...`" and "`Yankee Ninety-nine percent of the time...`"
 
-![story](https://user-images.githubusercontent.com/83258849/147766869-a02d9e29-8efa-49ca-aaf4-6006fff182dc.png)
+![](https://user-images.githubusercontent.com/83258849/147766869-a02d9e29-8efa-49ca-aaf4-6006fff182dc.png)
 
 Notice how the capital letters of the out-of-place words form our first two letters of the flag format `NYP{flag}`? Seems like the flag is hidden in this manner, adding extra words to a story.
 
@@ -55,6 +55,4 @@ If we grab the first letters of each of the strings and join them together, we w
 
 flag = `NYP{K3V1NM1TN1CK}`
 
-### As pointed out by `Dylan`, these words like 'November', 'Papa', 'unaone', 'terrathree'... are in `NATO Phonetic Alphabet` and can be decoded through the `NATO Phonetic Alphabet Decoder` https://www.dcode.fr/nato-phonetic-alphabet. Thank you for pointing that out :D
-
-> _The stories and full python script are under the `tools` folder :)_
+#### As pointed out by `Dylan`, these words like 'November', 'Papa', 'unaone', 'terrathree'... are in `NATO Phonetic Alphabet` and can be decoded through the `NATO Phonetic Alphabet Decoder` https://www.dcode.fr/nato-phonetic-alphabet. Thank you for pointing that out :D

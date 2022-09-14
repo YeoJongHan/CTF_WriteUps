@@ -12,11 +12,15 @@
 
 This challenge wants us to visit a website.
 
-From the file given in previous challenge, we can roughly make out a website address in `PosterIntro.png`. ![web2](https://user-images.githubusercontent.com/83258849/147629273-688b28e0-2315-4072-8bed-fec781706904.png) ![web1](https://user-images.githubusercontent.com/83258849/147629278-24c07398-826a-44ca-ae3d-a746933e152e.png)
+From the file given in previous challenge, we can roughly make out a website address in `PosterIntro.png`. &#x20;
+
+<figure><img src="https://user-images.githubusercontent.com/83258849/147629273-688b28e0-2315-4072-8bed-fec781706904.png" alt=""><figcaption></figcaption></figure>
+
+<figure><img src="https://user-images.githubusercontent.com/83258849/147629278-24c07398-826a-44ca-ae3d-a746933e152e.png" alt=""><figcaption></figcaption></figure>
 
 Visiting the website gives us this page:
 
-![Picture1](https://user-images.githubusercontent.com/83258849/147629385-b7ea7779-2e8f-477c-ab9c-d336229c7a88.png)
+![](https://user-images.githubusercontent.com/83258849/147629385-b7ea7779-2e8f-477c-ab9c-d336229c7a88.png)
 
 We should note the error message: `Error: Page accessed incorrectly. Secret flag not delivered`.
 
@@ -26,7 +30,7 @@ Checking back at the Challenge Description, they mentioned `FRAME` many times, h
 
 Checking the response header through `Burp Suite`, we can see that there is no `X-Frame-Option` set. This means that we can try putting it into an `<iframe>`.
 
-![Untitled-2](https://user-images.githubusercontent.com/83258849/147630771-9799e285-0dcb-4ce7-8793-7e81dcbb59a1.png)
+![](https://user-images.githubusercontent.com/83258849/147630771-9799e285-0dcb-4ce7-8793-7e81dcbb59a1.png)
 
 We can create a quick `<iframe>` with `src` set to the URL of the page in a `.html` file.
 
@@ -38,7 +42,7 @@ We can create a quick `<iframe>` with `src` set to the URL of the page in a `.ht
 
 Opening the file locally,
 
-![iframe](https://user-images.githubusercontent.com/83258849/147631248-06843ac9-b010-416a-9783-aa882c1423b6.png)
+![](https://user-images.githubusercontent.com/83258849/147631248-06843ac9-b010-416a-9783-aa882c1423b6.png)
 
 There is no error message now but it now says `This website has no flag. But it once had a perfect copy.`
 
@@ -46,6 +50,6 @@ My first instinct was to check the `Way Back Machine` as it states "`once had a 
 
 Opening and checking the response using `Burp Suite`, the flag can be seen in the value of an `<input>` element, which got removed when the JavaScript was loaded on our web browser. That's why we couldn't just use `Inspect Element` on the page itself to view the code.
 
-![response](https://user-images.githubusercontent.com/83258849/147632258-072e1866-3431-4caf-88e1-085b578ff613.png)
+![](https://user-images.githubusercontent.com/83258849/147632258-072e1866-3431-4caf-88e1-085b578ff613.png)
 
 flag = `NYP{Zer0K3lvinSt4rts}`

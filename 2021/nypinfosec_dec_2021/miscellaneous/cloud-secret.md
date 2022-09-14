@@ -8,13 +8,13 @@
 
 > Author: **Edwin**
 
-A link was provided with this challenge: [http://cloud-secret.nypinfsecctf.tk](http://cloud-secret.nypinfsecctf.tk)
+{% embed url="http://cloud-secret.nypinfsecctf.tk" %}
 
 ## The Challenge
 
 Visiting the site, it's just a scuffed login page.
 
-![image](https://user-images.githubusercontent.com/83258849/147761101-7147f783-7745-4111-a595-006bce2229d8.png)
+![](https://user-images.githubusercontent.com/83258849/147761101-7147f783-7745-4111-a595-006bce2229d8.png)
 
 Viewing the page source code, it looks like the form does not do anything at all.
 
@@ -34,7 +34,7 @@ Here is more information on amazon buckets if you want to read up on them [https
 
 Visiting `https://nypctf.s3.ap-southeast-1.amazonaws.com` will return an error message
 
-![image](https://user-images.githubusercontent.com/83258849/147762374-4606f918-1cee-45c8-99d7-6dc7fe6401d2.png)
+![](https://user-images.githubusercontent.com/83258849/147762374-4606f918-1cee-45c8-99d7-6dc7fe6401d2.png)
 
 Checking the `alt` attribute of the image again, we can see that it looks like it is either gibberish or encoded, most likely encoded as the `alt` attribute is to display alternative information for the image if it fails to load.
 

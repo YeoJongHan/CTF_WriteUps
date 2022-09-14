@@ -8,11 +8,13 @@
 
 > Author: **Edwin**
 
-We are provided with a link: [http://securer-vault.nypinfsecctf.tk/](http://securer-vault.nypinfsecctf.tk/)
+{% embed url="http://securer-vault.nypinfsecctf.tk/" %}
 
 ## The Challenge
 
-Upon visiting the site provided, we are redirected to a login page ![Picture1](https://user-images.githubusercontent.com/83258849/147594105-ea9ee79a-c8c5-41ff-b702-07b97ab777fb.png)
+Upon visiting the site provided, we are redirected to a login page&#x20;
+
+<figure><img src="https://user-images.githubusercontent.com/83258849/147594105-ea9ee79a-c8c5-41ff-b702-07b97ab777fb.png" alt=""><figcaption></figcaption></figure>
 
 Seems like we need to figure out the password.
 

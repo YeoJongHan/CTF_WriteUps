@@ -10,12 +10,13 @@
 
 We are also given 4 different files for the challenge.
 
-```
-README.md
-txt.txt
-virus1.s
-virus2.
-```
+{% file src="../../../.gitbook/assets/" %}
+
+{% file src="../../../.gitbook/assets/txt.txt" %}
+
+{% file src="../../../.gitbook/assets/virus1.s" %}
+
+{% file src="../../../.gitbook/assets/virus2.s" %}
 
 **NOTE: This write up is to explain the basics of assembly in detail. If you don't know what registers are, you can just think of it as a storage space to store a value for this moment.**
 
@@ -25,11 +26,11 @@ virus2.
 
 This are the main contents in this write up :)
 
-* [Analyse and decode virus2.s](lost-my-homework-again.md#analysing-virus2s)
-* [Analyse and decode virus1.s](lost-my-homework-again.md#analysing-virus1s)
+* [Analyse and decode virus2.s](lost-my-homework-again.md#analysing-virus2.s)
+* [Analyse and decode virus1.s](lost-my-homework-again.md#analysing-virus1.s)
 * [Reversing](lost-my-homework-again.md#reversing)
 
-### The Challenge
+## The Challenge
 
 Reading README.md, one sentence to note in the file is:
 
@@ -49,7 +50,7 @@ We can determine the length of the text that needs to be recovered is `44` chara
 
 Now we have to analyze what the code in the 'virus programs' are actually doing.
 
-## Analysing virus2.s
+### Analysing virus2.s
 
 We will first analyze **virus2.s** as it is simpler to reverse.
 
@@ -101,7 +102,7 @@ Whatever comes after `;` is a comment, and the instruction is as the comment sta
 
 So in this case, it is copying the data from a register that contains our chars in decimal, into the X0 register. If the instruction is `mov X0, X1`, it would copy data from X1 register into the X0 register.
 
-## Examining instructions under factor 1
+### Examining instructions under factor 1
 
 ```
     ; factor 1
@@ -134,7 +135,7 @@ for char in text:
 
 Where `char` would represent the `X0` register and `20` representing the `X19` register. `ord()` is just to convert the ascii characters into decimal.
 
-## Examining instructions under factor 2
+### Examining instructions under factor 2
 
 ```
     ; factor 2
@@ -181,7 +182,7 @@ The last line `mov X0, X21` just moves the end result into the `X0` register. Th
 
 The last few instructions under `;syscall to exit` is to just exit the program.
 
-## Simplifying virus2.s
+### Simplifying virus2.s
 
 After decoding what the program does, we can replicate what the program does in python. But first, let's see an example of the flow if a value is fed into the program.
 
@@ -251,7 +252,7 @@ def virus2(text):
 
 ```
 
-## Analysing virus1.s
+### Analysing virus1.s
 
 #### virus1.s
 
@@ -286,7 +287,7 @@ As we can see, the first few lines of instructions are exactly the same as those
 
 So the program does the same function as virus2.s: the subtracting 20 from the character and adding it to `X0` register, then modulus that value by `4` and storing the result in the `X21` register.
 
-## Decoding virus1.s
+### Decoding virus1.s
 
 We will decode the 3 new instructions.
 
@@ -454,4 +455,4 @@ The output will be `TllQezByZDFuYWxfYXNzM21ibHlfMXNfczBfYzAwTH0=`. Base64 decode
 
 `flag = NYP{0rd1nal_ass3mbly_1s_s0_c00L}`
 
-I placed the python scripts I created under the `tools` directory.
+Here are the python scripts I created to solve the challenge: [https://github.com/YeoJongHan/CTF\_WriteUps/tree/main/challenge\_files/NYPInfosec\_Dec\_2021/Reverse/Lost%20my%20\_homework\_%20again!/tools](https://github.com/YeoJongHan/CTF\_WriteUps/tree/main/challenge\_files/NYPInfosec\_Dec\_2021/Reverse/Lost%20my%20\_homework\_%20again!/tools)

@@ -8,7 +8,7 @@
 
 > Music and Styling: **Mark Bosco** Special Thanks to **Carl**.
 
-> https://nypinfsecctf.tk/podium
+{% embed url="https://nypinfsecctf.tk/podium" %}
 
 ## The Challenge
 
@@ -16,11 +16,11 @@ The link brings us to the podium page of the CTF. Turning on the volume, we can 
 
 Opening `Inspect Element`, under the `<audio>` element, there is a comment that hints towards the need to find a script that was once on the page.
 
-![image](https://user-images.githubusercontent.com/83258849/147806462-2bf67240-02d1-456e-bee0-53427d9694f4.png)
+![](https://user-images.githubusercontent.com/83258849/147806462-2bf67240-02d1-456e-bee0-53427d9694f4.png)
 
 Similar to the `EW02 Framed Copy` challenge, we can use `Burp Suite` to see the response, checking if any JavaScript deletes itself after loading it on the web browser.
 
-![image](https://user-images.githubusercontent.com/83258849/147806659-e763c292-ac63-4cc7-a677-f1cffd5cf673.png)
+![](https://user-images.githubusercontent.com/83258849/147806659-e763c292-ac63-4cc7-a677-f1cffd5cf673.png)
 
 And we found the script!
 
@@ -40,11 +40,11 @@ We can try to extract the morse code audio from the audio file. I will be using 
 
 Right after we open the audio file with `audacity`, we can see that there are 2 tracks, 1 for the rickroll audio while the other is the morse code.
 
-![image](https://user-images.githubusercontent.com/83258849/147807050-02b2a8a9-1e7a-4247-919b-a63cdc6ecc6e.png)
+![](https://user-images.githubusercontent.com/83258849/147807050-02b2a8a9-1e7a-4247-919b-a63cdc6ecc6e.png)
 
 We can split the audio tracks by clicking on the audio filename at the top left, then clicking on `Split Stereo Track`
 
-![image](https://user-images.githubusercontent.com/83258849/147807123-6e0bd420-ed9c-4616-9406-027b8462265c.png)
+![](https://user-images.githubusercontent.com/83258849/147807123-6e0bd420-ed9c-4616-9406-027b8462265c.png)
 
 The audio tracks will be splitted. Now we can delete the rickroll track by pressing the `Close` button on the top left of the audio track.
 
@@ -52,6 +52,6 @@ Now we remove the silent parts of the morse code audio so we dont have to wait f
 
 Upload the file, then click play. It will automatically decrypt the morse code for you.
 
-![image](https://user-images.githubusercontent.com/83258849/147807453-4a3e5de6-8985-4d7d-9db4-b7d0a85e6e18.png)
+![](https://user-images.githubusercontent.com/83258849/147807453-4a3e5de6-8985-4d7d-9db4-b7d0a85e6e18.png)
 
 flag = `NYP{M0RSE CODE MAGIC}`

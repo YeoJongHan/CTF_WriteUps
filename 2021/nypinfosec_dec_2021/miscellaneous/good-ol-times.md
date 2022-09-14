@@ -8,7 +8,7 @@
 
 > Author: **Edwin**
 
-We are provided with a jpg image `clock.jpg`
+{% file src="../../../.gitbook/assets/clock.jpg" %}
 
 ## The Challenge
 
@@ -32,7 +32,7 @@ Pasting the binary string into [CyberChef](https://gchq.github.io/CyberChef/) an
 
 Visiting the URL, luckily for us, it isn't another rickroll. But unfortunately, it returns a `404 not found`.
 
-![image](https://user-images.githubusercontent.com/83258849/147764328-d122f48f-f45c-45fd-a2fe-b318ef32e26c.png)
+![](https://user-images.githubusercontent.com/83258849/147764328-d122f48f-f45c-45fd-a2fe-b318ef32e26c.png)
 
 My first thought was that this was unintended and the administrators of the pastebin website removed it because the content didn't follow their rules.
 
@@ -44,7 +44,7 @@ The `Way Back Machine` is a database that stores old versions of websites, only 
 
 Entering the pastebin url into the `Way Back Machine`, we can see an archive has been made way back in 12 October 2021.
 
-![image](https://user-images.githubusercontent.com/83258849/147765075-0ce7b98e-1cc9-4116-922f-919efb71bb9d.png)
+![](https://user-images.githubusercontent.com/83258849/147765075-0ce7b98e-1cc9-4116-922f-919efb71bb9d.png)
 
 Checking out the archive would give us the flag.
 

@@ -6,7 +6,7 @@
 
 > Author: **Ee Sheng**
 
-A file is provided together with this challenge `challenge.txt`.
+{% file src="../../../.gitbook/assets/challenge.txt" %}
 
 ## The Challenge
 
@@ -34,7 +34,7 @@ print(result)
 
 Sadly, this does not return us any proper characters :(
 
-![image](https://user-images.githubusercontent.com/83258849/147683932-20f5d7f4-700b-41dd-88df-8252e587904f.png)
+![](https://user-images.githubusercontent.com/83258849/147683932-20f5d7f4-700b-41dd-88df-8252e587904f.png)
 
 I tried searching online for an `ROX` operation or instruction but couldn't find anything.
 
@@ -120,4 +120,4 @@ print("Flag is {}".format(flag))
 
 flag = `NYP{YOUDONEIT}`
 
-### Intended solution is probably to inverse the 1s to 0s and 0s to 1s after the XOR. Credits to `Dylan` :D
+#### Intended solution is probably to inverse the 1s to 0s and 0s to 1s after the XOR. Credits to `Dylan` :D
