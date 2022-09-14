@@ -27,7 +27,7 @@ We are given a windows executable file.
 
 Running `strings chall.exe`, we can see strings like `UPX0`, `UPX1`. This indicates that the executable is packed using `UPX`.
 
-![image](https://user-images.githubusercontent.com/83258849/174650032-6c28dd45-daf2-4515-9262-c761be3f8e6f.png)
+![strings chall.exe](https://user-images.githubusercontent.com/83258849/174650032-6c28dd45-daf2-4515-9262-c761be3f8e6f.png)
 
 We can unpack it by running `upx -d chall.exe`.
 
@@ -35,7 +35,7 @@ After that, we can actually decompile and read the code in `ghidra`. However, th
 
 Look at how long the code for this function scrolls down for!
 
-![](https://user-images.githubusercontent.com/83258849/174651984-543f4fcf-a13a-45fd-9543-8316e11d5c43.png)
+<figure><img src="https://user-images.githubusercontent.com/83258849/174651984-543f4fcf-a13a-45fd-9543-8316e11d5c43.png" alt=""><figcaption></figcaption></figure>
 
 So I decided to take a different approach.
 

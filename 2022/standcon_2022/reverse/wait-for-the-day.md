@@ -18,7 +18,7 @@
 
 We are given a file with no extension. Running `file gift_for_you` returns that it is a binary file, so change permissions to allow it to be executable.
 
-![](https://user-images.githubusercontent.com/83258849/174606846-382fac86-9c97-4a6f-bc9f-a4a7768abff9.png)
+<figure><img src="https://user-images.githubusercontent.com/83258849/174606846-382fac86-9c97-4a6f-bc9f-a4a7768abff9.png" alt=""><figcaption></figcaption></figure>
 
 For such challenges, I would usually run the binary first to see what it does (don't run untrusted software >\_>).
 

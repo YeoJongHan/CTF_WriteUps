@@ -102,7 +102,7 @@ According to the `MLFG` class, we can see how it performs as a `PRNG`:
 
 Here are some images to help you visualize it. (assume f() is a function `(self.s0 * self.s1) % self.m`. Note that the numbers in the picture are just an example.)
 
-![](https://user-images.githubusercontent.com/83258849/174485595-ae536c72-359a-456f-914a-86a454dccfbc.png) ![](https://user-images.githubusercontent.com/83258849/174485821-a24afa57-2846-40eb-8900-8a80612ecda0.png) ![](https://user-images.githubusercontent.com/83258849/174485902-356abae7-cb27-4d07-a4a8-0e2c6e5019c6.png)
+![1st call](https://user-images.githubusercontent.com/83258849/174485595-ae536c72-359a-456f-914a-86a454dccfbc.png) ![2nd call](https://user-images.githubusercontent.com/83258849/174485821-a24afa57-2846-40eb-8900-8a80612ecda0.png) ![3rd call](https://user-images.githubusercontent.com/83258849/174485902-356abae7-cb27-4d07-a4a8-0e2c6e5019c6.png)
 
 See why it is related to `Fibonacci`?
 
