@@ -12,12 +12,12 @@ I have provided links to any _source code files_ so that mobile users are also a
 
 ## 2022
 
-| CTF                              | Format   | Grouping | Position |
-| -------------------------------- | -------- | -------- | -------- |
-| [STANDCON 2022](<README (1).md>) | Jeopardy | Team     | 5th      |
+| CTF                               | Format   | Grouping | Position |
+| --------------------------------- | -------- | -------- | -------- |
+| [STANDCON 2022](broken-reference) | Jeopardy | Team     | 5th      |
 
 ## 2021
 
-| CTF                           | Format   | Grouping | Position |
-| ----------------------------- | -------- | -------- | -------- |
-| NYP Infosec CTF December 2021 | Jeopardy | Solo     | 2nd      |
+| CTF                                                          | Format   | Grouping | Position |
+| ------------------------------------------------------------ | -------- | -------- | -------- |
+| [NYP Infosec CTF December 2021](2021/nypinfosec\_dec\_2021/) | Jeopardy | Solo     | 2nd      |
