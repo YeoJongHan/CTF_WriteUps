@@ -1,5 +1,7 @@
 # EW02 Framed Copy
 
+## Description
+
 > The EternalWinter Payment website is also used to send confidential information to their operatives. To see the secret content, you will have to use a different FRAME of mind, a different FRAME of reference, and a different FRAME of a webpage.
 
 > Quickly! Solve this challenge before EternalWinter FRAMES you for the attack!

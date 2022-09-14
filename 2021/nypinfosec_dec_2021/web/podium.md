@@ -1,5 +1,7 @@
 # Podium
 
+## Description
+
 > Who will be the champions? Watch this space.
 
 > And listen up: There's a flag here too! Remember to place the flag in flag format NYP{WORD WORD WORD}

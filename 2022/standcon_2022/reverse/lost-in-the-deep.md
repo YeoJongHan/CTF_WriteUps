@@ -1,8 +1,6 @@
 # Lost In the Deep
 
-## Lost In the Deep
-
-### Description
+## Description
 
 > You've been swimming, and encounter a submerged mangrove forest. You enter it to explore, and without knowing it, you're lost. How do you escape?
 
@@ -10,9 +8,7 @@
 
 (_Windows Antivirus may pick up virus signatures from the file_)
 
-### Solution
-
-#### TL;DR
+### TL:DR
 
 * Notice that the executable is packed using UPX, so unpack it
 * Through ghidra, find an odd long string that is used in the executable
@@ -23,9 +19,7 @@
 * Make a solve script for it
 * Flag is won
 
-##
-
-#### Analysis
+## Analysis
 
 We are given a windows executable file.
 
@@ -70,7 +64,7 @@ So pattern would be -1,+2,-3,+4,-5,+4,-3,+2,-1,+1,-2...
 
 Create solve script :)
 
-#### Solve.py
+## Solve.py
 
 ```python
 #!/usr/bin/env python3

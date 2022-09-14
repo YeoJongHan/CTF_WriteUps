@@ -1,17 +1,13 @@
 # Want a byte?
 
-## Want a byte?
-
-### Description
+## Description
 
 > Scrolling through my projects, I found some old project code. I remember this code had some "backdoors". But since I mistakenly deleted utils.py, now I cannot understand my own code! Can you help me make sense out of it? You will be rewarded with a flag for your help.
 
 * [main.py](../../../STANDCON\_2022/Reverse/Want%20a%20byte)
 * [utils.pyc](../../../STANDCON\_2022/Reverse/Want%20a%20byte)
 
-### Solution
-
-#### TL;DR
+### TL;DR
 
 * Decompile utils.pyc
 * Find out that master\_key is always 'a'\*20
@@ -19,9 +15,7 @@
 * Xor the encrypted flag with 'a's
 * Win flag
 
-##
-
-#### Analysis
+## Analysis
 
 We have to first decompile [utils.pyc](../../../STANDCON\_2022/Reverse/Want%20a%20byte) to understand the functions that reside in it.
 
@@ -179,7 +173,7 @@ This is just a simple xor operation, you don't have to split them into bits to p
 
 Because xor can be reversed if you know what the result is and what the original value got xored with, we can just use the expected output and xor each character with 'a' to retrieve the original value, the flag.
 
-#### Solve.py
+## Solve.py
 
 ```python
 #!/usr/bin/env python3

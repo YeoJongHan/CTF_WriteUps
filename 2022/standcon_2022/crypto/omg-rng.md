@@ -1,8 +1,6 @@
 # OMG RNG!
 
-## OMG RNG!
-
-### Description
+## Description
 
 > Gifts for everyone!
 
@@ -10,15 +8,13 @@
 
 * [chal.py](../../../STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py)
 
-#### Overview
+### Overview
 
 Starting an instance and connecting to the server, the server would run [chal.py](../../../STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py) and send you `gifts` and a `secret` containing the flag that is encrypted.
 
 We have to figure out a way to decrypt the `secret` retrieved from the server using the `gifts`.
 
-### Solution
-
-#### TL;DR
+### TL;DR
 
 * Use `gcd` to find value of `m`
 * Get the previous state by solving `linear congruence` between `m` and first `gift` received.
@@ -26,9 +22,7 @@ We have to figure out a way to decrypt the `secret` retrieved from the server us
 * Perform `XOR` of `secret` with first 2 states.
 * Got flag
 
-##
-
-#### Analysis
+## Analysis
 
 [chal.py](../../../STANDCON\_2022/Crypto/OMG%20RNG!/challenge/chal.py)
 
@@ -173,9 +167,7 @@ So now we have n1m and n2m, we can find the value of `m` by finding the `gcd` of
 
 #### m acquired!
 
-##
-
-#### Finding previous state
+## Finding previous state
 
 Let's focus on this equation as we want to find the previous state:
 
@@ -210,7 +202,7 @@ We can then just keep finding the previous states until we find the flag!
 
 Note that the `linear congruence` function may return errors at times because some of the values provided may not have any solutions (this happens as the the gcd of the modulus and the starting number does not equally divide the result, so 2x mod 8 = 51 have no solution because gcd(2,8)=2, and 51%2 != 0)
 
-#### Solve.py
+## Solve.py
 
 ```python
 #!/usr/bin/env python3

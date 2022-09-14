@@ -1,25 +1,19 @@
 # Asmuth Shares
 
-## Asmuth Shares
-
-### Description
+## Description
 
 > Asmuth wants to share something with you!
 
 * [chal.py](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/chal.py)
 * [out.txt](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt)
 
-### Solution
-
-#### TL;DR
+### TL;DR
 
 * Use `Chinese Remainder Theorem` on all shares.
 * Use result from `CRT` and perform `mod m0` to get long value of `FLAG`.
 * Stonks
 
-##
-
-#### Analysis
+## Analysis
 
 [out.txt](../../../STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt):
 
@@ -137,7 +131,7 @@ FLAG % m0 = FLAG       # Since it is most likely that FLAG < m0 as m0 is an extr
 (FLAG + alpha*m0) % m0 = FLAG
 ```
 
-#### Solve.py
+## Solve.py
 
 ```python
 #!/usr/bin/env python3

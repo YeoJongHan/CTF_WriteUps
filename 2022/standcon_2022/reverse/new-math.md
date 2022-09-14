@@ -1,8 +1,6 @@
 # New Math!
 
-## New Math!
-
-### Description
+## Description
 
 > Hooray for new math! New whoo hoo math!
 
@@ -10,15 +8,13 @@
 
 * [NewMath](../../../STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath/)
 
-#### Overview
+### Overview
 
 Reverse math, well not really.
 
 Pretty unique challenge. I would say this challenge wasn't fun for me, but it was pretty satisfying to see the final art piece.
 
-### Solution
-
-#### TL;DR
+### TL;DR
 
 * Find out file is a program written with TI Connect CE software
 * Open file in TI Connect CE and reverse engineer code
@@ -26,9 +22,7 @@ Pretty unique challenge. I would say this challenge wasn't fun for me, but it wa
 * Draw flag with a graphing tool or whatever suits you
 * Achieve flag
 
-##
-
-#### Analysis
+## Analysis
 
 Checking the file of [NewMath](../../../STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath/), it looks to be a program for a `TI-83+ Graphing Calculator`, whatever that is.
 
@@ -50,7 +44,7 @@ I noticed that the software is looking for files with the `.8xp` extension, so r
 
 ![](https://user-images.githubusercontent.com/83258849/174626523-5ae51b8c-e00e-48e5-ad78-7f770de699f3.png)
 
-#### RE the program
+## RE the program
 
 `NewMath.8xp`
 
@@ -223,7 +217,7 @@ Input "magic number: ",D
 If abs(fMax(-2X^2+25X+4,X,0,10)-D)<0.01
 ```
 
-This essentially means that we need `fMax(-2X^2+25X+4,X,0,10)-D` to be equal to 0, or around there.
+This essentially means that we need `fMax(-2X^2+25X+4,X,0,10)-D` to be equal to 0, or around there (because of the _abs(...)_).
 
 So if we find the value of `fMax(-2X^2+25X+4,X,0,10)`, we can enter it as our `D` value and get 0.
 
@@ -233,7 +227,7 @@ I had to find out what does the `fMax` function do. It brought me back to [educa
 
 I managed to solve this using [Desmos](https://www.desmos.com/), my Secondary School hero.
 
-#### Desmos To The Rescue!
+## Desmos To The Rescue!
 
 Entering the quadratic equation into demos, we can see that the maximum point of the graph where 0\<x<10, occurs when x=6.25. So that is the return value of `fMax(-2X^2+25X+4,X,0,10)-D`, and that is our value of `D`! So `D = 6.25`.
 

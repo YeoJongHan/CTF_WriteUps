@@ -1,6 +1,6 @@
 # ROX != XOR
 
-
+## Description
 
 > Hmm why is it not the same?
 
@@ -90,7 +90,7 @@ start = 78 # N in decimal
 
 1. After finding correct decimals, convert them to ASCII characters, join them and you get your flag!
 
-### solve.py
+## solve.py
 
 ```
 a = "PUG(BDNUIOIBK}"

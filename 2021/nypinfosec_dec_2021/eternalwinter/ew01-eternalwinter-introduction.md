@@ -1,5 +1,7 @@
 # EW01 EternalWinter Introduction
 
+## Description
+
 > This poster was sent to you by the government. They have heard about your skills as a cyber investigator, and would like your help to save the world.
 
 > Will you take up the challenge and face EternalWinter?

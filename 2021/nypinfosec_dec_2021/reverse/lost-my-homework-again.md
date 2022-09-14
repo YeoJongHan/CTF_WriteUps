@@ -101,9 +101,7 @@ Whatever comes after `;` is a comment, and the instruction is as the comment sta
 
 So in this case, it is copying the data from a register that contains our chars in decimal, into the X0 register. If the instruction is `mov X0, X1`, it would copy data from X1 register into the X0 register.
 
-###
-
-#### Examining instructions under factor 1
+## Examining instructions under factor 1
 
 ```
     ; factor 1
@@ -136,9 +134,7 @@ for char in text:
 
 Where `char` would represent the `X0` register and `20` representing the `X19` register. `ord()` is just to convert the ascii characters into decimal.
 
-###
-
-#### Examining instructions under factor 2
+## Examining instructions under factor 2
 
 ```
     ; factor 2
@@ -185,7 +181,7 @@ The last line `mov X0, X21` just moves the end result into the `X0` register. Th
 
 The last few instructions under `;syscall to exit` is to just exit the program.
 
-### Simplifying virus2.s
+## Simplifying virus2.s
 
 After decoding what the program does, we can replicate what the program does in python. But first, let's see an example of the flow if a value is fed into the program.
 
@@ -215,7 +211,7 @@ _start:
 	svc #0x80
 ```
 
-#### Example (Feeding 81 into the program)
+### Example (Feeding 81 into the program)
 
 ```
 .global _start
@@ -243,7 +239,7 @@ _start:
 
 From the example given, it is clear that all the program does is to return the modulus of each character in the text after subtracting 20 from them. So we craft a simpler python script that does the same...
 
-#### virus2.py (simplify)
+### virus2.py (simplify)
 
 ```python
 def virus2(text):
@@ -252,11 +248,8 @@ def virus2(text):
 		temp = ord(char) - 20
 		result.append(str(temp % 4))
 	return ' '.join(result)
+
 ```
-
-\
-\
-
 
 ## Analysing virus1.s
 
@@ -293,7 +286,7 @@ As we can see, the first few lines of instructions are exactly the same as those
 
 So the program does the same function as virus2.s: the subtracting 20 from the character and adding it to `X0` register, then modulus that value by `4` and storing the result in the `X21` register.
 
-### Decoding virus1.s
+## Decoding virus1.s
 
 We will decode the 3 new instructions.
 
@@ -309,9 +302,7 @@ The first new instruction after the `msub` instruction is `add X0, X21, X20`, an
 
 In this case, `X0` contains the (character - 20)//4, and `X21` contains our modulus result (remainder after dividing by 4).
 
-###
-
-#### Examining instructions under factor 3
+### Examining instructions under factor 3
 
 ```
     ; factor 3

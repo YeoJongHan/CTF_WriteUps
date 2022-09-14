@@ -1,5 +1,7 @@
 # EW04 Blank Paper
 
+## Description
+
 > If you did not solve EW03, buy hint #1 for the URL to this challenge.
 
 > Author: **Derrick Png**
@@ -68,7 +70,7 @@ Looking at the rest of the code, specifically at the `/api/message` endpoint, th
 
 So now we know that we need to change the `secret` attribute of the user object to `true`, using `prototype pollution`. To exploit the site using `prototype pollution`, we can first look more into what is `prototype pollution` and how can it change the attributes of objects in JavaScript.
 
-### What is Prototype Pollution?
+## What is Prototype Pollution?
 
 If you are unaware of `prototype pollution`, it is a vulnerability that is related to the JavaScript we know and love, as opposed to php.
 
@@ -82,9 +84,7 @@ Since JavaScript allows all Object attributes to be altered on the server side o
 
 Searching for `lodash prototype pollution writeup`, I used this post as reference to exploit the target URL [https://motion-software.com/blog/prototype-pollution-in-lodash](https://motion-software.com/blog/prototype-pollution-in-lodash). You should read up on the whole post to understand more in-depth on how this exploit works.
 
-##
-
-### Performing The Exploit
+## Performing The Exploit
 
 From the post, we can see that the vulnerable part of the application is the `merge()` function in the vulnerable `lodash` module, and it is used in the target site as we can see it used in the `index.js` under the `Client` folder.
 
@@ -100,9 +100,7 @@ As expected, the data sent is in `json` format, which is expected for `prototype
 
 We need to change the request data and send a payload that can change the parent object's attribute of the user object to have a secret attribute set to true, through the `__proto__` attribute.
 
-##
-
-### Crafting The Payload
+## Crafting The Payload
 
 Referring back to the reference post, an example payload was given where they set the `canDelete` attribute to `true`.
 

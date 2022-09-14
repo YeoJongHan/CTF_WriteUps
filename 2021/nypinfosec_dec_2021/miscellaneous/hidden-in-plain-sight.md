@@ -1,5 +1,7 @@
 # Hidden in Plain Sight
 
+## Description
+
 > UGH Ansi screwed up again! I wonder what sequence of events lead to this.
 
 > Author: **Carl Voller**

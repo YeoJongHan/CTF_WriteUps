@@ -1,5 +1,7 @@
 # Descript0r 0verfl0w
 
+## Description
+
 > What have you done to Greet0r??? >:(
 
 > His best friend Descript0r is extra mad at you now. Becareful I heard he knows kung-fd!
@@ -60,7 +62,7 @@ The program should break at the `cmp` instruction. Now let's see where the `rbp-
 
 ![image](https://user-images.githubusercontent.com/83258849/147813879-64c96647-7f70-416e-a4b6-bb290fbf34e8.png)
 
-### Finding offset needed to reach the variable
+## Finding offset needed to reach the variable
 
 Now let's view where our user input and the `local_18` variable resides on the stack. Run `x /40wx $rsp` to view the values on the stack.
 
@@ -72,7 +74,7 @@ We see the user input starts at `0x7fffffffe2a0` as indicated by the `0x41414141
 
 Counting the number of bytes we need to overwrite `local_18`, `64` bytes is needed.
 
-### Crafting Payload and Testing Exploit
+## Crafting Payload and Testing Exploit
 
 We can easily create the payload in python like in the `Meet Greet0r` challenge. We will utilize `pwntools`. I created a fake flag with the file name `flag` containing `NYP{fake_flag}` locally to simulate when the exploit works.
 

@@ -1,5 +1,7 @@
 # Meet Greet0r
 
+## Description
+
 > Meet Greet0r! He's a cute little program that is absolutely just DYING to meet new people.
 
 > Talk to Greet0r 🤖:
@@ -132,7 +134,7 @@ for (int i = 0; i < loopCount; i++){
 
 So now we know that the value of `loopCount` is stored in the address at `rbp-0x8`. Let's see where that is on our stack.
 
-### Finding where loopCount resides on the Stack
+## Finding where loopCount resides on the Stack
 
 Running `gdb-pwndbg` on the program, we can set a breakpoint at `main` by running `break main`, then we grab the address of the compare instruction, which is `0x1251` in my case. (the address may be different for you)
 

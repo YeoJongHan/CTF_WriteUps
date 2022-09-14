@@ -1,5 +1,7 @@
 # EW03 Private Document
 
+## Description
+
 > You have obtained a document from the last challenge. Where is the hidden message?
 
 > Author: **Mark Bosco**
