@@ -24,11 +24,11 @@ We have to first decompile [utils.pyc](../../../challenge\_files/STANDCON\_2022/
 
 Using `decompyle3`, it indicates that the file is coded in Python2.7. This guy really needs to upgrade his Python.
 
-<figure><img src="https://user-images.githubusercontent.com/83258849/174642595-3dedee4a-c3f6-4164-83d7-8c2b71c1f29c.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://user-images.githubusercontent.com/83258849/174642595-3dedee4a-c3f6-4164-83d7-8c2b71c1f29c.png" alt=""><figcaption><p><mark style="color:red;"><strong>decompyle3 &#x3C;path to file>/utils.pyc</strong></mark></p></figcaption></figure>
 
 For Python2.7, we can use `uncompyle6`. We see that it decompiles it nicely.
 
-<figure><img src="https://user-images.githubusercontent.com/83258849/174642733-956014cc-62d3-47d2-9fe2-e1ea5797e43c.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://user-images.githubusercontent.com/83258849/174642733-956014cc-62d3-47d2-9fe2-e1ea5797e43c.png" alt=""><figcaption><p><mark style="color:red;"><strong>uncompyle6 utils.pyc</strong></mark></p></figcaption></figure>
 
 > Note, some of you might have trouble installing uncompyle6 or decompyle3. I faced similar issues and managed to get it to work. If you need help, just give me a dm on discord :)
 
@@ -168,7 +168,7 @@ It just returns whatever you feed it before a space.
 
 > I fell for this sly trickery as well.
 
-![image](https://user-images.githubusercontent.com/83258849/174645724-10f8f052-53f5-4d49-886f-bb59d2694956.png)
+![](https://user-images.githubusercontent.com/83258849/174645724-10f8f052-53f5-4d49-886f-bb59d2694956.png)
 
 The `mask_master_key` function in short, basically just converts each character of the `master_key` ('a'\*20) and the flag (within the brackets) into bits, and performs an xor operation between the two, returning the result.
 

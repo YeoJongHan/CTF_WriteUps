@@ -41,11 +41,11 @@ So I decided to take a different approach.
 
 Looking around the program in `ghidra`, I found a suspicious string used by the program.
 
-![image](https://user-images.githubusercontent.com/83258849/174650687-55fac7ff-da6a-4250-90ee-edc625a1e758.png)
+![](https://user-images.githubusercontent.com/83258849/174650687-55fac7ff-da6a-4250-90ee-edc625a1e758.png)
 
 You can look for strings in `ghidra` by navigating to the `Search` tab then selecting `For Strings...`.
 
-![image](https://user-images.githubusercontent.com/83258849/174650797-87ebae18-1e3d-4d23-97e3-5ee8b89c84fa.png)
+![](https://user-images.githubusercontent.com/83258849/174650797-87ebae18-1e3d-4d23-97e3-5ee8b89c84fa.png)
 
 When you look at the string closely, you can actually make out a pattern.
 

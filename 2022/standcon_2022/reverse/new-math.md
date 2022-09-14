@@ -28,23 +28,23 @@ Pretty unique challenge. I would say this challenge wasn't fun for me, but it wa
 
 Checking the file of [NewMath](../../../challenge\_files/STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath), it looks to be a program for a `TI-83+ Graphing Calculator`, whatever that is.
 
-![image](https://user-images.githubusercontent.com/83258849/174623806-6aa0dfd9-bfaf-4f9e-a3fc-29ee7b9f3fa9.png)
+![file NewMath](https://user-images.githubusercontent.com/83258849/174623806-6aa0dfd9-bfaf-4f9e-a3fc-29ee7b9f3fa9.png)
 
 Doing quite a bit of searching online, I found that the website [https://education.ti.com/](https://education.ti.com/) contains the software that we need in order to check the contents of [NewMath](../../../challenge\_files/STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath). I know this because the calculator program needs to be written by a software and [https://education.ti.com/](https://education.ti.com/) is the official provider of the TI calculators.
 
 Which software to install? I didn't know either but looking around the [NewMath](../../../challenge\_files/STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath) file, we can see the software name in plaintext in the header.
 
-![image](https://user-images.githubusercontent.com/83258849/174625329-18c253e9-808d-4fd8-a0de-2f96089882ce.png)
+![strings NewMath](https://user-images.githubusercontent.com/83258849/174625329-18c253e9-808d-4fd8-a0de-2f96089882ce.png)
 
 So I searched online for "education.ti ti connect ce" and found the software to download at [https://education.ti.com/en/software/details/en/CA9C74CAD02440A69FDC7189D7E1B6C2/swticonnectcesoftware](https://education.ti.com/en/software/details/en/CA9C74CAD02440A69FDC7189D7E1B6C2/swticonnectcesoftware).
 
 Open the software and head to the "Program Editor" as that is the only tab that can import files.
 
-![](https://user-images.githubusercontent.com/83258849/174626273-444e7444-d2de-49a1-abcc-97f791c84fd6.png)
+<figure><img src="https://user-images.githubusercontent.com/83258849/174626273-444e7444-d2de-49a1-abcc-97f791c84fd6.png" alt=""><figcaption></figcaption></figure>
 
 I noticed that the software is looking for files with the `.8xp` extension, so rename [NewMath](../../../challenge\_files/STANDCON\_2022/Reverse/New%20Math!/challenge/NewMath) to `NewMath.8xp` and open it with the software. We can finally see what the program actually does.
 
-![](https://user-images.githubusercontent.com/83258849/174626523-5ae51b8c-e00e-48e5-ad78-7f770de699f3.png)
+<figure><img src="https://user-images.githubusercontent.com/83258849/174626523-5ae51b8c-e00e-48e5-ad78-7f770de699f3.png" alt=""><figcaption></figcaption></figure>
 
 ### RE the program
 
@@ -134,11 +134,11 @@ The long lines of `Line()` function with a single `Circle()` function is to draw
 
 `Line()` accepts 4 arguments. x1y1 is the start of the line, x2y2 is end of the line.
 
-![image](https://user-images.githubusercontent.com/83258849/174629796-232b1637-5e20-4858-93da-ee98b4fe21d4.png)
+![Line() parameters](https://user-images.githubusercontent.com/83258849/174629796-232b1637-5e20-4858-93da-ee98b4fe21d4.png)
 
 `Circle()` accepts 3 arguments. xy is the coordinates of the middle of the circle, radius is the radius.
 
-![image](https://user-images.githubusercontent.com/83258849/174629712-d1e5d00d-bd18-475e-9a74-dbe0799fbbc5.png)
+![Circle() parameters](https://user-images.githubusercontent.com/83258849/174629712-d1e5d00d-bd18-475e-9a74-dbe0799fbbc5.png)
 
 At this point, I think it is fair to assume that the flag would be drawn out using graphs.
 
@@ -225,7 +225,7 @@ So if we find the value of `fMax(-2X^2+25X+4,X,0,10)`, we can enter it as our `D
 
 I had to find out what does the `fMax` function do. It brought me back to [education.ti](https://education.ti.com/en/customer-support/knowledge-base/ti-83-84-plus-family/product-usage/34615)
 
-![image](https://user-images.githubusercontent.com/83258849/174632679-c6462a27-a12b-41aa-a2ac-e26d63f74ced.png)
+![fMax() function](https://user-images.githubusercontent.com/83258849/174632679-c6462a27-a12b-41aa-a2ac-e26d63f74ced.png)
 
 I managed to solve this using [Desmos](https://www.desmos.com/), my Secondary School hero.
 
@@ -233,30 +233,30 @@ I managed to solve this using [Desmos](https://www.desmos.com/), my Secondary Sc
 
 Entering the quadratic equation into demos, we can see that the maximum point of the graph where 0\<x<10, occurs when x=6.25. So that is the return value of `fMax(-2X^2+25X+4,X,0,10)-D`, and that is our value of `D`! So `D = 6.25`.
 
-![](https://user-images.githubusercontent.com/83258849/174634357-a4c936f6-cf05-4527-99e0-4e419677413b.png)
+<figure><img src="https://user-images.githubusercontent.com/83258849/174634357-a4c936f6-cf05-4527-99e0-4e419677413b.png" alt=""><figcaption></figcaption></figure>
 
 Now the painful part. I manually entered every single `Line` and `Circle` graph into [Desmos](https://www.desmos.com/) as I think it would take me longer to try and figure out how to draw such graphs using a programming language like Python (I actually didn't search how to code it).
 
 In [Desmos](https://www.desmos.com/), you can create a line graph from one point to another point using a table like so.
 
-![image](https://user-images.githubusercontent.com/83258849/174635543-fcaabbf3-0040-4053-8318-5be0e744724e.png)
+![](https://user-images.githubusercontent.com/83258849/174635543-fcaabbf3-0040-4053-8318-5be0e744724e.png)
 
 > Remember to define the `A`, `B`, `C`, and `D` variables.
 
 Insert table:
 
-![](https://user-images.githubusercontent.com/83258849/174635592-8e280070-ae89-42bc-bfdd-a4ae0e42e0ab.png)
+<figure><img src="https://user-images.githubusercontent.com/83258849/174635592-8e280070-ae89-42bc-bfdd-a4ae0e42e0ab.png" alt=""><figcaption></figcaption></figure>
 
 Enter numbers x1y1 and x2y2, and hold left click on the colored circle beside the `y` to add lines between the points.
 
-![](https://user-images.githubusercontent.com/83258849/174635749-67873c58-6c9c-4568-9b39-cdebc119c760.png)
+<figure><img src="https://user-images.githubusercontent.com/83258849/174635749-67873c58-6c9c-4568-9b39-cdebc119c760.png" alt=""><figcaption></figcaption></figure>
 
 To draw a circle, just enter a circle equation.
 
-![](https://user-images.githubusercontent.com/83258849/174636079-cf6152a4-7225-4c23-9591-4972dd8acf5b.png)
+<figure><img src="https://user-images.githubusercontent.com/83258849/174636079-cf6152a4-7225-4c23-9591-4972dd8acf5b.png" alt=""><figcaption></figcaption></figure>
 
 This piece of art took me around 20 minutes to replicate:
 
-![image](https://user-images.githubusercontent.com/83258849/174636913-40824076-b2b3-4b68-ac3c-c2ec295ab47a.png)
+![Flag found](https://user-images.githubusercontent.com/83258849/174636913-40824076-b2b3-4b68-ac3c-c2ec295ab47a.png)
 
 Flag: `STANDCON22{NOT_JUST_A_+C}`
