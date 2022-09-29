@@ -1,2 +1,0 @@
-# Asmuth Shares
-

@@ -1,2 +1,0 @@
-# Wait For The Day
-
