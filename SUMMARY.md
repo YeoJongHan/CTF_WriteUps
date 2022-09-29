@@ -4,7 +4,7 @@
 
 ## 2022
 
-* [👾 STANDCON 2022](2022/readme/README.md)
+* [👾 test](2022/readme/README.md)
   * [Crypto](2022/readme/crypto/README.md)
     * [Asmuth Shares](2022/readme/crypto/asmuth-shares.md)
     * [OMG RNG!](2022/readme/crypto/omg-rng.md)
