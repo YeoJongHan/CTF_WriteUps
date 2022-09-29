@@ -4,15 +4,15 @@
 
 ## 2022
 
-* [👾 STANDCON 2022](README.md)
-  * [Crypto](2022/standcon\_2022/crypto/README.md)
-    * [Asmuth Shares](2022/standcon\_2022/crypto/asmuth-shares.md)
-    * [OMG RNG!](2022/standcon\_2022/crypto/omg-rng.md)
-  * [Reverse](2022/standcon\_2022/reverse/README.md)
-    * [Lost In the Deep](2022/standcon\_2022/reverse/lost-in-the-deep.md)
-    * [New Math!](2022/standcon\_2022/reverse/new-math.md)
-    * [Wait For The Day](2022/standcon\_2022/reverse/wait-for-the-day.md)
-    * [Want a byte?](2022/standcon\_2022/reverse/want-a-byte.md)
+* [👾 STANDCON 2022](2022/readme/README.md)
+  * [Crypto](2022/readme/crypto/README.md)
+    * [Asmuth Shares](2022/readme/crypto/asmuth-shares.md)
+    * [OMG RNG!](2022/readme/crypto/omg-rng.md)
+  * [Reverse](2022/readme/reverse/README.md)
+    * [Lost In the Deep](2022/readme/reverse/lost-in-the-deep.md)
+    * [New Math!](2022/readme/reverse/new-math.md)
+    * [Wait For The Day](2022/readme/reverse/wait-for-the-day.md)
+    * [Want a byte?](2022/readme/reverse/want-a-byte.md)
 
 ## 2021
 

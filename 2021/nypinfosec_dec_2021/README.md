@@ -1,4 +1,4 @@
-# NYP Infosec CTF December 2021
+# ⛄ NYP Infosec CTF December 2021
 
 This CTF Write-Up will be my first, so please give me feedback on any points I'm missing out on and how I can improve :)
 
