@@ -17,8 +17,8 @@
 
 ### Analysis
 
-[out.txt](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt):
-
+{% tabs %}
+{% tab title="out.txt" %}
 ```
 Public (m0): 0x61f42f24878101c5186ec677cd44a2b14071b9a69260a026fb385482123f2bd647f74e8c569d3cad1c2d48ad6da58ceddd021c5d
 
@@ -27,9 +27,9 @@ Share 1 (s1, m2): (0x58675225153f997cd4f4d5bcc0ec9febf60ca7e7aa1759ae8a7037ad0dc
 Share 2 (s2, m3): (0x3d045f39ea1b2f9a5486b16fef3b9a99fd68de9d2d9235c14b6254d3dedb40f7bc8f2087de7a111671426d83b6c9f1709ab90d89, 0x727113b40e9c974febb4e7cb2952083f96a97d1b17093963ee7c474fe780f5bf31241b540470c949593b363ca2c84d73584eb2f3)
 Share 3 (s3, m4): (0x3e27c86088d7c7725814c9efe17909c408a1ddca3f0397c81d142b03d6329ef30941b558f22dc8bc20e752e4a6088a7067e76565, 0x7739b291c0ba89eec860dc8a6b018acb5d05d879504285a079b2785edac2cd543c6a86589071835d74f63524952910944b0977e7)
 ```
+{% endtab %}
 
-[chal.py](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/chal.py):
-
+{% tab title="chal.py" %}
 ```python
 from Crypto.Util.number import getPrime, getRandomRange, bytes_to_long
 
@@ -56,6 +56,8 @@ with open("out.txt", 'w') as f:
     for i in range(len(share)):
         f.write(f"Share {i} (s{i}, m{i+1}): ({hex(share[i])}, {hex(m[i+1])})\n")
 ```
+{% endtab %}
+{% endtabs %}
 
 We are given the values of quite a few variables in the [out.txt](../../../challenge\_files/STANDCON\_2022/Crypto/Asmuth%20Shares/challenge/out.txt) file.
 

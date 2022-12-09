@@ -8,19 +8,19 @@ However, most of the challenges were pretty guessy, which is the downside of thi
 
 ### Crypto
 
-| Challenge                        | Points |
-| -------------------------------- | ------ |
-| [Asmuth Share](broken-reference) | 299    |
-| [OMG RNG!](broken-reference)     | 300    |
+| Challenge                                | Points |
+| ---------------------------------------- | ------ |
+| [Asmuth Shares](crypto/asmuth-shares.md) | 299    |
+| [OMG RNG!](crypto/omg-rng.md)            | 300    |
 
 ### Reverse
 
-| Challenge                            | Points |
-| ------------------------------------ | ------ |
-| [Wait for the day](broken-reference) | 497    |
-| [New Math!](broken-reference)        | 299    |
-| [Want a byte?](broken-reference)     | 299    |
-| [Lost In the Deep](broken-reference) | 100    |
+| Challenge                                       | Points |
+| ----------------------------------------------- | ------ |
+| [Wait for the day](reverse/wait-for-the-day.md) | 497    |
+| [New Math!](reverse/new-math.md)                | 299    |
+| [Want a byte?](reverse/want-a-byte.md)          | 299    |
+| [Lost In the Deep](reverse/lost-in-the-deep.md) | 100    |
 
 ## Placement
 
