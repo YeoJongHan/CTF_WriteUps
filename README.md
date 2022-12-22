@@ -8,8 +8,6 @@ description: This site is used to store my writeups of the CTFs I have participa
 
 Some writeups are very detailed as they are aimed towards helping beginners in those areas.
 
-I have provided links to any _source code files_ so that mobile users are also able to view the code.
-
 ## 2022
 
 | CTF                               | Format   | Grouping | Position |
