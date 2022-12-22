@@ -4,7 +4,7 @@
 
 ## 2022
 
-* [NahamCon EU CTF 2022](2022/nahamcon-eu-ctf-2022/README.md)
+* [🇪🇺 NahamCon EU CTF 2022](2022/nahamcon-eu-ctf-2022/README.md)
   * [Mobile](2022/nahamcon-eu-ctf-2022/mobile/README.md)
     * [🔴 Got Any Games?](2022/nahamcon-eu-ctf-2022/mobile/got-any-games.md)
 * [👾 STANDCON 2022](2022/standcon-2022/README.md)
