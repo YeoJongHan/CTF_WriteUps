@@ -28,7 +28,9 @@
 
 I did not know that the save file already had 1000000 points so I went through the trouble of patching the apk. I've written down the steps for patching the apk if anyone wants to learn from it :)
 
+{% hint style="warning" %}
 If you are looking for the straight-forward solution, you can skip to the [Loading .sav file](got-any-games.md#loading-.sav-file) section.
+{% endhint %}
 
 ### Analysis
 
