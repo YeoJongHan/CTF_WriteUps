@@ -161,7 +161,7 @@ I tried to push the **SaveFile.sav** to only a single directory but the applicat
 
 <figure><img src="../../../.gitbook/assets/push_file.png" alt=""><figcaption><p>Pushing save file</p></figcaption></figure>
 
-We can then just open the application, click on "LOAD\_GAME" and click "NEXT" until we see "SaveFile", then click on "LOAD". The flag will be printed out when you press the "FLAG" button.
+We can then open the application, click on "LOAD\_GAME" and click "NEXT" until we see "SaveFile", then click on "LOAD". The flag will be printed out when you press the "FLAG" button.
 
 <figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>FLAG</p></figcaption></figure>
 
