@@ -43,3 +43,12 @@
   * [Web](2021/nypinfosec\_dec\_2021/web/README.md)
     * [Podium](2021/nypinfosec\_dec\_2021/web/podium.md)
     * [Secret Agent](2021/nypinfosec\_dec\_2021/web/secret-agent.md)
+
+## ✍ Authored
+
+* [NYP Infosec CTF December 2022](authored/nyp-infosec-ctf-december-2022/README.md)
+  * [Reverse](authored/nyp-infosec-ctf-december-2022/reverse/README.md)
+    * [Blendin's Plain Plane](authored/nyp-infosec-ctf-december-2022/reverse/blendins-plain-plane.md)
+  * [Miscellaneous](authored/nyp-infosec-ctf-december-2022/miscellaneous.md)
+  * [Pwn](authored/nyp-infosec-ctf-december-2022/pwn.md)
+  * [Cryptography](authored/nyp-infosec-ctf-december-2022/cryptography.md)
