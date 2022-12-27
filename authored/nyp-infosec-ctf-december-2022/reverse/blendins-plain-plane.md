@@ -528,3 +528,12 @@ bpy.ops.object.mode_set(mode='EDIT')
 {% endtab %}
 {% endtabs %}
 
+### Problems Faced
+
+I was informed that there was certain issues when running the code in Blender.
+
+I apologize as I did not account for the Blender version that the participants would be using, so I was using Blender 2.92 instead of the newest Blender 3.42 (at the time of creating this challenge).
+
+Running in Python 3.42, the code returns an error due to missing `hide` attribute for the cubes created. So you had to hide the cubes manually or replace `hide` with `hide_viewport` to make the flag more visible.
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Error: Missing hide attribute</p></figcaption></figure>
