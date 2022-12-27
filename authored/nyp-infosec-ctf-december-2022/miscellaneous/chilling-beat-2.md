@@ -12,3 +12,9 @@
 
 ## Solution
 
+### TL;DR
+
+1. Find out that the data represents `HitObjects` in **Osu!**.
+2. Using the `Bing Chiling`
+
+<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>

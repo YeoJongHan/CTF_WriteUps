@@ -76,7 +76,7 @@ Using multiple expansions and substitutions with the values we are given, we can
 
 We can reference this table if there is a need to recap the algebra rules:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Basic rules of algebra</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Basic rules of algebra</p></figcaption></figure>
 
 Focusing on values of `n`, `p-q`, and `(p^3-q^3)`:
 

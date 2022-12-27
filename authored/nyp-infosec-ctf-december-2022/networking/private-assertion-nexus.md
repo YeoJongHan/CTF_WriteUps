@@ -46,7 +46,7 @@ This indicates that there may be potential data that we can decode in these pack
 
 Expanding the `Bluetooth L2CAP Protocol` field in Wireshark, we can see that every single `L2CAP` packet has the payload starting with `a1`
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>L2CAP Protocol Field</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>L2CAP Protocol Field</p></figcaption></figure>
 
 This might be a header specific to this kind of Bluetooth device, so we can try looking it up.
 
