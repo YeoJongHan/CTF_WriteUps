@@ -1,6 +1,6 @@
 # NYP Infosec CTF December 2022
 
-This is my second time creating challenges for a CTF. Some challenges are pretty troll, but some are pretty average (I think), so do learn from them :)
+This is my second time creating challenges for a CTF. Some challenges are pretty troll (only the **Miscellaneous** ones), but some are pretty average (I think), so do learn from them :)
 
 DM me in Discord (**Jor**) **** if you have any questions!
 
