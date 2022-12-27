@@ -66,7 +66,7 @@ The main part we want to focus on is from lines **132** to **142**.
 
 It shows that the **flag** gets printed to us if the points we have is **>= 1000000**.
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>encryptSave function</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>encryptSave function</p></figcaption></figure>
 
 In **PlayGame.class**, there is also a function that encrypts the save.
 
@@ -94,7 +94,7 @@ I searched for the instances of the string `flag`, and we can see the check for 
 
 It seems like the line `const v1, 0xf4240` contains our check number for **1000000** points if we view the value of **0xf4240** in decimal, we can verify it is indeed our **1000000**.
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
 
 The line `if-lt p2, v1, :cond_0` indicates that `if the value in p2 is lt (less than) v1, then jump to cond_0`, where our `cond_0` prints our _"1000000 points"_ message. So it is basically our `if (var0.getInt("points") >= 1000000)`.
 
@@ -163,7 +163,7 @@ I tried to push the **SaveFile.sav** to only a single directory but the applicat
 
 We can then open the application, click on "LOAD\_GAME" and click "NEXT" until we see "SaveFile", then click on "LOAD". The flag will be printed out when you press the "FLAG" button.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>FLAG</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption><p>FLAG</p></figcaption></figure>
 
 I then noticed that the points for this save file is already at **1000000**, so there wasn't any need for patching the binary... At least it was a good practice :cry:
 
