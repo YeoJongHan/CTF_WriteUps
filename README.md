@@ -21,11 +21,11 @@ Some writeups are very detailed as they are aimed towards helping beginners in t
 | ------------------------------------------------------------ | -------- | -------- | -------- |
 | [NYP Infosec CTF December 2021](2021/nypinfosec\_dec\_2021/) | Jeopardy | Solo     | 2nd      |
 
+##
+
 ## Author Writeups
 
 ### 2022
-
-
 
 | CTF                                                                      | Format   | Other Info                       |
 | ------------------------------------------------------------------------ | -------- | -------------------------------- |
