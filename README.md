@@ -12,7 +12,7 @@ Some writeups are very detailed as they are aimed towards helping beginners in t
 
 | CTF                                                | Format   | Grouping | Position |
 | -------------------------------------------------- | -------- | -------- | -------- |
-| [STANDCON 2022](broken-reference)                  | Jeopardy | Team     | 5th      |
+| [STANDCON 2022](2022/standcon-2022/)               | Jeopardy | Team     | 5th      |
 | [NahamCon EU CTF 2022](2022/nahamcon-eu-ctf-2022/) | Jeopardy | Team     | 26th     |
 
 ## 2021
