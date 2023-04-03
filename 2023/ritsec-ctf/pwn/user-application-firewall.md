@@ -327,7 +327,8 @@ Now that we have a libc leak, we can calculate the libc base and get the address
 
 ### Overwriting GOT
 
-Remember that we also have a Use-After-Free vuln in `edit`. This means that we can **modify** the **fwd** pointer of **tcache** to wherever we want (as long as it is writable), **create** a new chunk with malloc(), then malloc will allocate the chunk at that address we specified, now we have an arbitrary write.
+Remember that we also have a Use-After-Free vuln in `edit`. This means that we can **modify** the **fwd** pointer of **tcache** to wherever we want (as long as it is writable), **create** a new chunk with malloc(), then malloc will allocate the chunk at that address we specified.\
+Now we have an arbitrary write.
 
 Looking at the source code under the `main` function, our user input gets passed as an argument into the `atoi` function.\
 We can overwrite the GOT of `atoi` with our libc `system` function, then pass in "/bin/sh" as our menu option to get RCE.
@@ -419,7 +420,7 @@ p.close()
 {% endtab %}
 {% endtabs %}
 
-{% hint style="info" %}
+{% hint style="danger" %}
 If you are testing locally, make sure to patch your binary to use the libc.so.6 given!
 {% endhint %}
 
