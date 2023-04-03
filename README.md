@@ -8,6 +8,12 @@ description: This site is used to store my writeups of the CTFs I have participa
 
 Some writeups are very detailed as they are aimed towards helping beginners in those areas.
 
+## 2023
+
+| CTF                                                            | Format   | Grouping | Position |
+| -------------------------------------------------------------- | -------- | -------- | -------- |
+| [RITSEC CTF](2023/ritsec-ctf/pwn/user-application-firewall.md) | Jeopardy | Team     | 27th     |
+
 ## 2022
 
 | CTF                                                | Format   | Grouping | Position |
