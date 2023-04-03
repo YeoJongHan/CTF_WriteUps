@@ -139,7 +139,7 @@ Run the application, click on "New Game", then click on "Start", we see that we 
 
 Click on the "FLAG" button and see the fake flag gets printed out successfully.
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>fake flag</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>fake flag</p></figcaption></figure>
 
 Now we just need to find a way to load the .sav file into the application.
 

@@ -26,7 +26,7 @@ With **Osu!** opened and going to the `Bing Chiling` beatmap, we can click on **
 
 Scrolling down the `.osu` file, we can see lines of data under `HitObjects` that looks similar to the data given to us.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>HitObjects in .osu file</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>HitObjects in .osu file</p></figcaption></figure>
 
 <details>
 

@@ -252,7 +252,7 @@ We can download **Blender** and try to run this block of code to see what is ret
 
 Going back to the **Layout** tab and going into **Object Mode** (press Tab key), we can see a huge cube is created. Upon deleting the cube, we see the incomplete flag.
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption><p>Empty Flag</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>Empty Flag</p></figcaption></figure>
 
 Clearly, we are missing some objects here. Nothing much we can do in Blender right now so let's head back to the code.
 
@@ -536,4 +536,4 @@ I apologize as I did not account for the Blender version that the participants w
 
 Running in Python 3.42, the code returns an error due to missing `hide` attribute for the cubes created. So you had to hide the cubes manually or replace `hide` with `hide_viewport` to make the flag more visible.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Error: Missing hide attribute</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (14).png" alt=""><figcaption><p>Error: Missing hide attribute</p></figcaption></figure>
