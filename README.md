@@ -23,9 +23,9 @@ Some writeups are very detailed as they are aimed towards helping beginners in t
 
 ## 2021
 
-| CTF                                                          | Format   | Grouping | Position |
-| ------------------------------------------------------------ | -------- | -------- | -------- |
-| [NYP Infosec CTF December 2021](2021/nypinfosec\_dec\_2021/) | Jeopardy | Solo     | 2nd      |
+| CTF                                               | Format   | Grouping | Position |
+| ------------------------------------------------- | -------- | -------- | -------- |
+| [NYP Infosec CTF December 2021](broken-reference) | Jeopardy | Solo     | 2nd      |
 
 ##
 
