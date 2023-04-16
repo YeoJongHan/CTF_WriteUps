@@ -8,9 +8,9 @@ Regardless, here are writeups for some of the challenges.
 
 ### Crypto
 
-| Challenge  | Points |
-| ---------- | ------ |
-| Broken RSA | 500    |
+| Challenge                          | Points |
+| ---------------------------------- | ------ |
+| [Broken RSA](crypto/broken-rsa.md) | 500    |
 
 ## Final Scoreboard
 
