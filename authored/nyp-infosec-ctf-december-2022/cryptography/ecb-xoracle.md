@@ -142,7 +142,7 @@ Since xor(('N'\*16),('N'\*16)) == 0, and xor(('Y'\*16),('Y'\*16)) == 0, if ECB e
 {% hint style="info" %}
 ECB Encryption:
 
-![](<../../../.gitbook/assets/image (12).png>)
+![](<../../../.gitbook/assets/image (12) (1).png>)
 {% endhint %}
 
 So we can bruteforce each character of the flag in sizes of 16 bytes, and check if that 16 byte CT block output is equal to the one where 0 is encrypted.
@@ -155,7 +155,7 @@ Let's say if we input 'N'\*16 for the first block and got the output CT as 'ABCD
 And so if we provide 'N'\*16+'Y'\*16+'P'\*16+'{'\*16+'A'\*16, if the CT output is 'ABCDEFGHIJKLMNOP...ABCDEFGHIJKLMNOP', where the last 16 bytes are equal to the first 16 bytes of CT, then we know that the character 'A' is correct and our flag would be NYP{A...}.
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption><p>Running bruteforce solve script</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (18) (1).png" alt=""><figcaption><p>Running bruteforce solve script</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="solve.py" %}

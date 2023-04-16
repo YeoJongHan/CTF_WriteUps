@@ -4,6 +4,9 @@
 
 ## 2023
 
+* [👀 Lag and Crash 2023](2023/lag-and-crash-2023/README.md)
+  * [Crypto](2023/lag-and-crash-2023/crypto/README.md)
+    * [Broken RSA](2023/lag-and-crash-2023/crypto/broken-rsa.md)
 * [🐯 RITSEC CTF](2023/ritsec-ctf/README.md)
   * [Pwn](2023/ritsec-ctf/pwn/README.md)
     * [User Application Firewall](2023/ritsec-ctf/pwn/user-application-firewall.md)

@@ -238,7 +238,7 @@ Now that we have a Use-After-Free vuln in `view`, we can get an address leak.
 
 The leaking of addresses cannot be done simply by freeing a chunk and viewing the chunk. This is because the freed chunk would be freed into **tcache**, which stores the freed chunks on the stack. So if we view the chunk, it would not return a libc address but instead the stack address.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>heap view in GDB (see freed chunks in tache)</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption><p>heap view in GDB (see freed chunks in tache)</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>chunks viewed in GDB</p></figcaption></figure>
 
@@ -321,7 +321,7 @@ p.interactive()
 p.close()
 ```
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>leaked libc address</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>leaked libc address</p></figcaption></figure>
 
 Now that we have a libc leak, we can calculate the libc base and get the address of the `system` function in libc.
 
@@ -424,4 +424,4 @@ p.close()
 If you are testing locally, make sure to patch your binary to use the libc.so.6 given!
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>win</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>win</p></figcaption></figure>

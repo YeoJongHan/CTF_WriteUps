@@ -163,7 +163,7 @@ I tried to push the **SaveFile.sav** to only a single directory but the applicat
 
 We can then open the application, click on "LOAD\_GAME" and click "NEXT" until we see "SaveFile", then click on "LOAD". The flag will be printed out when you press the "FLAG" button.
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption><p>FLAG</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>FLAG</p></figcaption></figure>
 
 I then noticed that the points for this save file is already at **1000000**, so there wasn't any need for patching the binary... At least it was a good practice :cry:
 

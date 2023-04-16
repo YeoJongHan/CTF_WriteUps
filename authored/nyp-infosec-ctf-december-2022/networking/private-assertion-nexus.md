@@ -32,11 +32,11 @@ Followed by these long chain of `USB_INTERRUPT` packets, which can can also put 
 
 Scrolling down, we suddenly see a bunch of `L2CAP` packets.
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>L2CAP Packets</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>L2CAP Packets</p></figcaption></figure>
 
 We can filter to see only these packets by entering `btl2cap` in the filter bar.
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Filtering L2CAP packets</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Filtering L2CAP packets</p></figcaption></figure>
 
 Searching online, we can see that `L2CAP` packets are used for Bluetooth communication.
 
