@@ -17,6 +17,8 @@
 
 ### Initial Analysis
 
+_If you want to skip the explanation, you can go to_ [_e and phi are not coprime_](broken-rsa.md#e-and-phi-are-not-coprime)_._
+
 {% tabs %}
 {% tab title="challenge.py" %}
 ```python
