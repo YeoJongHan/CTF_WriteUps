@@ -232,7 +232,7 @@ This is to get a shell as root when root executes this `rm` bash script.
 
 Run `chmod 777 /tmp/rm` to make it executable.
 
-Now we can run `sudo PATH=/tmp:$PATH /opt/clean_pickle.sh` to run `clean_pickle.sh` with the modified `PATH` environment variable to where our `rm` resides.
+Now we can run `sudo PATH=/tmp:$PATH /opt/clean_pickle.sh` to run `clean_pickle.sh` as root, with the modified `PATH` environment variable to where our `rm` resides.
 
 <figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>privesc</p></figcaption></figure>
 
@@ -258,6 +258,6 @@ The aws key is now sadly revoked and invalid, so I can't show the last few steps
 
 <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>failure</p></figcaption></figure>
 
-The flag is in one of the buckets and you can just use aws cli to get the flag.
+The flag is in one of the buckets and you can just use aws cli to get it.
 
-Unfortunately, there was no pickle rick at all :(
+Unfortunately, there was no pickle rick at all :disappointed\_relieved:
