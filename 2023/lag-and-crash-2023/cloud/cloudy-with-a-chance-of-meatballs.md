@@ -1,4 +1,4 @@
-# Cloudy with a chance of meatballs
+# ☁ Cloudy with a chance of meatballs
 
 ## Description
 
@@ -19,7 +19,7 @@
 
 Visiting the site provided, we are given a static page with nothing else on the site.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>www.lncctf2023.tk</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>www.lncctf2023.tk</p></figcaption></figure>
 
 From point 3, we guess that we will be working with the Azure cloud service.
 
@@ -33,7 +33,7 @@ And of course, the cloud domain name is `lncctf2023`. We can now enumerate the d
 
 I searched up cloud enumeration tools and ended up using the [cloud\_enum.py](https://github.com/initstring/cloud\_enum) tool as it works well enough.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>Service Enumeration</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption><p>Service Enumeration</p></figcaption></figure>
 
 From the enumeration, we can see that there is a `/private` blob container containing a file called `instructions.txt`.
 
@@ -72,7 +72,7 @@ I wanted to login to Azure Powershell as I am more familiar with the tools that 
 
 Remember when enumerating the cloud domain name using **cloud\_enum.py**, we found two storage accounts `lncctf2023` and `lncctf2023private`. Now, the private one seems suspicious, so we will look into that.
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Storage Accounts</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (2).png" alt=""><figcaption><p>Storage Accounts</p></figcaption></figure>
 
 Since we are logged in as the tenant, we can try to list the storage accounts we have access to. This can be done in `azure cli` by running the command `az storage account list`. This is the result:
 
@@ -241,7 +241,7 @@ Using this result, we need to get the name of the `storage account` and the `res
 
 Switching back to Azure Powershell, we can use this [portion](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Cloud%20-%20Azure%20Pentest.md#list-and-download-blobs) of PayloadAllTheThings once again, to list and grab the blobs.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Get Storage Account</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (4).png" alt=""><figcaption><p>Get Storage Account</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption><p>Get Storage Container</p></figcaption></figure>
 

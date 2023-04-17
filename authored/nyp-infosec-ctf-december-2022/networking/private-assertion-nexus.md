@@ -22,7 +22,7 @@
 
 Viewing the packets captured, we mostly see garbage data that are not relevant to solving the challenge.
 
-<figure><img src="../../../.gitbook/assets/image (5) (2).png" alt=""><figcaption><p>Garbage Data 1</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (2) (1).png" alt=""><figcaption><p>Garbage Data 1</p></figcaption></figure>
 
 We can see that the first few packets are mostly configuration packets and can put these aside first.
 
@@ -36,7 +36,7 @@ Scrolling down, we suddenly see a bunch of `L2CAP` packets.
 
 We can filter to see only these packets by entering `btl2cap` in the filter bar.
 
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Filtering L2CAP packets</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption><p>Filtering L2CAP packets</p></figcaption></figure>
 
 Searching online, we can see that `L2CAP` packets are used for Bluetooth communication.
 
@@ -246,7 +246,7 @@ for p in f:
 
 </details>
 
-<figure><img src="../../../.gitbook/assets/image (25).png" alt=""><figcaption><p>Extracted output</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (25) (1).png" alt=""><figcaption><p>Extracted output</p></figcaption></figure>
 
 We can then filter the packets where only our 2nd byte is equal to `01`, and then check if the 3rd byte is `02` as having the third byte as `02` means a `LEFT SHIFT` is pressed (according to the source code).
 

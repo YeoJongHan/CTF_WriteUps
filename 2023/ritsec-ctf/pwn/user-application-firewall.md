@@ -240,7 +240,7 @@ The leaking of addresses cannot be done simply by freeing a chunk and viewing th
 
 <figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption><p>heap view in GDB (see freed chunks in tache)</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>chunks viewed in GDB</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (3).png" alt=""><figcaption><p>chunks viewed in GDB</p></figcaption></figure>
 
 We can see that the chunks are indeed stored in **tcache** and the addresses are stack addresses, not libc addresses.
 

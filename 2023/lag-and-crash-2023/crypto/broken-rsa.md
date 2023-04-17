@@ -81,13 +81,13 @@ When decrypting in normal RSA, these steps are performed:
 
 But why does this decryption method work?
 
-Firstly, we can rewrite ![](<../../../.gitbook/assets/image (34).png>) into ![](<../../../.gitbook/assets/image (24).png>), where `k` is any finite integer.
+Firstly, we can rewrite ![](<../../../.gitbook/assets/image (34).png>) into ![](<../../../.gitbook/assets/image (24) (1).png>), where `k` is any finite integer.
 
 We can also rewrite ![](<../../../.gitbook/assets/image (15).png>) into ![](<../../../.gitbook/assets/image (12) (1).png>).
 
 By substituting `ed` into the second `pt` equation, we have ![](<../../../.gitbook/assets/image (35).png>), and thus ![](<../../../.gitbook/assets/image (8) (3).png>).
 
-Using `Euler's Theorem`, we can then get this equation ![](<../../../.gitbook/assets/image (38).png>), and simplifying it gives us out original plaintext! ![](<../../../.gitbook/assets/image (3) (1).png>) (that is if our plaintext < n)
+Using `Euler's Theorem`, we can then get this equation ![](<../../../.gitbook/assets/image (38).png>), and simplifying it gives us out original plaintext! ![](<../../../.gitbook/assets/image (3) (1) (3).png>) (that is if our plaintext < n)
 
 {% hint style="info" %}
 What is Euler's Theorem?
@@ -117,7 +117,7 @@ So we can calculate our new ciphertext using the given ciphertext: `ctp = c mod 
 
 Now we get the `Euler's Totient function` for `p`: `phip = p-1`
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>phip</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>phip</p></figcaption></figure>
 
 Then we calculate `dp = inverse(e,phip)`, then decrypt the ciphertext `ptp = pow(ctp,dp,p)`. Since `gcd(e,phip)=4`, it means we have ![](<../../../.gitbook/assets/image (17).png>). So we have to use **Tonelli** twice to get back our plaintext.
 
@@ -236,7 +236,7 @@ We note that `p` and `q` are primes each with`512` bits. Because the result we g
 
 We can test this by testing with a flag shorter than `p`, and then testing with a flag longer than `p`.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>m>p</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption><p>m>p</p></figcaption></figure>
 
 And out theory is correct, the original message is most likely > `512` bits...
 

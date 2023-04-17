@@ -22,7 +22,7 @@
 
 With **Osu!** opened and going to the `Bing Chiling` beatmap, we can click on **File > Open .osu in Notepad** to view the data (along with the HitObjects) in the `.osu` file.
 
-<figure><img src="../../../.gitbook/assets/image (1) (4).png" alt=""><figcaption><p>Opening .osu file</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (4) (1).png" alt=""><figcaption><p>Opening .osu file</p></figcaption></figure>
 
 Scrolling down the `.osu` file, we can see lines of data under `HitObjects` that looks similar to the data given to us.
 
