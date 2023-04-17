@@ -22,7 +22,7 @@
 
 Viewing the packets captured, we mostly see garbage data that are not relevant to solving the challenge.
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Garbage Data 1</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (2).png" alt=""><figcaption><p>Garbage Data 1</p></figcaption></figure>
 
 We can see that the first few packets are mostly configuration packets and can put these aside first.
 
@@ -40,7 +40,7 @@ We can filter to see only these packets by entering `btl2cap` in the filter bar.
 
 Searching online, we can see that `L2CAP` packets are used for Bluetooth communication.
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption><p>Purpose of L2CAP Packets</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption><p>Purpose of L2CAP Packets</p></figcaption></figure>
 
 This indicates that there may be potential data that we can decode in these packets, so let's spend some time looking into it.
 

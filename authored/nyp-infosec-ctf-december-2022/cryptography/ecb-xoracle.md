@@ -142,7 +142,7 @@ Since xor(('N'\*16),('N'\*16)) == 0, and xor(('Y'\*16),('Y'\*16)) == 0, if ECB e
 {% hint style="info" %}
 ECB Encryption:
 
-![](<../../../.gitbook/assets/image (12) (1).png>)
+![](<../../../.gitbook/assets/image (12) (1) (1).png>)
 {% endhint %}
 
 So we can bruteforce each character of the flag in sizes of 16 bytes, and check if that 16 byte CT block output is equal to the one where 0 is encrypted.

@@ -80,7 +80,7 @@ We can reference this table if there is a need to recap the algebra rules:
 
 Focusing on values of `n`, `p-q`, and `(p^3-q^3)`:
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Equations to get phi</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (2).png" alt=""><figcaption><p>Equations to get phi</p></figcaption></figure>
 
 Now we got `phi` using the values that we have, we can just get `d` using the Euclidean Algorithm and decrypt the ciphertext!
 

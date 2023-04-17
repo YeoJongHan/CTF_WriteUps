@@ -73,7 +73,7 @@ To determine why normal RSA decryption doesn't work and how to decrypt the ciphe
 
 We know that RSA encryption goes like this:
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>RSA Encryption</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (5).png" alt=""><figcaption><p>RSA Encryption</p></figcaption></figure>
 
 When decrypting in normal RSA, these steps are performed:
 
@@ -83,11 +83,11 @@ But why does this decryption method work?
 
 Firstly, we can rewrite ![](<../../../.gitbook/assets/image (34).png>) into ![](<../../../.gitbook/assets/image (24).png>), where `k` is any finite integer.
 
-We can also rewrite ![](<../../../.gitbook/assets/image (15).png>) into ![](<../../../.gitbook/assets/image (12).png>).
+We can also rewrite ![](<../../../.gitbook/assets/image (15).png>) into ![](<../../../.gitbook/assets/image (12) (1).png>).
 
-By substituting `ed` into the second `pt` equation, we have ![](<../../../.gitbook/assets/image (35).png>), and thus ![](<../../../.gitbook/assets/image (8).png>).
+By substituting `ed` into the second `pt` equation, we have ![](<../../../.gitbook/assets/image (35).png>), and thus ![](<../../../.gitbook/assets/image (8) (3).png>).
 
-Using `Euler's Theorem`, we can then get this equation ![](<../../../.gitbook/assets/image (38).png>), and simplifying it gives us out original plaintext! ![](<../../../.gitbook/assets/image (3).png>) (that is if our plaintext < n)
+Using `Euler's Theorem`, we can then get this equation ![](<../../../.gitbook/assets/image (38).png>), and simplifying it gives us out original plaintext! ![](<../../../.gitbook/assets/image (3) (1).png>) (that is if our plaintext < n)
 
 {% hint style="info" %}
 What is Euler's Theorem?
@@ -103,7 +103,7 @@ If we check the gcd of the `e` and `phi` we have, we note that `gcd(e,phi)=16` i
 
 According to `Euler's Theorem`, if `gcd(e,phi)=1`, we will have `ed = 1 + k*phi`.
 
-Since we have `gcd(e,phi)=16`, so we will have `ed = 16 + k*phi`. Following the decryption process as stated above, we will end up with ![](<../../../.gitbook/assets/image (2).png>). Since `m^16` is definitely larger than `n`, we can't take the `16th` root and call it a day.
+Since we have `gcd(e,phi)=16`, so we will have `ed = 16 + k*phi`. Following the decryption process as stated above, we will end up with ![](<../../../.gitbook/assets/image (2) (2).png>). Since `m^16` is definitely larger than `n`, we can't take the `16th` root and call it a day.
 
 But wait, there is the **Tonelli-Shanks Algorithm** that can compute the modulus square root of any number, given that the **modulus is a prime**.
 
@@ -236,7 +236,7 @@ We note that `p` and `q` are primes each with`512` bits. Because the result we g
 
 We can test this by testing with a flag shorter than `p`, and then testing with a flag longer than `p`.
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>m>p</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>m>p</p></figcaption></figure>
 
 And out theory is correct, the original message is most likely > `512` bits...
 

@@ -12,6 +12,12 @@ Regardless, here are writeups for some of the challenges.
 | ---------------------------------- | ------ |
 | [Broken RSA](crypto/broken-rsa.md) | 500    |
 
+### Cloud
+
+| Challenge                         | Points |
+| --------------------------------- | ------ |
+| Cloudy with a chance of meatballs | 500    |
+
 ## Final Scoreboard
 
-<figure><img src="../../.gitbook/assets/image (19).png" alt=""><figcaption><p>Scoreboard</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (19) (2).png" alt=""><figcaption><p>Scoreboard</p></figcaption></figure>
