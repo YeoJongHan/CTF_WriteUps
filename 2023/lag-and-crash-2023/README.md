@@ -14,9 +14,15 @@ Regardless, here are writeups for some of the challenges.
 
 ### Cloud
 
-| Challenge                         | Points |
-| --------------------------------- | ------ |
-| Cloudy with a chance of meatballs | 500    |
+| Challenge                                                                       | Points |
+| ------------------------------------------------------------------------------- | ------ |
+| [Cloudy with a chance of meatballs](cloud/cloudy-with-a-chance-of-meatballs.md) | 500    |
+
+### Boot to Root
+
+| Challenge                                  | Points |
+| ------------------------------------------ | ------ |
+| [Pickle Rick](boot-to-root/pickle-rick.md) | 499    |
 
 ## Final Scoreboard
 
