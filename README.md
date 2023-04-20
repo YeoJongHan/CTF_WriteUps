@@ -12,14 +12,15 @@ Some writeups are very detailed as they are aimed towards helping beginners in t
 
 | CTF                                                            | Format   | Grouping | Position |
 | -------------------------------------------------------------- | -------- | -------- | -------- |
+| [Lag and Crash](2023/lag-and-crash-2023/)                      | Jeopardy | Team     | 1st      |
 | [RITSEC CTF](2023/ritsec-ctf/pwn/user-application-firewall.md) | Jeopardy | Team     | 27th     |
 
 ## 2022
 
 | CTF                                                | Format   | Grouping | Position |
 | -------------------------------------------------- | -------- | -------- | -------- |
-| [STANDCON 2022](2022/standcon-2022/)               | Jeopardy | Team     | 5th      |
 | [NahamCon EU CTF 2022](2022/nahamcon-eu-ctf-2022/) | Jeopardy | Team     | 26th     |
+| [STANDCON 2022](2022/standcon-2022/)               | Jeopardy | Team     | 5th      |
 
 ## 2021
 
