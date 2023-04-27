@@ -6,6 +6,6 @@ There are some pretty good challenges in this CTF. Unfortunately, I didn't dedic
 
 ### Pwn
 
-| Challenge | Points |
-| --------- | ------ |
-| widget    | 110    |
+| Challenge               | Points |
+| ----------------------- | ------ |
+| [widget](pwn/widget.md) | 110    |
