@@ -19,13 +19,13 @@
 
 Visiting the site provided, we are given a static page with nothing else on the site.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>www.lncctf2023.tk</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (4).png" alt=""><figcaption><p>www.lncctf2023.tk</p></figcaption></figure>
 
 From point 3, we guess that we will be working with the Azure cloud service.
 
 One trick to find the cloud domain name is to use nslookup to look for other aliases of the site:
 
-<figure><img src="../../../.gitbook/assets/image (11).png" alt=""><figcaption><p>nslookup</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (2).png" alt=""><figcaption><p>nslookup</p></figcaption></figure>
 
 And of course, the cloud domain name is `lncctf2023`. We can now enumerate the different services.&#x20;
 
@@ -245,7 +245,7 @@ Switching back to Azure Powershell, we can use this [portion](https://github.com
 
 <figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption><p>Get Storage Container</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Get Storage Blob</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (3).png" alt=""><figcaption><p>Get Storage Blob</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (39).png" alt=""><figcaption><p>Download Blob and Get Flag</p></figcaption></figure>
 

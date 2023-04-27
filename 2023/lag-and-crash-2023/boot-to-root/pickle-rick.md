@@ -30,7 +30,7 @@ Unzipping the 7zip file with the password given, we are returned with a `pickle-
 
 After opening it, we start the virtual machine and we are prompted with a login screen. Since we don't know the password, we cannot login.
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Login Screen</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (3).png" alt=""><figcaption><p>Login Screen</p></figcaption></figure>
 
 Let's treat this as a hackthebox kind of challenge. We will open an attacker vm, configure both machines to be in the same network, then nmap the victim machine to see what ports are open.
 
@@ -40,13 +40,13 @@ To configure both vms to be in the same network in VMWare, we have to go to the 
 
 Now the attacker and victim machines are in the same network, we can run `ip addr` on the attacker machine to check the network we are in.
 
-<figure><img src="../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>ip address</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (4).png" alt=""><figcaption><p>ip address</p></figcaption></figure>
 
 For me, my machine's ip address is `192.168.10.133` and it is in the `192.168.10.0.24` network.
 
 To find the ip address of the victim machine, we can just do a ping sweep of the network by running `nmap -sP 192.168.10.1-255`. This command tells us which hosts are up.
 
-<figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>pickle-shop ip addr</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>pickle-shop ip addr</p></figcaption></figure>
 
 In my case, the victim's machine ip address is `192.168.10.142`. We now scan for open ports and their services by running `nmap -sC -sV -T4 -p- 192.168.10.142`.
 
@@ -213,7 +213,7 @@ Start a netcat listener, upload the pickle file, and we have a shell!
 
 The first thing I tried to run is `sudo -l` to check what commands I could run with sudo privilege.
 
-<figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>sudo -l</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>sudo -l</p></figcaption></figure>
 
 This states that we can run `/opt/clean_pickle.sh` with root privileges without needing a password. Let's check what is in `clean_pickle.sh`.
 
@@ -246,7 +246,7 @@ Looking at `/root`, we see there is a `.aws` directory and a `credentials` file 
 
 We can sign in to aws cli using  this credential. I modified `~/.aws/credentials` to add the id and key (you will have to install aws cli first). You can also run `aws configure` and input the id and key appropriately.
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>local aws creds</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (2).png" alt=""><figcaption><p>local aws creds</p></figcaption></figure>
 
 Now time to find where the flag actually is.
 
@@ -256,7 +256,7 @@ The most common enumeration method for aws cloud is to list the buckets the acco
 
 The aws key is now sadly revoked and invalid, so I can't show the last few steps.
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>failure</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>failure</p></figcaption></figure>
 
 The flag is in one of the buckets and you can just use aws cli to get it.
 

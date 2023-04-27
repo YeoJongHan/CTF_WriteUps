@@ -296,7 +296,7 @@ We can get the code to create and name an object through the `chall.py` itself, 
 
 Now we copy the whole script and paste into Blender and we should get our flag!
 
-<figure><img src="../../../.gitbook/assets/image (6) (2).png" alt=""><figcaption><p>Flag</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (2) (1).png" alt=""><figcaption><p>Flag</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="solve.py" %}
