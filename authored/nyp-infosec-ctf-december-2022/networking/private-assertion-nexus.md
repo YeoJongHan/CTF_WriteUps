@@ -26,7 +26,7 @@ Viewing the packets captured, we mostly see garbage data that are not relevant t
 
 We can see that the first few packets are mostly configuration packets and can put these aside first.
 
-<figure><img src="../../../.gitbook/assets/image (21).png" alt=""><figcaption><p>Garbagde Data 2</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (21) (1).png" alt=""><figcaption><p>Garbagde Data 2</p></figcaption></figure>
 
 Followed by these long chain of `USB_INTERRUPT` packets, which can can also put aside and come back to them later if needed.
 

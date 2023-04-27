@@ -19,13 +19,13 @@
 
 Visiting the site provided, we are given a static page with nothing else on the site.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1) (4).png" alt=""><figcaption><p>www.lncctf2023.tk</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (4) (1).png" alt=""><figcaption><p>www.lncctf2023.tk</p></figcaption></figure>
 
 From point 3, we guess that we will be working with the Azure cloud service.
 
 One trick to find the cloud domain name is to use nslookup to look for other aliases of the site:
 
-<figure><img src="../../../.gitbook/assets/image (11) (2).png" alt=""><figcaption><p>nslookup</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (2) (1).png" alt=""><figcaption><p>nslookup</p></figcaption></figure>
 
 And of course, the cloud domain name is `lncctf2023`. We can now enumerate the different services.&#x20;
 
@@ -60,13 +60,13 @@ We are given the `Tenant ID`, `Application ID`, and `Client Secret`. Upon search
 
 I wasn't sure how to login to Azure Powershell using these values, but I managed to login to azure cli (make sure to install azure cli if you do not have it)
 
-<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption><p>az cli login</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (20) (3).png" alt=""><figcaption><p>az cli login</p></figcaption></figure>
 
 I wanted to login to Azure Powershell as I am more familiar with the tools that Azure Powershell provides. So I grabbed a command from [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Cloud%20-%20Azure%20Pentest.md#get-tokens) to generate a token and login into Azure Powershell. I also grabbed [another command](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Cloud%20-%20Azure%20Pentest.md#use-tokens) that allows me to login to Azure Powershell using that token.
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Generate Token</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>Generate Token</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (12).png" alt=""><figcaption><p>Azure Powershell Login</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (2).png" alt=""><figcaption><p>Azure Powershell Login</p></figcaption></figure>
 
 ### Enumerate Storage Account
 
@@ -243,7 +243,7 @@ Switching back to Azure Powershell, we can use this [portion](https://github.com
 
 <figure><img src="../../../.gitbook/assets/image (1) (4).png" alt=""><figcaption><p>Get Storage Account</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (19).png" alt=""><figcaption><p>Get Storage Container</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption><p>Get Storage Container</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (10) (3).png" alt=""><figcaption><p>Get Storage Blob</p></figcaption></figure>
 

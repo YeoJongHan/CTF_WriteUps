@@ -424,4 +424,4 @@ p.close()
 If you are testing locally, make sure to patch your binary to use the libc.so.6 given!
 {% endhint %}
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>win</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>win</p></figcaption></figure>

@@ -83,7 +83,7 @@ But why does this decryption method work?
 
 Firstly, we can rewrite ![](<../../../.gitbook/assets/image (34).png>) into ![](<../../../.gitbook/assets/image (24) (1).png>), where `k` is any finite integer.
 
-We can also rewrite ![](<../../../.gitbook/assets/image (15).png>) into ![](<../../../.gitbook/assets/image (12) (1).png>).
+We can also rewrite ![](<../../../.gitbook/assets/image (15) (2).png>) into ![](<../../../.gitbook/assets/image (12) (1).png>).
 
 By substituting `ed` into the second `pt` equation, we have ![](<../../../.gitbook/assets/image (35).png>), and thus ![](<../../../.gitbook/assets/image (8) (3).png>).
 
@@ -117,7 +117,7 @@ So we can calculate our new ciphertext using the given ciphertext: `ctp = c mod 
 
 Now we get the `Euler's Totient function` for `p`: `phip = p-1`
 
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>phip</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (2).png" alt=""><figcaption><p>phip</p></figcaption></figure>
 
 Then we calculate `dp = inverse(e,phip)`, then decrypt the ciphertext `ptp = pow(ctp,dp,p)`. Since `gcd(e,phip)=4`, it means we have ![](<../../../.gitbook/assets/image (17).png>). So we have to use **Tonelli** twice to get back our plaintext.
 
@@ -246,7 +246,7 @@ So how do we get the plaintext if it is more than `512` bits?
 
 Since we can decrypt using `p` as a modulus, it means we can also decrypt using `q` as a modulus. This means we can end up with 2 different equations with 2 different mods:
 
-<figure><img src="../../../.gitbook/assets/image (22).png" alt=""><figcaption><p>Equations</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (22) (1).png" alt=""><figcaption><p>Equations</p></figcaption></figure>
 
 Since `p` and `q` are coprime, the original message is the same but the modulus are different, we can use **Chinese Remainder Theorem (CRT)** to solve for the original message.
 

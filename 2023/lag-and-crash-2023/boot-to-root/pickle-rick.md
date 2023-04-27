@@ -46,7 +46,7 @@ For me, my machine's ip address is `192.168.10.133` and it is in the `192.168.10
 
 To find the ip address of the victim machine, we can just do a ping sweep of the network by running `nmap -sP 192.168.10.1-255`. This command tells us which hosts are up.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>pickle-shop ip addr</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>pickle-shop ip addr</p></figcaption></figure>
 
 In my case, the victim's machine ip address is `192.168.10.142`. We now scan for open ports and their services by running `nmap -sC -sV -T4 -p- 192.168.10.142`.
 
@@ -213,7 +213,7 @@ Start a netcat listener, upload the pickle file, and we have a shell!
 
 The first thing I tried to run is `sudo -l` to check what commands I could run with sudo privilege.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>sudo -l</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>sudo -l</p></figcaption></figure>
 
 This states that we can run `/opt/clean_pickle.sh` with root privileges without needing a password. Let's check what is in `clean_pickle.sh`.
 
@@ -234,7 +234,7 @@ Run `chmod 777 /tmp/rm` to make it executable.
 
 Now we can run `sudo PATH=/tmp:$PATH /opt/clean_pickle.sh` to run `clean_pickle.sh` as root, with the modified `PATH` environment variable to where our `rm` resides.
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>privesc</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>privesc</p></figcaption></figure>
 
 And now we have root!
 
@@ -242,7 +242,7 @@ And now we have root!
 
 Looking at `/root`, we see there is a `.aws` directory and a `credentials` file inside.
 
-<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption><p>aws creds</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (2).png" alt=""><figcaption><p>aws creds</p></figcaption></figure>
 
 We can sign in to aws cli using  this credential. I modified `~/.aws/credentials` to add the id and key (you will have to install aws cli first). You can also run `aws configure` and input the id and key appropriately.
 
@@ -256,7 +256,7 @@ The most common enumeration method for aws cloud is to list the buckets the acco
 
 The aws key is now sadly revoked and invalid, so I can't show the last few steps.
 
-<figure><img src="../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>failure</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (1) (4).png" alt=""><figcaption><p>failure</p></figcaption></figure>
 
 The flag is in one of the buckets and you can just use aws cli to get it.
 

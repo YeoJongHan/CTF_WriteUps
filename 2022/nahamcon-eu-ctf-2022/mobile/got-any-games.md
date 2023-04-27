@@ -66,7 +66,7 @@ The main part we want to focus on is from lines **132** to **142**.
 
 It shows that the **flag** gets printed to us if the points we have is **>= 1000000**.
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>encryptSave function</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>encryptSave function</p></figcaption></figure>
 
 In **PlayGame.class**, there is also a function that encrypts the save.
 
@@ -139,7 +139,7 @@ Run the application, click on "New Game", then click on "Start", we see that we 
 
 Click on the "FLAG" button and see the fake flag gets printed out successfully.
 
-<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>fake flag</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption><p>fake flag</p></figcaption></figure>
 
 Now we just need to find a way to load the .sav file into the application.
 
