@@ -19,12 +19,6 @@ Some writeups are very detailed as they are aimed towards helping beginners in t
 | [NahamCon EU CTF 2022](2022/nahamcon-eu-ctf-2022/) | Jeopardy | Team     | 26th     |
 | [STANDCON 2022](2022/standcon-2022/)               | Jeopardy | Team     | 5th      |
 
-## 2021
-
-| CTF                                               | Format   | Grouping | Position |
-| ------------------------------------------------- | -------- | -------- | -------- |
-| [NYP Infosec CTF December 2021](broken-reference) | Jeopardy | Solo     | 2nd      |
-
 ##
 
 ## Author Writeups
