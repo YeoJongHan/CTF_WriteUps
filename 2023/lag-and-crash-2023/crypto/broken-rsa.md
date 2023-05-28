@@ -260,7 +260,7 @@ $$
 
 Since $$p$$ and $$q$$ are coprime, the original message is the same but the modulus are different, we can use **Chinese Remainder Theorem (CRT)** to solve for the original message.
 
-## Chinese Remainder Theorem
+### Chinese Remainder Theorem
 
 We can use the `crt` function in the `sympy` python library. We will need to supply a list of mods `[p,q]` and a list of results `[resp,resq]`
 
