@@ -73,21 +73,28 @@ To determine why normal RSA decryption doesn't work and how to decrypt the ciphe
 
 We know that RSA encryption goes like this:
 
-<figure><img src="../../../.gitbook/assets/image (1) (5).png" alt=""><figcaption><p>RSA Encryption</p></figcaption></figure>
+$$
+n = p*q
+\\ct=m^e \bmod n
+$$
 
 When decrypting in normal RSA, these steps are performed:
 
-<figure><img src="../../../.gitbook/assets/image (32).png" alt=""><figcaption><p>RSA Decryption</p></figcaption></figure>
+$$
+phi = (p-1)*(q-1)
+\\d = e^{-1} \bmod phi
+\\pt = ct^d \bmod n
+$$
 
 But why does this decryption method work?
 
-Firstly, we can rewrite ![](<../../../.gitbook/assets/image (34).png>) into ![](<../../../.gitbook/assets/image (24) (1).png>), where `k` is any finite integer.
+Firstly, we can rewrite $$d = e^{-1} \bmod phi$$ into $$ed = 1+k*phi$$, where $$k$$ is any finite integer.
 
-We can also rewrite ![](<../../../.gitbook/assets/image (15) (2).png>) into ![](<../../../.gitbook/assets/image (12) (1).png>).
+We can also rewrite $$pt = ct^d \bmod n$$ into $$pt = m^{ed} \bmod n$$.
 
-By substituting `ed` into the second `pt` equation, we have ![](<../../../.gitbook/assets/image (35).png>), and thus ![](<../../../.gitbook/assets/image (8) (3).png>).
+By substituting $$ed$$ into the second $$pt$$ equation, we have $$pt = m^{1+k*phi} \bmod n$$, and thus $$pt = m^1m^{k*phi} \bmod n$$.
 
-Using `Euler's Theorem`, we can then get this equation ![](<../../../.gitbook/assets/image (38).png>), and simplifying it gives us out original plaintext! ![](<../../../.gitbook/assets/image (3) (1) (3).png>) (that is if our plaintext < n)
+Using `Euler's Theorem`, we can then get this equation $$pt = m^11^k \bmod n$$, and simplifying it gives us out original plaintext! $$pt = m \bmod n$$ (that is if our plaintext < n)
 
 {% hint style="info" %}
 What is Euler's Theorem?
@@ -101,27 +108,27 @@ But this only works if `e` and `phi` are coprime: `gcd(e,phi)=1`.
 
 If we check the gcd of the `e` and `phi` we have, we note that `gcd(e,phi)=16` in this case, so that is a problem.
 
-According to `Euler's Theorem`, if `gcd(e,phi)=1`, we will have `ed = 1 + k*phi`.
+According to `Euler's Theorem`, if `gcd(e,phi)=1`, we will have $$ed = 1+k*phi$$.
 
-Since we have `gcd(e,phi)=16`, so we will have `ed = 16 + k*phi`. Following the decryption process as stated above, we will end up with ![](<../../../.gitbook/assets/image (2) (2).png>). Since `m^16` is definitely larger than `n`, we can't take the `16th` root and call it a day.
+Since we have `gcd(e,phi)=16`, so we will have $$ed = 16 + k*phi$$. Following the decryption process as stated above, we will end up with $$pt = m^{16} \bmod n$$. Since $$m^{16}$$ is definitely larger than $$n$$, we can't take the $$16^{th}$$ root and call it a day.
 
 But wait, there is the **Tonelli-Shanks Algorithm** that can compute the modulus square root of any number, given that the **modulus is a prime**.
 
 ### The Tonelli-Shanks Algorithm
 
-We note that our modulus `n = p*q` and is therefore not a prime, so how do we apply this algorithm?
+We note that our modulus $$n=p*q$$ and is therefore not a prime, so how do we apply this algorithm?
 
-The only primes we have here are `p` and `q`. What if we calculate the ciphertext as a modulus of `p` or `q` instead?
+The only primes we have here are $$p$$ and $$q$$. What if we calculate the ciphertext as a modulus of $$p$$ or $$q$$ instead?
 
-So we can calculate our new ciphertext using the given ciphertext: `ctp = c mod p.` This is equivalent to ![](<../../../.gitbook/assets/image (29).png>) which is simplified to ![](<../../../.gitbook/assets/image (36).png>) (note that `mod n` is gone as `p` is a factor of `n`)
+So we can calculate our new ciphertext using the given ciphertext: $$ctp = c \bmod p$$. This is equivalent to $$ctp = m^e \bmod n \bmod p$$ which is simplified to $$ctp = m^e \bmod p$$ (note that $$\bmod\ n$$ is gone as $$p$$ is a factor of $$n$$)
 
-Now we get the `Euler's Totient function` for `p`: `phip = p-1`
+Now we get the `Euler's Totient function` for $$p$$: $$phip = p-1$$
 
 <figure><img src="../../../.gitbook/assets/image (9) (1) (2).png" alt=""><figcaption><p>phip</p></figcaption></figure>
 
-Then we calculate `dp = inverse(e,phip)`, then decrypt the ciphertext `ptp = pow(ctp,dp,p)`. Since `gcd(e,phip)=4`, it means we have ![](<../../../.gitbook/assets/image (17).png>). So we have to use **Tonelli** twice to get back our plaintext.
+Then we calculate `dp = inverse(e,phip)`, then decrypt the ciphertext `ptp = pow(ctp,dp,p)`. Since `gcd(e,phip)=4`, it means we have $$ptp = m^4 \bmod p$$. So we have to use **Tonelli** twice to get back our plaintext.
 
-Since `p` is a prime, we can now use **Tonelli-Shanks Algorithm (**[**code**](https://codereview.stackexchange.com/questions/43210/tonelli-shanks-algorithm-implementation-of-prime-modular-square-root)**)**! Let's test this with a test flag of our own:
+Since $$p$$ is a prime, we can now use **Tonelli-Shanks Algorithm (**[**code**](https://codereview.stackexchange.com/questions/43210/tonelli-shanks-algorithm-implementation-of-prime-modular-square-root)**)**! Let's test this with a test flag of our own:
 
 {% tabs %}
 {% tab title="test.py" %}
@@ -232,9 +239,9 @@ We successfully got our own flag!
 
 But if we try this on the ciphertext given to us, it doesn't work...
 
-We note that `p` and `q` are primes each with`512` bits. Because the result we get is `mod p` (![](<../../../.gitbook/assets/image (37).png>)), it is very likely that the original message is > `p`, which is > `512` bits.
+We note that `p` and `q` are primes each with`512` bits. Because the result we get is $$\bmod\ p$$ ($$result = m \bmod p$$), it is very likely that the original message is > $$p$$, which is > `512` bits.
 
-We can test this by testing with a flag shorter than `p`, and then testing with a flag longer than `p`.
+We can test this by testing with a flag shorter than $$p$$, and then testing with a flag longer than $$p$$.
 
 <figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption><p>m>p</p></figcaption></figure>
 
@@ -244,11 +251,14 @@ And our theory is correct, the original message is most likely > `512` bits...
 
 So how do we get the plaintext if it is more than `512` bits?
 
-Since we can decrypt using `p` as a modulus, it means we can also decrypt using `q` as a modulus. This means we can end up with 2 different equations with 2 different mods:
+Since we can decrypt using $$p$$ as a modulus, it means we can also decrypt using $$q$$ as a modulus. This means we can end up with 2 different equations with 2 different mods:
 
-<figure><img src="../../../.gitbook/assets/image (22) (1).png" alt=""><figcaption><p>Equations</p></figcaption></figure>
+$$
+resultp = m \bmod p
+\\resultq = m \bmod q
+$$
 
-Since `p` and `q` are coprime, the original message is the same but the modulus are different, we can use **Chinese Remainder Theorem (CRT)** to solve for the original message.
+Since $$p$$ and $$q$$ are coprime, the original message is the same but the modulus are different, we can use **Chinese Remainder Theorem (CRT)** to solve for the original message.
 
 ## Chinese Remainder Theorem
 
