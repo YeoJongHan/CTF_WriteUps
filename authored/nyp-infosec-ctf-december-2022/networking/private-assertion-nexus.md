@@ -28,7 +28,7 @@ We can see that the first few packets are mostly configuration packets and can p
 
 <figure><img src="../../../.gitbook/assets/image (21) (1).png" alt=""><figcaption><p>Garbagde Data 2</p></figcaption></figure>
 
-Followed by these long chain of `USB_INTERRUPT` packets, which can can also put aside and come back to them later if needed.
+Followed by these long chain of `USB_INTERRUPT` packets, which we can also put aside and come back to them later if needed.
 
 Scrolling down, we suddenly see a bunch of `L2CAP` packets.
 
