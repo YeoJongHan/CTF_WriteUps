@@ -238,7 +238,7 @@ We can test this by testing with a flag shorter than `p`, and then testing with 
 
 <figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption><p>m>p</p></figcaption></figure>
 
-And out theory is correct, the original message is most likely > `512` bits...
+And our theory is correct, the original message is most likely > `512` bits...
 
 ### Plaintext > 512 bits
 
