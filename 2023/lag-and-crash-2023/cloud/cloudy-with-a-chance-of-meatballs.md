@@ -241,7 +241,7 @@ Using this result, we need to get the name of the `storage account` and the `res
 
 Switching back to Azure Powershell, we can use this [portion](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Cloud%20-%20Azure%20Pentest.md#list-and-download-blobs) of PayloadAllTheThings once again, to list and grab the blobs.
 
-<figure><img src="../../../.gitbook/assets/image (1) (4).png" alt=""><figcaption><p>Get Storage Account</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (4) (2).png" alt=""><figcaption><p>Get Storage Account</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (19) (1).png" alt=""><figcaption><p>Get Storage Container</p></figcaption></figure>
 

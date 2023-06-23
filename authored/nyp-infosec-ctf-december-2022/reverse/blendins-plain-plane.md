@@ -1,8 +1,6 @@
 # Blendin's Plain Plane
 
-| Difficulty | Points |
-| ---------- | ------ |
-| Easy       | 150    |
+<table><thead><tr><th width="375">Difficulty</th><th>Points</th></tr></thead><tbody><tr><td>Easy</td><td>150</td></tr></tbody></table>
 
 ## Description
 

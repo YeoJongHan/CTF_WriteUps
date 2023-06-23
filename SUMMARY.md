@@ -4,6 +4,8 @@
 
 ## 2023
 
+* [🏁 Brainhack's CDDC Finals 2023](2023/brainhacks-cddc-finals-2023/README.md)
+  * [HeapBaby](2023/brainhacks-cddc-finals-2023/heapbaby.md)
 * [🅰 angstrom CTF](2023/angstrom-ctf/README.md)
   * [Pwn](2023/angstrom-ctf/pwn/README.md)
     * [widget](2023/angstrom-ctf/pwn/widget.md)

@@ -1,8 +1,6 @@
 # Chilling Beat
 
-| Difficulty | Points |
-| ---------- | ------ |
-| Easy       | 150    |
+<table><thead><tr><th width="368.3333333333333">Difficulty</th><th>Points</th></tr></thead><tbody><tr><td>Easy</td><td>150</td></tr></tbody></table>
 
 ## Description
 

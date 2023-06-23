@@ -213,7 +213,7 @@ Start a netcat listener, upload the pickle file, and we have a shell!
 
 The first thing I tried to run is `sudo -l` to check what commands I could run with sudo privilege.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>sudo -l</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1) (2).png" alt=""><figcaption><p>sudo -l</p></figcaption></figure>
 
 This states that we can run `/opt/clean_pickle.sh` with root privileges without needing a password. Let's check what is in `clean_pickle.sh`.
 
