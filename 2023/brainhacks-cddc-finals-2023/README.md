@@ -6,7 +6,7 @@ The challenges in the qualifiers and finals for the CTF this year was comparativ
 
 My team participated in the **Polytechnic/ITE** category and we managed to take 1st place under our category in the finals.
 
-I only managed to solve the heap challenge after the competition ended and it was the only interesting challenge, so I'll do a writeup on it.
+I only managed to solve the heap challenge after the competition ended and it had only 2/3 solves during the competition, so I did a writeup on it.
 
 ## Challenges
 

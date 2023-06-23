@@ -12,7 +12,7 @@ Hint: House of Spirit
 
 {% file src="../../.gitbook/assets/challenge" %}
 
-{% file src="../../.gitbook/assets/libc.so (1).6" %}
+{% file src="../../.gitbook/assets/libc.so.6" %}
 
 ## Solution
 
@@ -197,7 +197,7 @@ void print_note(void)
 
 Looking at **note\_list** in gdb, we can see it can store 10 address. The 11th address will be stored in **note\_cnt**.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>viewing note_list</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (24).png" alt=""><figcaption><p>viewing note_list</p></figcaption></figure>
 
 We also see that **gift** is right after **note\_cnt**.
 
@@ -205,7 +205,7 @@ We also see that **gift** is right after **note\_cnt**.
 
 If we create 11 notes, we can see that **note\_cnt** indeed got overwritten with a malloced ptr.
 
-<figure><img src="../../.gitbook/assets/image (41).png" alt=""><figcaption><p>overwritten note_cnt</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (18).png" alt=""><figcaption><p>overwritten note_cnt</p></figcaption></figure>
 
 ### Stack Leak
 
@@ -387,7 +387,7 @@ print(hex(stack_leak))
 
 We can see our fake chunk in the note of index 10:
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>fake chunk creation</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>fake chunk creation</p></figcaption></figure>
 
 Now that we have a fake chunk, we need to free it. Notice how **note\_cnt** is always incrementing and decrementing whenever a note is created and deleted? We can utilize the pointer at the location by calling the **delete** function with a note index that contains **0** as an address, so it does **free(0)** which does nothing, but it also decrements our pointer at **note\_cnt** by **1**.
 
@@ -502,7 +502,7 @@ key = original_ptr ^ ptr
 The deobfuscate function for deobfuscating the **fwd ptr** is referred from [https://ctftime.org/writeup/34804](https://ctftime.org/writeup/34804)
 {% endhint %}
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>freed fake chunk with fwd ptr</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>freed fake chunk with fwd ptr</p></figcaption></figure>
 
 Now we can create a note with size of 300 bytes, then overwrite the **fwd ptr** of the fake chunk with our own. Remember that the **ptr** needs to be obfuscated, so we need to **xor** the key with the address we want to write to, then overwrite the **fwd ptr** with this obfuscated address (basically **tcache poisoning**).
 
@@ -613,7 +613,7 @@ p.interactive()
 
 </details>
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>overwritten note_list</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (16).png" alt=""><figcaption><p>overwritten note_list</p></figcaption></figure>
 
 One easy way to get RCE is to point our address to the **username** buffer and **overflow** it, then we can perform a simple **ret2libc** through **ROP**.
 
