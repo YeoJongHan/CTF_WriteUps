@@ -30,7 +30,7 @@ Unzipping the 7zip file with the password given, we are returned with a `pickle-
 
 After opening it, we start the virtual machine and we are prompted with a login screen. Since we don't know the password, we cannot login.
 
-<figure><img src="../../../.gitbook/assets/image (5) (3).png" alt=""><figcaption><p>Login Screen</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (3) (1).png" alt=""><figcaption><p>Login Screen</p></figcaption></figure>
 
 Let's treat this as a hackthebox kind of challenge. We will open an attacker vm, configure both machines to be in the same network, then nmap the victim machine to see what ports are open.
 
