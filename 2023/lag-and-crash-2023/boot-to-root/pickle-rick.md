@@ -30,7 +30,7 @@ Unzipping the 7zip file with the password given, we are returned with a `pickle-
 
 After opening it, we start the virtual machine and we are prompted with a login screen. Since we don't know the password, we cannot login.
 
-<figure><img src="../../../.gitbook/assets/image (5) (3).png" alt=""><figcaption><p>Login Screen</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (3) (1).png" alt=""><figcaption><p>Login Screen</p></figcaption></figure>
 
 Let's treat this as a hackthebox kind of challenge. We will open an attacker vm, configure both machines to be in the same network, then nmap the victim machine to see what ports are open.
 
@@ -161,7 +161,7 @@ Nmap done: 1 IP address (1 host up) scanned in 196.93 seconds
 
 The results show that http is being hosted on port `5000`. Let's visit it through a web browser.
 
-<figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (16).png" alt=""><figcaption></figcaption></figure>
 
 We find that it is a simple login page. Looking at the source code doesn't return any useful info, so let's perform the usual ritual of trying SQL Injection.
 
@@ -242,7 +242,7 @@ And now we have root!
 
 Looking at `/root`, we see there is a `.aws` directory and a `credentials` file inside.
 
-<figure><img src="../../../.gitbook/assets/image (24) (2) (1).png" alt=""><figcaption><p>aws creds</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24) (2).png" alt=""><figcaption><p>aws creds</p></figcaption></figure>
 
 We can sign in to aws cli using  this credential. I modified `~/.aws/credentials` to add the id and key (you will have to install aws cli first). You can also run `aws configure` and input the id and key appropriately.
 

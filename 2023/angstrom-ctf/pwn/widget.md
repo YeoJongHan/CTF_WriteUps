@@ -230,7 +230,7 @@ As seen in the images, we sent **%19$p** and the return value is at the **0x6** 
 
 We want a libc address and we see one at offset **0x14**, so we can just calculate the offset we need to leak that address:
 
-<figure><img src="../../../.gitbook/assets/image (24) (2).png" alt=""><figcaption><p>offset calculation</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption><p>offset calculation</p></figcaption></figure>
 
 Trying for %33$p indeed returns the address we need.
 
@@ -462,7 +462,7 @@ But first, we need to adjust our libc base address to align with the leaked libc
 
 Attaching gdb to the process using pwntools, I let the program continue:
 
-<figure><img src="../../../.gitbook/assets/image.png" alt=""><figcaption><p>continue process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>continue process</p></figcaption></figure>
 
 Then in gdb, i pressed Ctrl+C to stop the program, then run **vmmap** in gdb-pwndbg to find the libc base address:
 
@@ -547,7 +547,7 @@ Running **ROPgadget --binary libc6\_2.35-0ubuntu3\_amd64.so | grep "ret" | grep 
 
 #### Searching for POP RSI gadget
 
-<figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>pop rsi gadgets</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (3) (2).png" alt=""><figcaption><p>pop rsi gadgets</p></figcaption></figure>
 
 I chose the gadget at **0x000000000002be51**.
 
@@ -632,7 +632,7 @@ If we use GDB with pwntools again, we see that it is the same RBP error as befor
 
 We can just change our `bss` value to **+0x100** instead of **+0x30**. We now have a shell.
 
-<figure><img src="../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>shell</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (3).png" alt=""><figcaption><p>shell</p></figcaption></figure>
 
 {% tabs %}
 {% tab title="solve.py" %}

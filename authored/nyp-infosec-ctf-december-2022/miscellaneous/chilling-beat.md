@@ -36,7 +36,7 @@ You can try to play through the map to get each character, or you can just go in
 
 We can then see a pattern, where only the green parts are part of the flag.
 
-<figure><img src="../../../.gitbook/assets/image (16) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (16) (1).png" alt=""><figcaption></figcaption></figure>
 
 So we can just scroll through the map to get every character :)
 
