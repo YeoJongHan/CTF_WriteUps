@@ -24,7 +24,14 @@ I personally took the naive approach of solving this challenge as I did not anal
 
 ### TL;DR
 
-*
+* Create a fake chunk in first request
+* Create fake chunk size in last 8 bytes of second request
+* Fake chunk size helps to point free\_list to fake chunk during pwnyfree
+* Create third request to write from fake chunk, overwrite status of second request
+
+{% hint style="info" %}
+This is essentially House of Spirit.
+{% endhint %}
 
 ### Initial Analysis
 
@@ -733,6 +740,8 @@ static chunk_ptr prev_chunk(chunk_ptr block) {
 points to our fake chunk.
 
 <figure><img src="../../.gitbook/assets/chunk2 (1).png" alt=""><figcaption><p>controlling free_list (chunk view)</p></figcaption></figure>
+
+This attack is pretty much [House of Spirit](https://github.com/shellphish/how2heap/blob/master/glibc\_2.35/tcache\_house\_of\_spirit.c) but with custom heap implementation.
 
 Now if we submit a complaint, we can verify that the block size returned is larger than usual and the **free\_list** contains our fake chunk.
 
