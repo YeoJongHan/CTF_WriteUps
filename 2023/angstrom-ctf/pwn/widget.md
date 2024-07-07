@@ -222,7 +222,7 @@ For the initial leak, we want to find any value that we can distinguish on the s
 
 <figure><img src="../../../.gitbook/assets/image (10) (4).png" alt=""><figcaption><p>break at ret</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (6).png" alt=""><figcaption><p>leaked value</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (6) (3).png" alt=""><figcaption><p>leaked value</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>stack values</p></figcaption></figure>
 
@@ -313,7 +313,7 @@ void main(void)
 
 Looking at ghidra, we can try to return to after the `called` is check and before `Amount` is prompted. This is at address **0x4013e3** of the binary.
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>main() in ghidra</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (2).png" alt=""><figcaption><p>main() in ghidra</p></figcaption></figure>
 
 We can check if this works in our pwntools.
 
@@ -368,7 +368,7 @@ We see that we do indeed get back our "Amount: " prompt once again, but it hits 
 
 To find out what went wrong, we attach a gdb to the process:
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>gdb error</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>gdb error</p></figcaption></figure>
 
 The process stops at **0x4013f7**, at the **mov dword ptr \[rbp - 0x24], 0** instruction. This suggests that the **RBP** value might be the problem as we overwritten it with '**B**'s.\
 We can check that it is indeed the **RBP** problem by setting a breakpoint at the address with the problem (0x4013f7), then trying to view **$rbp-0x24**:
@@ -448,7 +448,7 @@ Now we have a leaked libc address, since our leaked address is the address of **
 
 We find that the libc version is `libc6_2.35-0ubuntu3_amd64`.
 
-<figure><img src="../../../.gitbook/assets/image (11) (3).png" alt=""><figcaption><p>finding libc version</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (3) (1).png" alt=""><figcaption><p>finding libc version</p></figcaption></figure>
 
 Now we patch our local binary with the new libc.
 
@@ -462,11 +462,11 @@ But first, we need to adjust our libc base address to align with the leaked libc
 
 Attaching gdb to the process using pwntools, I let the program continue:
 
-<figure><img src="../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>continue process</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (3).png" alt=""><figcaption><p>continue process</p></figcaption></figure>
 
 Then in gdb, i pressed Ctrl+C to stop the program, then run **vmmap** in gdb-pwndbg to find the libc base address:
 
-<figure><img src="../../../.gitbook/assets/image (10) (2).png" alt=""><figcaption><p>vmmap</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (2) (1).png" alt=""><figcaption><p>vmmap</p></figcaption></figure>
 
 The address that is highlighted is our libc base address.
 
@@ -543,7 +543,7 @@ Then we have to find the appropriate gadgets to make **RSI** and **RDX** null. I
 
 Running **ROPgadget --binary libc6\_2.35-0ubuntu3\_amd64.so | grep "ret" | grep "pop rdx"** returns a bunch of gadgets. I chose the one at **0x0000000000090529**.
 
-<figure><img src="../../../.gitbook/assets/image (4) (3).png" alt=""><figcaption><p>pop rdx gadgets</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (4) (3) (1).png" alt=""><figcaption><p>pop rdx gadgets</p></figcaption></figure>
 
 #### Searching for POP RSI gadget
 
@@ -628,7 +628,7 @@ Running the code gives us another EOF error.
 
 If we use GDB with pwntools again, we see that it is the same RBP error as before. This time, the process is trying to access **rbp-0x78**.
 
-<figure><img src="../../../.gitbook/assets/image (12) (3).png" alt=""><figcaption><p>instruction in GDB</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (12) (3) (1).png" alt=""><figcaption><p>instruction in GDB</p></figcaption></figure>
 
 We can just change our `bss` value to **+0x100** instead of **+0x30**. We now have a shell.
 

@@ -1,4 +1,4 @@
-# ☁ Cloudy with a chance of meatballs
+# ☁️ Cloudy with a chance of meatballs
 
 ## Description
 
@@ -72,7 +72,7 @@ I wanted to login to Azure Powershell as I am more familiar with the tools that 
 
 Remember when enumerating the cloud domain name using **cloud\_enum.py**, we found two storage accounts `lncctf2023` and `lncctf2023private`. Now, the private one seems suspicious, so we will look into that.
 
-<figure><img src="../../../.gitbook/assets/image (5) (2).png" alt=""><figcaption><p>Storage Accounts</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (2) (2).png" alt=""><figcaption><p>Storage Accounts</p></figcaption></figure>
 
 Since we are logged in as the tenant, we can try to list the storage accounts we have access to. This can be done in `azure cli` by running the command `az storage account list`. This is the result:
 

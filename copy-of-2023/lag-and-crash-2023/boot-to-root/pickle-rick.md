@@ -40,7 +40,7 @@ To configure both vms to be in the same network in VMWare, we have to go to the 
 
 Now the attacker and victim machines are in the same network, we can run `ip addr` on the attacker machine to check the network we are in.
 
-<figure><img src="../../../.gitbook/assets/image (7) (4).png" alt=""><figcaption><p>ip address</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (4) (1).png" alt=""><figcaption><p>ip address</p></figcaption></figure>
 
 For me, my machine's ip address is `192.168.10.133` and it is in the `192.168.10.0.24` network.
 
@@ -234,7 +234,7 @@ Run `chmod 777 /tmp/rm` to make it executable.
 
 Now we can run `sudo PATH=/tmp:$PATH /opt/clean_pickle.sh` to run `clean_pickle.sh` as root, with the modified `PATH` environment variable to where our `rm` resides.
 
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>privesc</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (3).png" alt=""><figcaption><p>privesc</p></figcaption></figure>
 
 And now we have root!
 
