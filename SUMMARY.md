@@ -1,24 +1,47 @@
 # Table of contents
 
-* [ℹ About](README.md)
+* [ℹ️ About](README.md)
+
+## 2024
+
+* [🐴 UIUCTF 2024](2024/uiuctf-2024/README.md)
+  * [pwnymalloc](2024/uiuctf-2024/pwnymalloc.md)
 
 ## 2023
 
 * [🏁 Brainhack's CDDC Finals 2023](2023/brainhacks-cddc-finals-2023/README.md)
   * [HeapBaby](2023/brainhacks-cddc-finals-2023/heapbaby.md)
-* [🅰 angstrom CTF](2023/angstrom-ctf/README.md)
+* [🅰️ angstrom CTF](2023/angstrom-ctf/README.md)
   * [Pwn](2023/angstrom-ctf/pwn/README.md)
     * [widget](2023/angstrom-ctf/pwn/widget.md)
 * [👀 Lag and Crash 2023](2023/lag-and-crash-2023/README.md)
   * [Crypto](2023/lag-and-crash-2023/crypto/README.md)
     * [Broken RSA](2023/lag-and-crash-2023/crypto/broken-rsa.md)
   * [Cloud](2023/lag-and-crash-2023/cloud/README.md)
-    * [☁ Cloudy with a chance of meatballs](2023/lag-and-crash-2023/cloud/cloudy-with-a-chance-of-meatballs.md)
+    * [☁️ Cloudy with a chance of meatballs](2023/lag-and-crash-2023/cloud/cloudy-with-a-chance-of-meatballs.md)
   * [Boot to root](2023/lag-and-crash-2023/boot-to-root/README.md)
     * [🥒 Pickle Rick](2023/lag-and-crash-2023/boot-to-root/pickle-rick.md)
 * [🐯 RITSEC CTF](2023/ritsec-ctf/README.md)
   * [Pwn](2023/ritsec-ctf/pwn/README.md)
     * [User Application Firewall](2023/ritsec-ctf/pwn/user-application-firewall.md)
+
+## Copy of 2023
+
+* [🏁 Brainhack's CDDC Finals 2023](copy-of-2023/brainhacks-cddc-finals-2023/README.md)
+  * [HeapBaby](copy-of-2023/brainhacks-cddc-finals-2023/heapbaby.md)
+* [🅰️ angstrom CTF](copy-of-2023/angstrom-ctf/README.md)
+  * [Pwn](copy-of-2023/angstrom-ctf/pwn/README.md)
+    * [widget](copy-of-2023/angstrom-ctf/pwn/widget.md)
+* [👀 Lag and Crash 2023](copy-of-2023/lag-and-crash-2023/README.md)
+  * [Crypto](copy-of-2023/lag-and-crash-2023/crypto/README.md)
+    * [Broken RSA](copy-of-2023/lag-and-crash-2023/crypto/broken-rsa.md)
+  * [Cloud](copy-of-2023/lag-and-crash-2023/cloud/README.md)
+    * [☁️ Cloudy with a chance of meatballs](copy-of-2023/lag-and-crash-2023/cloud/cloudy-with-a-chance-of-meatballs.md)
+  * [Boot to root](copy-of-2023/lag-and-crash-2023/boot-to-root/README.md)
+    * [🥒 Pickle Rick](copy-of-2023/lag-and-crash-2023/boot-to-root/pickle-rick.md)
+* [🐯 RITSEC CTF](copy-of-2023/ritsec-ctf/README.md)
+  * [Pwn](copy-of-2023/ritsec-ctf/pwn/README.md)
+    * [User Application Firewall](copy-of-2023/ritsec-ctf/pwn/user-application-firewall.md)
 
 ## 2022
 
@@ -35,7 +58,7 @@
     * [Wait For The Day](2022/standcon-2022/reverse/wait-for-the-day.md)
     * [Want a byte?](2022/standcon-2022/reverse/want-a-byte.md)
 
-## ✍ Authored
+## ✍️ Authored
 
 * [NYP Infosec CTF December 2022](authored/nyp-infosec-ctf-december-2022/README.md)
   * [Reverse](authored/nyp-infosec-ctf-december-2022/reverse/README.md)
