@@ -20,9 +20,9 @@ Regardless, here are writeups for some of the challenges.
 
 ### Boot to Root
 
-| Challenge                                                                | Points |
-| ------------------------------------------------------------------------ | ------ |
-| [Pickle Rick](../../2023/lag-and-crash-2023/boot-to-root/pickle-rick.md) | 499    |
+| Challenge                       | Points |
+| ------------------------------- | ------ |
+| [Pickle Rick](broken-reference) | 499    |
 
 ## Final Scoreboard
 

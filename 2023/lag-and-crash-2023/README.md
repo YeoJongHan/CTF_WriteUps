@@ -20,9 +20,9 @@ Regardless, here are writeups for some of the challenges.
 
 ### Boot to Root
 
-| Challenge                                  | Points |
-| ------------------------------------------ | ------ |
-| [Pickle Rick](boot-to-root/pickle-rick.md) | 499    |
+| Challenge                       | Points |
+| ------------------------------- | ------ |
+| [Pickle Rick](broken-reference) | 499    |
 
 ## Final Scoreboard
 
