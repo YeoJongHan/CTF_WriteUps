@@ -94,7 +94,7 @@ We can also rewrite $$pt = ct^d \bmod n$$ into $$pt = m^{ed} \bmod n$$.
 
 By substituting $$ed$$ into the second $$pt$$ equation, we have $$pt = m^{1+k*phi} \bmod n$$, and thus $$pt = m^1m^{k*phi} \bmod n$$.
 
-Using `Euler's Theorem`, we can then get this equation $$pt = m^11^k \bmod n$$, and simplifying it gives us out original plaintext! $$pt = m \bmod n$$ (that is if our plaintext < n)
+Using `Euler's Theorem`, we can then get this equation $$pt = m^11^k \bmod n$$, and simplifying it gives us our original plaintext! $$pt = m \bmod n$$ (that is if our plaintext < n)
 
 {% hint style="info" %}
 What is Euler's Theorem?
