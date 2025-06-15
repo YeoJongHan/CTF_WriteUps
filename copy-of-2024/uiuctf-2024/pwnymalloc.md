@@ -593,7 +593,7 @@ There were very few functions in `main.c` that I can choose (only **handle\_comp
 
 Trying to send 0x7e bytes of the character "B" as a request reason then running **handle\_complaint** with any data, we can see that a segfault has been hit with the value of **RAX** being invalid.
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Invalid RAX segfault</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>Invalid RAX segfault</p></figcaption></figure>
 
 This segfault occurs in the **get\_status** function of `alloc.c`.
 
@@ -613,7 +613,7 @@ Looking at the **get\_status** function, since it is only 1 line, we can underst
 
 We can reference the call stack at the occurence of the segfault to see what called this **get\_status** function and it is indeed the **coalesce** function that called it, which is what I suspected earlier on.
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>segfault call stack</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>segfault call stack</p></figcaption></figure>
 
 Looking at the **coalesce** function, it is clear that the **prev\_chunk** function returned us the wrong block.
 
@@ -654,7 +654,7 @@ static chunk_ptr prev_chunk(chunk_ptr block) {
 
 Debugging the program in the **prev\_chunk** function, we can see that the **get\_prev\_size** function gets our last 8 bytes of our request **reason** as the **size** of the previous chunk, therefore it returns an invalid pointer to the previous chunk.
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>controlling previous size chunk</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>controlling previous size chunk</p></figcaption></figure>
 
 ### Leveraging prev\_chunk size control
 
@@ -741,18 +741,18 @@ points to our fake chunk.
 
 <figure><img src="../../.gitbook/assets/chunk2 (1).png" alt=""><figcaption><p>controlling free_list (chunk view)</p></figcaption></figure>
 
-This attack is pretty much [House of Spirit](https://github.com/shellphish/how2heap/blob/master/glibc\_2.35/tcache\_house\_of\_spirit.c) but with custom heap implementation.
+This attack is pretty much [House of Spirit](https://github.com/shellphish/how2heap/blob/master/glibc_2.35/tcache_house_of_spirit.c) but with custom heap implementation.
 
 Now if we submit a complaint, we can verify that the block size returned is larger than usual and the **free\_list** contains our fake chunk.
 
-<figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Large block size</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Large block size</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>free_list with fake chunk</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>free_list with fake chunk</p></figcaption></figure>
 
 Now if we try to create a request chunk, we should be able to write from the fake chunk right? \
 No, a segfault appears to occur at **pwnymalloc > split > coalesce > get\_status**.
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption><p>segfault by pwnymalloc at get_status</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>segfault by pwnymalloc at get_status</p></figcaption></figure>
 
 We can see that it is essentially the same segfault we had initially at the **pwnyfree** function during the run of the **coalesce** function; our RAX has been clobbered by my input at **request->reason** as the **coalesce** function tries to call **get\_status** on the **prev\_block** and **next\_block** of our fake chunk.
 
@@ -760,17 +760,17 @@ We can see that it is essentially the same segfault we had initially at the **pw
 
 To resolve this, we can debug the functions and see what blocks the **prev\_chunk** and **next\_chunk** gets.
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption><p>getting prev_chunk_size</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>getting prev_chunk_size</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption><p>getting next_chunk_size</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>getting next_chunk_size</p></figcaption></figure>
 
 The **prev\_chunk** seems to get the size at **0x555555559100-8** and the next\_chunk seems to get the size at **0x555555559100**, so we just make sure that we set these values as **0x0** (since we can control them in our 2nd request reason).
 
 After resolving this, we can try to create our 3rd request reason, and we can see that the chunk would be allocated at our fake chunk and our data would be stored there.
 
-<figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption><p>chunk allocated at our fake chunk</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>chunk allocated at our fake chunk</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption><p>writing at our fake chunk</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>writing at our fake chunk</p></figcaption></figure>
 
 Now we can easily overflow into the our 2nd request chunk and overwrite the **request->status** bit to **REQUEST\_APPROVED**.
 

@@ -224,7 +224,7 @@ For the initial leak, we want to find any value that we can distinguish on the s
 
 <figure><img src="../../../.gitbook/assets/image (6) (3).png" alt=""><figcaption><p>leaked value</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>stack values</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>stack values</p></figcaption></figure>
 
 As seen in the images, we sent **%19$p** and the return value is at the **0x6** offset on the stack.
 
@@ -234,7 +234,7 @@ We want a libc address and we see one at offset **0x14**, so we can just calcula
 
 Trying for %33$p indeed returns the address we need.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption><p>leaked libc address</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption><p>leaked libc address</p></figcaption></figure>
 
 <details>
 
@@ -368,7 +368,7 @@ We see that we do indeed get back our "Amount: " prompt once again, but it hits 
 
 To find out what went wrong, we attach a gdb to the process:
 
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>gdb error</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (3).png" alt=""><figcaption><p>gdb error</p></figcaption></figure>
 
 The process stops at **0x4013f7**, at the **mov dword ptr \[rbp - 0x24], 0** instruction. This suggests that the **RBP** value might be the problem as we overwritten it with '**B**'s.\
 We can check that it is indeed the **RBP** problem by setting a breakpoint at the address with the problem (0x4013f7), then trying to view **$rbp-0x24**:
@@ -452,7 +452,7 @@ We find that the libc version is `libc6_2.35-0ubuntu3_amd64`.
 
 Now we patch our local binary with the new libc.
 
-<figure><img src="../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>patching binary</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>patching binary</p></figcaption></figure>
 
 And we can now do the usual, find one\_gadget and make sure conditions for one\_gadget are satisfied.
 

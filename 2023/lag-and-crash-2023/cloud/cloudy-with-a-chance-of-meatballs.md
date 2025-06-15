@@ -31,7 +31,7 @@ And of course, the cloud domain name is `lncctf2023`. We can now enumerate the d
 
 ### Service Enumeration
 
-I searched up cloud enumeration tools and ended up using the [cloud\_enum.py](https://github.com/initstring/cloud\_enum) tool as it works well enough.
+I searched up cloud enumeration tools and ended up using the [cloud\_enum.py](https://github.com/initstring/cloud_enum) tool as it works well enough.
 
 <figure><img src="../../../.gitbook/assets/image (40).png" alt=""><figcaption><p>Service Enumeration</p></figcaption></figure>
 
@@ -64,7 +64,7 @@ I wasn't sure how to login to Azure Powershell using these values, but I managed
 
 I wanted to login to Azure Powershell as I am more familiar with the tools that Azure Powershell provides. So I grabbed a command from [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Cloud%20-%20Azure%20Pentest.md#get-tokens) to generate a token and login into Azure Powershell. I also grabbed [another command](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/Methodology%20and%20Resources/Cloud%20-%20Azure%20Pentest.md#use-tokens) that allows me to login to Azure Powershell using that token.
 
-<figure><img src="../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>Generate Token</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption><p>Generate Token</p></figcaption></figure>
 
 <figure><img src="../../../.gitbook/assets/image (12) (2).png" alt=""><figcaption><p>Azure Powershell Login</p></figcaption></figure>
 

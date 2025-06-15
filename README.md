@@ -10,9 +10,9 @@ Some writeups are very detailed as they are aimed towards helping beginners in t
 
 ## 2024
 
-| CTF                         | Format   | Grouping | Position |
-| --------------------------- | -------- | -------- | -------- |
-| [UIUCTF](2024/uiuctf-2024/) | Jeopardy | Team     | 100th    |
+| CTF                       | Format   | Grouping | Position |
+| ------------------------- | -------- | -------- | -------- |
+| [UIUCTF](2025/cddc-2025/) | Jeopardy | Team     | 100th    |
 
 ## 2023
 

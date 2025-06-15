@@ -32,7 +32,7 @@ Followed by these long chain of `USB_INTERRUPT` packets, which we can also put a
 
 Scrolling down, we suddenly see a bunch of `L2CAP` packets.
 
-<figure><img src="../../../.gitbook/assets/image (10) (1).png" alt=""><figcaption><p>L2CAP Packets</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption><p>L2CAP Packets</p></figcaption></figure>
 
 We can filter to see only these packets by entering `btl2cap` in the filter bar.
 

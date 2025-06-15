@@ -66,7 +66,7 @@ The main part we want to focus on is from lines **132** to **142**.
 
 It shows that the **flag** gets printed to us if the points we have is **>= 1000000**.
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>encryptSave function</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>encryptSave function</p></figcaption></figure>
 
 In **PlayGame.class**, there is also a function that encrypts the save.
 
@@ -94,7 +94,7 @@ I searched for the instances of the string `flag`, and we can see the check for 
 
 It seems like the line `const v1, 0xf4240` contains our check number for **1000000** points if we view the value of **0xf4240** in decimal, we can verify it is indeed our **1000000**.
 
-<figure><img src="../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 The line `if-lt p2, v1, :cond_0` indicates that `if the value in p2 is lt (less than) v1, then jump to cond_0`, where our `cond_0` prints our _"1000000 points"_ message. So it is basically our `if (var0.getInt("points") >= 1000000)`.
 
@@ -139,7 +139,7 @@ Run the application, click on "New Game", then click on "Start", we see that we 
 
 Click on the "FLAG" button and see the fake flag gets printed out successfully.
 
-<figure><img src="../../../.gitbook/assets/image (8) (1) (1).png" alt=""><figcaption><p>fake flag</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (8) (1) (1) (1).png" alt=""><figcaption><p>fake flag</p></figcaption></figure>
 
 Now we just need to find a way to load the .sav file into the application.
 

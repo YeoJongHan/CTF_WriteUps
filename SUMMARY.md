@@ -2,10 +2,15 @@
 
 * [ℹ️ About](README.md)
 
-## 2024
+## 2025
 
-* [🐴 UIUCTF 2024](2024/uiuctf-2024/README.md)
-  * [pwnymalloc](2024/uiuctf-2024/pwnymalloc.md)
+* [💻 CDDC 2025](2025/cddc-2025/README.md)
+  * [ropvm](2025/cddc-2025/ropvm.md)
+
+## Copy of 2024
+
+* [🐴 UIUCTF 2024](copy-of-2024/uiuctf-2024/README.md)
+  * [pwnymalloc](copy-of-2024/uiuctf-2024/pwnymalloc.md)
 
 ## 2023
 
