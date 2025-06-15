@@ -6,6 +6,6 @@
 
 ### Pwn
 
-| Challenge                                   | Points |
-| ------------------------------------------- | ------ |
-| [pwnymalloc](../../2025/cddc-2025/ropvm.md) | 461    |
+| Challenge                                     | Points |
+| --------------------------------------------- | ------ |
+| [pwnymalloc](../../2025/cddc-finals/ropvm.md) | 461    |

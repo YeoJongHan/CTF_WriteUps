@@ -8,11 +8,17 @@ description: This site is used to store my writeups of the CTFs I have participa
 
 Some writeups are very detailed as they are aimed towards helping beginners in those areas.
 
+## 2025
+
+| CTF                              | Format   | Grouping | Position |
+| -------------------------------- | -------- | -------- | -------- |
+| [CDDC Finals](2025/cddc-finals/) | Jeopardy | Team     | -        |
+
 ## 2024
 
-| CTF                       | Format   | Grouping | Position |
-| ------------------------- | -------- | -------- | -------- |
-| [UIUCTF](2025/cddc-2025/) | Jeopardy | Team     | 100th    |
+| CTF                         | Format   | Grouping | Position |
+| --------------------------- | -------- | -------- | -------- |
+| [UIUCTF](2025/cddc-finals/) | Jeopardy | Team     | 100th    |
 
 ## 2023
 

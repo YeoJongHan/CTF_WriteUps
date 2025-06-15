@@ -4,8 +4,8 @@
 
 ## 2025
 
-* [💻 CDDC 2025](2025/cddc-2025/README.md)
-  * [ropvm](2025/cddc-2025/ropvm.md)
+* [💻 CDDC Finals](2025/cddc-finals/README.md)
+  * [ropvm](2025/cddc-finals/ropvm.md)
 
 ## Copy of 2024
 
