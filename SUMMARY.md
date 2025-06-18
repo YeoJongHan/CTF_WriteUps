@@ -6,6 +6,7 @@
 
 * [💻 CDDC Finals](2025/cddc-finals/README.md)
   * [ropvm](2025/cddc-finals/ropvm.md)
+  * [Decrypting Firmware](2025/cddc-finals/decrypting-firmware.md)
 
 ## Copy of 2024
 

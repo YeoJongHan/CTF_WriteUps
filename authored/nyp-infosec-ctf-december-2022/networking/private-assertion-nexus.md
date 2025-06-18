@@ -32,15 +32,15 @@ Followed by these long chain of `USB_INTERRUPT` packets, which we can also put a
 
 Scrolling down, we suddenly see a bunch of `L2CAP` packets.
 
-<figure><img src="../../../.gitbook/assets/image (10) (1) (1).png" alt=""><figcaption><p>L2CAP Packets</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (10) (1) (1) (1).png" alt=""><figcaption><p>L2CAP Packets</p></figcaption></figure>
 
 We can filter to see only these packets by entering `btl2cap` in the filter bar.
 
-<figure><img src="../../../.gitbook/assets/image (9) (1) (1).png" alt=""><figcaption><p>Filtering L2CAP packets</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (9) (1) (1) (1).png" alt=""><figcaption><p>Filtering L2CAP packets</p></figcaption></figure>
 
 Searching online, we can see that `L2CAP` packets are used for Bluetooth communication.
 
-<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption><p>Purpose of L2CAP Packets</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (11) (1) (1).png" alt=""><figcaption><p>Purpose of L2CAP Packets</p></figcaption></figure>
 
 This indicates that there may be potential data that we can decode in these packets, so let's spend some time looking into it.
 
