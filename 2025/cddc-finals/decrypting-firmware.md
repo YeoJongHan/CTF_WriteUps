@@ -53,19 +53,19 @@ However, I will properly provide some details on how to load the u-boot into ghi
 
 Opening the file in Ghidra, we first select the `Language` to be `ARMv7 Little Endian` (following the article).
 
-<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption><p>Selecting Language</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Selecting Language</p></figcaption></figure>
 
 Click OK to select the language, then click on the `Options...` button at the bottom right of the window, setting the `Block Name` to anything, the `Base Address` as `0x21000000` as per the challenge description, then the `File Offset` would be where the code starts.
 
 To determine where the code starts, we can do a rough guess on where the entropy starts in the file, by running `hexdump -C ./dhboot.bin.img | head -n 50` and checking where the bunch of `00`s stop. (thank Jin Kai for this trick)
 
-<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In the image above, we can guess that the code starts at the `0x840` offset of the file, so we set this in the `File Offset` and try to decompile it.
 
 You will receive a message on setting the `Length` to some other value, so just set it according to the message.
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Options</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Options</p></figcaption></figure>
 
 Afterwhich, the binary should be decompiled properly!
 
@@ -77,8 +77,10 @@ Thankfully, there isn't a need for decompiling and reading code of the u-boot bi
 
 At the end of the article, a script is given to emulate the decryption function `block_aes_decrypt` of the bootloader:
 
-{% tabs %}
-{% tab title="original_emulator.py" %}
+<details>
+
+<summary>original_emulator.py</summary>
+
 ```python
 from __future__ import print_function
 from ctypes import sizeof
@@ -191,8 +193,8 @@ try:
 except UcError as e:
     print("ERROR: %s" % e)
 ```
-{% endtab %}
-{% endtabs %}
+
+</details>
 
 To decrypt the kernel that we have, we have to modify the code to work on our kernel image.
 
@@ -338,4 +340,29 @@ except UcError as e:
 
 <figure><img src="../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Decrypted kernel header</p></figcaption></figure>
 
-vmlinux-to-elf
+### File System Decryption
+
+We can convert the decrypted kernel image into an elf file using [vmlinux-to-elf](https://github.com/marin-m/vmlinux-to-elf) so that we can reverse the decryption process. As there is no write-ups or articles on how to reverse the decryption of the file system, we will have to reverse it ourselves :disappointed\_relieved:.
+
+Loading the binary up in IDA Pro, we are given this message that indicates there are ARM and THUMB instructions that can be switched back and forth. The instruction can be changed from ARM to THUMB in IDA by using `Alt-G` and changing the `T` register value from `0` to `1`.
+
+<figure><img src="../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+
+Looking through the functions, we can spot some function names containing "dahua" and back in the bootloader, we can find several strings (e.g. _DH-DVR-LBX_) that indicates that we are looking at a "Dahua IP Camera" Firmware.
+
+Searching for "dahua ip camera reversing" on google, we can find a talk on Dahua IP Camera reversing made at OFFZONE 2022 [https://2022.offzone.moscow/report/dahua-ip-camera-where-to-look-what-to-poke/](https://2022.offzone.moscow/report/dahua-ip-camera-where-to-look-what-to-poke/). This includes a slide on the broad overview on how the kernel decrypts the romfs.
+
+<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Kernel romfs decryption</p></figcaption></figure>
+
+This talk is pretty old, so we can assume that the method of decryption is different for the firmware we have, but we can guess that some aspects of the decryption is similar, like how it uses `AES CBC`.
+
+We can see that the binary is thankfully not stripped so we can start off by searching for functions with "decrypt" in the name.
+
+<figure><img src="../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+
+We only see 2 functions that uses AES, so we can look into those and find out where those functions are called from. Looking at `SecUnit_AES_decrypt`, we find the call `SecUnit_EncryptFirmware ⇒ SecUnit_FirmwareAesCBCDecode ⇒ SecUnit_AES_decrypt`, SecUnit\_EncryptFirmware also calls SecUnit\_AES\_set\_decrypt\_key, which we can assume just sets the AES key for decryption.
+
+However, we can't seem to find any references to SecUnit\_EncryptFirmware by default. Remember that the binary uses both ARM and THUMB instructions? The reason the reference cannot be found is because the call was made by a THUMB instruction and IDA doesn't know that the function is in THUMB, so no reference. This can be resolved by spinning up another IDA instance and viewing it in fully THUMB instructions.
+
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
+

@@ -44,7 +44,7 @@ We discover that each instruction processed is of 16 bytes each, where each inst
     4bytes: 3st operand
     ```
 
-    <figure><img src="../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 We also see what each opcode does:
 
@@ -175,7 +175,7 @@ We can see that the function at `0x1300` is the one that prompts and checks for 
 
 We can also recognize that `reg[13] = ebp` and `reg[14] = esp` through recognizing the function prologue and epilogue in typical functions. This shows that it reads to `esp-32`, but it reads in `256` bytes, which shows there is a clear "buffer overflow".
 
-<figure><img src="../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Buffer Overflow in VM</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Buffer Overflow in VM</p></figcaption></figure>
 
 Sending 50 "A"s returns a "Access violation" error, which shows that some kind of overflow is happening. This message however, is printed out by the VM interpreter itself, which has certain checks in place. Thankfully, we can perform ROP using the VM's instructions, since we have control of the VM's "EIP".
 

@@ -234,7 +234,7 @@ We want a libc address and we see one at offset **0x14**, so we can just calcula
 
 Trying for %33$p indeed returns the address we need.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption><p>leaked libc address</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>leaked libc address</p></figcaption></figure>
 
 <details>
 
