@@ -1,4 +1,4 @@
-# 🏁 Brainhack's CDDC Finals 2023
+# 🧠 Brainhack's CDDC Finals 2023
 
 The Cyber Defenders Discovery Camp is a CTF competition held within Singapore for students to participate in.
 

@@ -4,18 +4,20 @@
 
 ## 2025
 
+* [🔥 Flare-On 12](2025/flare-on-12/README.md)
+  * [10000](2025/flare-on-12/10000.md)
 * [💻 CDDC Finals](2025/cddc-finals/README.md)
   * [ropvm](2025/cddc-finals/ropvm.md)
   * [Decrypting Firmware](2025/cddc-finals/decrypting-firmware.md)
 
-## Copy of 2024
+## 2024
 
-* [🐴 UIUCTF 2024](copy-of-2024/uiuctf-2024/README.md)
-  * [pwnymalloc](copy-of-2024/uiuctf-2024/pwnymalloc.md)
+* [🐴 UIUCTF 2024](2024/uiuctf-2024/README.md)
+  * [pwnymalloc](2024/uiuctf-2024/pwnymalloc.md)
 
 ## 2023
 
-* [🏁 Brainhack's CDDC Finals 2023](2023/brainhacks-cddc-finals-2023/README.md)
+* [🧠 Brainhack's CDDC Finals 2023](2023/brainhacks-cddc-finals-2023/README.md)
   * [HeapBaby](2023/brainhacks-cddc-finals-2023/heapbaby.md)
 * [🅰️ angstrom CTF](2023/angstrom-ctf/README.md)
   * [Pwn](2023/angstrom-ctf/pwn/README.md)
