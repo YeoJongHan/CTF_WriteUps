@@ -224,7 +224,7 @@ For the initial leak, we want to find any value that we can distinguish on the s
 
 <figure><img src="../../../.gitbook/assets/image (6) (3).png" alt=""><figcaption><p>leaked value</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>stack values</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption><p>stack values</p></figcaption></figure>
 
 As seen in the images, we sent **%19$p** and the return value is at the **0x6** offset on the stack.
 
@@ -234,7 +234,7 @@ We want a libc address and we see one at offset **0x14**, so we can just calcula
 
 Trying for %33$p indeed returns the address we need.
 
-<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>leaked libc address</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>leaked libc address</p></figcaption></figure>
 
 <details>
 

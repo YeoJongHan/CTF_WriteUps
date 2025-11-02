@@ -44,7 +44,7 @@ We discover that each instruction processed is of 16 bytes each, where each inst
     4bytes: 3st operand
     ```
 
-    <figure><img src="../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 We also see what each opcode does:
 
@@ -175,7 +175,7 @@ We can see that the function at `0x1300` is the one that prompts and checks for 
 
 We can also recognize that `reg[13] = ebp` and `reg[14] = esp` through recognizing the function prologue and epilogue in typical functions. This shows that it reads to `esp-32`, but it reads in `256` bytes, which shows there is a clear "buffer overflow".
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Buffer Overflow in VM</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1).png" alt=""><figcaption><p>Buffer Overflow in VM</p></figcaption></figure>
 
 Sending 50 "A"s returns a "Access violation" error, which shows that some kind of overflow is happening. This message however, is printed out by the VM interpreter itself, which has certain checks in place. Thankfully, we can perform ROP using the VM's instructions, since we have control of the VM's "EIP".
 
@@ -218,7 +218,7 @@ p.send(cyclic(200))
 
 When we send this payload, we can break when the RET is executed to determine where it returns to. We broke at `+0x3eaf` and view the value in **RDX**, which should contain the return address.
 
-<figure><img src="../../.gitbook/assets/image (6) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 In this case, we see `RDX` is part of our cyclic value sent in the second payload, at an offset of 4. We can control this so that it returns to our payload we just wrote to, which is at `0x2008`! We can then write our own VM shellcode.
 
@@ -261,7 +261,7 @@ p.send(payload)
 
 Now we can see that we have a bunch of addresses leaked, in which case we can parse them to get the heap address, stack address, and libc address.
 
-<figure><img src="../../.gitbook/assets/image (7) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 After we have the address leaks, we can write a final payload to overwrite RIP on the stack with actual libc ROP gadgets and perform ret2libc. This would require to get the `read` syscall to read to stack addresses. There are also no checks performed on the offset that it reads to, which makes this vulnerable.
 
