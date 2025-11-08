@@ -10,9 +10,10 @@ Some writeups are very detailed as they are aimed towards helping beginners in t
 
 ## 2025
 
-| CTF                              | Format   | Grouping | Position |
-| -------------------------------- | -------- | -------- | -------- |
-| [CDDC Finals](2025/cddc-finals/) | Jeopardy | Team     | -        |
+| CTF                              | Format   | Grouping   | Position |
+| -------------------------------- | -------- | ---------- | -------- |
+| [Flare-On 12](2025/flare-on-12/) | -        | Individual | 41st     |
+| [CDDC Finals](2025/cddc-finals/) | Jeopardy | Team       | -        |
 
 ## 2024
 
