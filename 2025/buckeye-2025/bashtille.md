@@ -376,7 +376,7 @@ Output:
 Now that I have AWS credentials for a role name `bctf25-challenges-ecs-instance`, it was pretty indicative that I was working out of the challenge scope already. However, it might still be a honeypot.
 
 {% hint style="danger" %}
-The following actions were performed with **no ill intentions** and for pure learning purposes I **DO NOT** condone this. I immediately informed the CTF organizers and stopped submitting flags for the CTF after discovering the access that this role had held.
+The following actions were performed with **no ill intentions** and for pure learning purposes. I **DO NOT** condone this! I immediately informed the CTF organizers and stopped submitting flags for the CTF after discovering the access that this role had held.
 {% endhint %}
 
 After setting the credentials in `~/.aws/credentials`, I continued to try different aws commands that I could execute. Unfortunately, this role had very limited permissions.
