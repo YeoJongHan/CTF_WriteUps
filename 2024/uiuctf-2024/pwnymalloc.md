@@ -593,7 +593,7 @@ There were very few functions in `main.c` that I can choose (only **handle\_comp
 
 Trying to send 0x7e bytes of the character "B" as a request reason then running **handle\_complaint** with any data, we can see that a segfault has been hit with the value of **RAX** being invalid.
 
-<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Invalid RAX segfault</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>Invalid RAX segfault</p></figcaption></figure>
 
 This segfault occurs in the **get\_status** function of `alloc.c`.
 
@@ -613,7 +613,7 @@ Looking at the **get\_status** function, since it is only 1 line, we can underst
 
 We can reference the call stack at the occurence of the segfault to see what called this **get\_status** function and it is indeed the **coalesce** function that called it, which is what I suspected earlier on.
 
-<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption><p>segfault call stack</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (2) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>segfault call stack</p></figcaption></figure>
 
 Looking at the **coalesce** function, it is clear that the **prev\_chunk** function returned us the wrong block.
 
@@ -654,7 +654,7 @@ static chunk_ptr prev_chunk(chunk_ptr block) {
 
 Debugging the program in the **prev\_chunk** function, we can see that the **get\_prev\_size** function gets our last 8 bytes of our request **reason** as the **size** of the previous chunk, therefore it returns an invalid pointer to the previous chunk.
 
-<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1).png" alt=""><figcaption><p>controlling previous size chunk</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>controlling previous size chunk</p></figcaption></figure>
 
 ### Leveraging prev\_chunk size control
 
@@ -745,14 +745,14 @@ This attack is pretty much [House of Spirit](https://github.com/shellphish/how2h
 
 Now if we submit a complaint, we can verify that the block size returned is larger than usual and the **free\_list** contains our fake chunk.
 
-<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>Large block size</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption><p>Large block size</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption><p>free_list with fake chunk</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>free_list with fake chunk</p></figcaption></figure>
 
 Now if we try to create a request chunk, we should be able to write from the fake chunk right? \
 No, a segfault appears to occur at **pwnymalloc > split > coalesce > get\_status**.
 
-<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1).png" alt=""><figcaption><p>segfault by pwnymalloc at get_status</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (6) (1) (1) (1) (1).png" alt=""><figcaption><p>segfault by pwnymalloc at get_status</p></figcaption></figure>
 
 We can see that it is essentially the same segfault we had initially at the **pwnyfree** function during the run of the **coalesce** function; our RAX has been clobbered by my input at **request->reason** as the **coalesce** function tries to call **get\_status** on the **prev\_block** and **next\_block** of our fake chunk.
 

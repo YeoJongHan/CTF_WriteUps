@@ -4,6 +4,8 @@
 
 ## 2025
 
+* [🚩 Buckeye 2025](2025/buckeye-2025/README.md)
+  * [bashtille](2025/buckeye-2025/bashtille.md)
 * [🔥 Flare-On 12](2025/flare-on-12/README.md)
   * [10000](2025/flare-on-12/10000.md)
 * [💻 CDDC Finals](2025/cddc-finals/README.md)

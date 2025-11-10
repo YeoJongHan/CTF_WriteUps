@@ -66,7 +66,7 @@ The main part we want to focus on is from lines **132** to **142**.
 
 It shows that the **flag** gets printed to us if the points we have is **>= 1000000**.
 
-<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>encryptSave function</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (5) (1) (1) (1) (1) (1) (1).png" alt=""><figcaption><p>encryptSave function</p></figcaption></figure>
 
 In **PlayGame.class**, there is also a function that encrypts the save.
 
